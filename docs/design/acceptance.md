@@ -15,7 +15,7 @@
 
 初值只发送一次，子组件先于父组件，root 每批最后出现。样例时间依据 `examples/manifest.json` 固定为 2026-10-31T12:00:00Z、America/New_York，火锅默认日期为该时区 2026-10-31 18:00。实际使用按当前用户时区重新生成。
 
-Skill Creator 的 `quick_validate.py` 对 SKILL.md 校验通过。原始样例哈希与 manifest 一致；vendor catalog 哈希与 SOURCE.json 一致。交付目录的 Markdown 本地链接亦检查存在。
+Skill Creator 的 `quick_validate.py` 对 SKILL.md 校验通过。组件场景规则覆盖组件索引中的全部 25 个组件，不包含组件索引和本地 catalog 之外的组件名；图表变体使用 catalog 支持的 `bar`、`line`、`donut`。原始样例哈希与 manifest 一致；vendor catalog 哈希与 SOURCE.json 一致。交付目录的 Markdown 本地链接亦检查存在。
 
 ## 独立子代理试用
 

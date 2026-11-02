@@ -1,6 +1,6 @@
 # 架构
 
-`skills/agenui-reply/` 为自包含交付单元。SKILL.md 仅承载意图、资源路由、生成与校验；components 每组件定义/说明，capabilities 每函数签名/说明及版本化 profile，references 保存视觉、协议、流式与宿主规则。examples 为可直接消费的完整/流式文件。vendor 保存只读上游快照和许可。scripts 不依赖仓库外运行资源。
+`skills/agenui-reply/` 为自包含交付单元。SKILL.md 仅承载意图、资源路由、生成与校验；components 每组件定义/说明，capabilities 每函数签名/说明及版本化 profile，references 保存组件场景选择、视觉、协议、流式与宿主规则。examples 为可直接消费的完整/流式文件。vendor 保存只读上游快照和许可。scripts 不依赖仓库外运行资源。
 
 ```mermaid
 flowchart LR
