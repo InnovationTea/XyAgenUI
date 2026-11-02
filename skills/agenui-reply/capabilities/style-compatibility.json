@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "source": "AGenUI_Skill_PRD/sources/hotpot.original.txt",
+  "description": "PRD 明确提供的可渲染样例专用样式，只扩展列出的组件和键。需要宿主具有同样的样式能力。",
+  "components": {
+    "ChoicePicker": {
+      "checkbox-background-color-selected": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$" },
+      "checkbox-border-color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$" },
+      "choice-gap": { "type": "string", "pattern": "^\\d+(\\.\\d+)?px$" },
+      "checkbox-item-padding": { "type": "string", "pattern": "^\\d+(\\.\\d+)?px$" },
+      "checkbox-margin": { "type": "string", "pattern": "^\\d+(\\.\\d+)?px$" },
+      "text-margin": { "type": "string", "pattern": "^\\d+(\\.\\d+)?px$" }
+    },
+    "DateTimeInput": {
+      "compact": {
+        "type": "object",
+        "properties": {
+          "corner-radius": { "type": "string", "pattern": "^\\d+(\\.\\d+)?px$" },
+          "height": { "type": "string", "pattern": "^\\d+(\\.\\d+)?px$" },
+          "font-size": { "type": "string", "pattern": "^\\d+(\\.\\d+)?px$" },
+          "selected-background-color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$" },
+          "selected-text-color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$" }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

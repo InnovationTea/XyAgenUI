@@ -1,0 +1,32 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { parseArgs } from 'node:util';
+import { skillRoot, loadCatalog } from './lib/catalog.mjs';
+import { streamMessages } from './lib/stream.mjs';
+import { validateMessages } from './lib/validator.mjs';
+import { nextSaturday18 } from './lib/date.mjs';
+const { values } = parseArgs({ options: { now: { type: 'string' }, timezone: { type: 'string', default: Intl.DateTimeFormat().resolvedOptions().timeZone } } });
+const now = values.now ? new Date(values.now) : new Date();
+if (Number.isNaN(now.getTime())) throw new Error('now 日期不合法');
+const env = loadCatalog();
+const manifest = { timezone: values.timezone, now: now.toISOString(), sources: {} };
+for (const name of ['route', 'hotpot']) {
+  const source = fs.readFileSync(path.resolve(skillRoot, `../../AGenUI_Skill_PRD/sources/${name}.original.txt`));
+  manifest.sources[name] = { sha256: crypto.createHash('sha256').update(source).digest('hex') };
+  const componentsMessage = JSON.parse(source.toString('utf8'));
+  manifest.sources[name].messageSha256 = crypto.createHash('sha256').update(JSON.stringify(componentsMessage)).digest('hex');
+  const { surfaceId, components } = componentsMessage.updateComponents;
+  const state = name === 'route' ? { plan: { route: ['西湖轻装环湖'] } } : { form: { pending: 3, perPerson: 350, needs: ['无特殊需求'], when: nextSaturday18(now, values.timezone) } };
+  const messages = [{ version: 'v0.9', updateDataModel: { surfaceId, path: '/', value: state } }, componentsMessage];
+  const checked = validateMessages(messages, { env });
+  if (!checked.valid) throw new Error(JSON.stringify(checked.diagnostics, null, 2));
+  const children = components.find(n => n.id === 'root').children;
+  const regions = name === 'route' ? [[children[0]], children.slice(1, 4), [children[4]], children.slice(5)] : children.map(id => [id]);
+  const stream = streamMessages(messages, regions, { surface: 'new', env });
+  fs.writeFileSync(path.join(skillRoot, `examples/${name}.json`), JSON.stringify(messages, null, 2) + '\n');
+  fs.writeFileSync(path.join(skillRoot, `examples/${name}.regions.json`), JSON.stringify(regions, null, 2) + '\n');
+  fs.writeFileSync(path.join(skillRoot, `examples/${name}.ndjson`), stream.map(m => JSON.stringify(m)).join('\n') + '\n');
+}
+fs.writeFileSync(path.join(skillRoot, 'examples/manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
+console.log('已生成路线、火锅完整消息与新建 Surface 流式样例');

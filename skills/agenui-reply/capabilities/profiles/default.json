@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "protocolVersion": "v0.9",
+  "catalogId": "urn:a2ui:catalog:agenui_catalog",
+  "components": ["Text", "Image", "Icon", "Video", "AudioPlayer", "Row", "Column", "List", "Card", "Tabs", "Modal", "Divider", "Button", "TextField", "CheckBox", "ChoicePicker", "Slider", "DateTimeInput", "RichText", "Table", "Web", "Carousel"],
+  "functions": ["required", "regex", "length", "numeric", "email", "formatString", "formatNumber", "formatCurrency", "formatDate", "pluralize", "token", "and", "or", "not", "calculateNumber", "sendMsgToXiaoyi"],
+  "actions": ["sendMsgToXiaoyi"],
+  "operators": ["add", "multiply"],
+  "events": [],
+  "styleCompatibility": true
+}

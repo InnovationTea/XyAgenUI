@@ -1,0 +1,1058 @@
+{
+  "version": "v0.9",
+  "updateComponents": {
+    "surfaceId": "hotpot-party-planner",
+    "components": [
+      {
+        "id": "root",
+        "component": "Column",
+        "children": [
+          "hero",
+          "people_card",
+          "calc_card",
+          "extra_card",
+          "submit_btn",
+          "tip"
+        ],
+        "styles": {
+          "gap": "24px",
+          "padding": "24px",
+          "background-color": "#F2F3F5"
+        }
+      },
+      {
+        "id": "hero",
+        "component": "Card",
+        "child": "hero_col",
+        "styles": {
+          "border-radius": "24px",
+          "padding": "24px 28px",
+          "background-color": "#FFFFFF"
+        }
+      },
+      {
+        "id": "hero_col",
+        "component": "Column",
+        "children": [
+          "title",
+          "subtitle",
+          "badge_row"
+        ],
+        "styles": {
+          "gap": "10px",
+          "align-items": "flex-start"
+        }
+      },
+      {
+        "id": "title",
+        "component": "Text",
+        "text": "周末火锅 · 食材测算台",
+        "variant": "h2",
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "44px"
+        }
+      },
+      {
+        "id": "subtitle",
+        "component": "Text",
+        "text": "3 个人已经确定会来，剩下几个还没定下来。拖动滑块填写最可能的人数，下面每一行食材都会立刻重新计算。",
+        "variant": "body",
+        "styles": {
+          "color": "#333333",
+          "line-height": 1.5,
+          "line-clamp": 3,
+          "text-align": "left",
+          "font-size": "30px"
+        }
+      },
+      {
+        "id": "badge_row",
+        "component": "Row",
+        "children": [
+          "badge_1",
+          "badge_2"
+        ],
+        "justify": "start",
+        "styles": {
+          "gap": "10px"
+        }
+      },
+      {
+        "id": "badge_1",
+        "component": "Text",
+        "text": "已确定 3 人",
+        "variant": "caption",
+        "styles": {
+          "color": "#0A59F7",
+          "font-size": "26px",
+          "font-weight": "medium"
+        }
+      },
+      {
+        "id": "badge_2",
+        "component": "Text",
+        "text": "· 全员到齐之前都能改",
+        "variant": "caption",
+        "styles": {
+          "color": "#6B6B70",
+          "font-size": "26px"
+        }
+      },
+      {
+        "id": "people_card",
+        "component": "Card",
+        "child": "people_col",
+        "styles": {
+          "border-radius": "24px",
+          "padding": "28px",
+          "background-color": "#FFFFFF"
+        }
+      },
+      {
+        "id": "people_col",
+        "component": "Column",
+        "children": [
+          "people_title_row",
+          "total_col",
+          "pending_slider",
+          "meat_slider",
+          "people_note"
+        ],
+        "styles": {
+          "gap": "24px"
+        }
+      },
+      {
+        "id": "people_title_row",
+        "component": "Row",
+        "children": [
+          "people_num_circle",
+          "people_title_text"
+        ],
+        "align": "center",
+        "styles": {
+          "gap": "12px",
+          "align-items": "center"
+        }
+      },
+      {
+        "id": "people_num_circle",
+        "component": "Text",
+        "text": "①",
+        "styles": {
+          "color": "#0A59F7",
+          "font-size": "36px",
+          "font-weight": "bold"
+        }
+      },
+      {
+        "id": "people_title_text",
+        "component": "Text",
+        "text": "人数与肉量",
+        "variant": "h3",
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "34px"
+        }
+      },
+      {
+        "id": "total_col",
+        "component": "Column",
+        "children": [
+          "total_label",
+          "total_value"
+        ],
+        "align": "center",
+        "styles": {
+          "gap": "4px"
+        }
+      },
+      {
+        "id": "total_label",
+        "component": "Text",
+        "text": "预计总人数（人）",
+        "variant": "body",
+        "styles": {
+          "color": "#3A3A3A",
+          "font-size": "28px",
+          "text-align": "center"
+        }
+      },
+      {
+        "id": "total_value",
+        "component": "Text",
+        "text": {
+          "call": "formatNumber",
+          "returnType": "string",
+          "args": {
+            "value": {
+              "call": "calculateNumber",
+              "returnType": "number",
+              "args": {
+                "left": 3,
+                "right": {
+                  "path": "/form/pending"
+                },
+                "operator": "add"
+              }
+            },
+            "decimals": 0,
+            "grouping": false
+          }
+        },
+        "variant": "h2",
+        "styles": {
+          "font-size": "80px",
+          "font-weight": "bold",
+          "color": "#0A59F7",
+          "text-align": "center"
+        }
+      },
+      {
+        "id": "pending_slider",
+        "component": "Slider",
+        "label": {
+          "call": "formatString",
+          "returnType": "string",
+          "args": {
+            "value": "待定 / 还需要邀请的人数 ${/form/pending}"
+          }
+        },
+        "min": 0,
+        "max": 27,
+        "value": {
+          "path": "/form/pending"
+        }
+      },
+      {
+        "id": "meat_slider",
+        "component": "Slider",
+        "label": {
+          "call": "formatString",
+          "returnType": "string",
+          "args": {
+            "value": "每人肉量（克，生重，牛羊肉合计） ${/form/perPerson}"
+          }
+        },
+        "min": 150,
+        "max": 700,
+        "value": {
+          "path": "/form/perPerson"
+        }
+      },
+      {
+        "id": "people_note",
+        "component": "Text",
+        "text": "总人数 = 已确定 3 人 + 待定人数。牛羊肉按 55% : 45% 自动拆成两行，涮火锅的肉都是薄片，生重算出来更准。",
+        "variant": "caption",
+        "styles": {
+          "color": "#6B6B70",
+          "line-height": 1.5,
+          "line-clamp": 4,
+          "text-align": "left",
+          "font-size": "26px"
+        }
+      },
+      {
+        "id": "calc_card",
+        "component": "Card",
+        "child": "calc_col",
+        "styles": {
+          "border-radius": "24px",
+          "padding": "28px",
+          "background-color": "#FFFFFF"
+        }
+      },
+      {
+        "id": "calc_col",
+        "component": "Column",
+        "children": [
+          "calc_title_row",
+          "calc_div_1",
+          "meat_row",
+          "beef_row",
+          "lamb_row",
+          "veg_row",
+          "mushroom_row",
+          "ball_row",
+          "soup_row",
+          "sauce_row",
+          "drink_row",
+          "bowl_row",
+          "calc_div_2",
+          "calc_note"
+        ],
+        "styles": {
+          "gap": "0px"
+        }
+      },
+      {
+        "id": "calc_title_row",
+        "component": "Row",
+        "children": [
+          "calc_num_circle",
+          "calc_title_text"
+        ],
+        "align": "center",
+        "styles": {
+          "gap": "12px",
+          "align-items": "center"
+        }
+      },
+      {
+        "id": "calc_num_circle",
+        "component": "Text",
+        "text": "②",
+        "styles": {
+          "color": "#0A59F7",
+          "font-size": "36px",
+          "font-weight": "bold"
+        }
+      },
+      {
+        "id": "calc_title_text",
+        "component": "Text",
+        "text": "实时食材清单",
+        "variant": "h3",
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "34px"
+        }
+      },
+      {
+        "id": "calc_div_1",
+        "component": "Divider",
+        "axis": "horizontal"
+      },
+      {
+        "id": "meat_row",
+        "component": "Row",
+        "children": [
+          "meat_label",
+          "meat_value"
+        ],
+        "justify": "spaceBetween",
+        "align": "center"
+      },
+      {
+        "id": "meat_label",
+        "component": "Text",
+        "text": "肉类合计（克）",
+        "variant": "body",
+        "styles": {
+          "color": "#333333",
+          "font-size": "30px"
+        }
+      },
+      {
+        "id": "meat_value",
+        "component": "Text",
+        "text": {
+          "call": "calculateNumber",
+          "returnType": "string",
+          "args": {
+            "left": {
+              "call": "calculateNumber",
+              "returnType": "number",
+              "args": {
+                "left": 3,
+                "right": {
+                  "path": "/form/pending"
+                },
+                "operator": "add"
+              }
+            },
+            "right": {
+              "path": "/form/perPerson"
+            },
+            "operator": "multiply",
+            "decimals": 0
+          }
+        },
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "32px"
+        }
+      },
+      {
+        "id": "beef_row",
+        "component": "Row",
+        "children": [
+          "beef_label",
+          "beef_value"
+        ],
+        "justify": "spaceBetween",
+        "align": "center"
+      },
+      {
+        "id": "beef_label",
+        "component": "Text",
+        "text": "其中 肥牛卷（克）",
+        "variant": "body",
+        "styles": {
+          "color": "#333333",
+          "font-size": "30px"
+        }
+      },
+      {
+        "id": "beef_value",
+        "component": "Text",
+        "text": {
+          "call": "calculateNumber",
+          "returnType": "string",
+          "args": {
+            "left": {
+              "call": "calculateNumber",
+              "returnType": "number",
+              "args": {
+                "left": {
+                  "call": "calculateNumber",
+                  "returnType": "number",
+                  "args": {
+                    "left": 3,
+                    "right": {
+                      "path": "/form/pending"
+                    },
+                    "operator": "add"
+                  }
+                },
+                "right": {
+                  "path": "/form/perPerson"
+                },
+                "operator": "multiply"
+              }
+            },
+            "right": 0.55,
+            "operator": "multiply",
+            "decimals": 0
+          }
+        },
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "32px"
+        }
+      },
+      {
+        "id": "lamb_row",
+        "component": "Row",
+        "children": [
+          "lamb_label",
+          "lamb_value"
+        ],
+        "justify": "spaceBetween",
+        "align": "center"
+      },
+      {
+        "id": "lamb_label",
+        "component": "Text",
+        "text": "其中 羊肉卷（克）",
+        "variant": "body",
+        "styles": {
+          "color": "#333333",
+          "font-size": "30px"
+        }
+      },
+      {
+        "id": "lamb_value",
+        "component": "Text",
+        "text": {
+          "call": "calculateNumber",
+          "returnType": "string",
+          "args": {
+            "left": {
+              "call": "calculateNumber",
+              "returnType": "number",
+              "args": {
+                "left": {
+                  "call": "calculateNumber",
+                  "returnType": "number",
+                  "args": {
+                    "left": 3,
+                    "right": {
+                      "path": "/form/pending"
+                    },
+                    "operator": "add"
+                  }
+                },
+                "right": {
+                  "path": "/form/perPerson"
+                },
+                "operator": "multiply"
+              }
+            },
+            "right": 0.45,
+            "operator": "multiply",
+            "decimals": 0
+          }
+        },
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "32px"
+        }
+      },
+      {
+        "id": "veg_row",
+        "component": "Row",
+        "children": [
+          "veg_label",
+          "veg_value"
+        ],
+        "justify": "spaceBetween",
+        "align": "center"
+      },
+      {
+        "id": "veg_label",
+        "component": "Text",
+        "text": "蔬菜拼盘（克）",
+        "variant": "body",
+        "styles": {
+          "color": "#333333",
+          "font-size": "30px"
+        }
+      },
+      {
+        "id": "veg_value",
+        "component": "Text",
+        "text": {
+          "call": "calculateNumber",
+          "returnType": "string",
+          "args": {
+            "left": {
+              "call": "calculateNumber",
+              "returnType": "number",
+              "args": {
+                "left": 3,
+                "right": {
+                  "path": "/form/pending"
+                },
+                "operator": "add"
+              }
+            },
+            "right": 300,
+            "operator": "multiply",
+            "decimals": 0
+          }
+        },
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "32px"
+        }
+      },
+      {
+        "id": "mushroom_row",
+        "component": "Row",
+        "children": [
+          "mushroom_label",
+          "mushroom_value"
+        ],
+        "justify": "spaceBetween",
+        "align": "center"
+      },
+      {
+        "id": "mushroom_label",
+        "component": "Text",
+        "text": "菌菇 + 豆制品（克）",
+        "variant": "body",
+        "styles": {
+          "color": "#333333",
+          "font-size": "30px"
+        }
+      },
+      {
+        "id": "mushroom_value",
+        "component": "Text",
+        "text": {
+          "call": "calculateNumber",
+          "returnType": "string",
+          "args": {
+            "left": {
+              "call": "calculateNumber",
+              "returnType": "number",
+              "args": {
+                "left": 3,
+                "right": {
+                  "path": "/form/pending"
+                },
+                "operator": "add"
+              }
+            },
+            "right": 250,
+            "operator": "multiply",
+            "decimals": 0
+          }
+        },
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "32px"
+        }
+      },
+      {
+        "id": "ball_row",
+        "component": "Row",
+        "children": [
+          "ball_label",
+          "ball_value"
+        ],
+        "justify": "spaceBetween",
+        "align": "center"
+      },
+      {
+        "id": "ball_label",
+        "component": "Text",
+        "text": "丸子 / 虾滑（个）",
+        "variant": "body",
+        "styles": {
+          "color": "#333333",
+          "font-size": "30px"
+        }
+      },
+      {
+        "id": "ball_value",
+        "component": "Text",
+        "text": {
+          "call": "calculateNumber",
+          "returnType": "string",
+          "args": {
+            "left": {
+              "call": "calculateNumber",
+              "returnType": "number",
+              "args": {
+                "left": 3,
+                "right": {
+                  "path": "/form/pending"
+                },
+                "operator": "add"
+              }
+            },
+            "right": 4,
+            "operator": "multiply",
+            "decimals": 0
+          }
+        },
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "32px"
+        }
+      },
+      {
+        "id": "soup_row",
+        "component": "Row",
+        "children": [
+          "soup_label",
+          "soup_value"
+        ],
+        "justify": "spaceBetween",
+        "align": "center"
+      },
+      {
+        "id": "soup_label",
+        "component": "Text",
+        "text": "火锅底料（袋）",
+        "variant": "body",
+        "styles": {
+          "color": "#333333",
+          "font-size": "30px"
+        }
+      },
+      {
+        "id": "soup_value",
+        "component": "Text",
+        "text": {
+          "call": "calculateNumber",
+          "returnType": "string",
+          "args": {
+            "left": {
+              "call": "calculateNumber",
+              "returnType": "number",
+              "args": {
+                "left": 3,
+                "right": {
+                  "path": "/form/pending"
+                },
+                "operator": "add"
+              }
+            },
+            "right": 0.3,
+            "operator": "multiply",
+            "decimals": 1
+          }
+        },
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "32px"
+        }
+      },
+      {
+        "id": "sauce_row",
+        "component": "Row",
+        "children": [
+          "sauce_label",
+          "sauce_value"
+        ],
+        "justify": "spaceBetween",
+        "align": "center"
+      },
+      {
+        "id": "sauce_label",
+        "component": "Text",
+        "text": "蘸料（份，含 2 份备用）",
+        "variant": "body",
+        "styles": {
+          "color": "#333333",
+          "font-size": "30px"
+        }
+      },
+      {
+        "id": "sauce_value",
+        "component": "Text",
+        "text": {
+          "call": "calculateNumber",
+          "returnType": "string",
+          "args": {
+            "left": {
+              "call": "calculateNumber",
+              "returnType": "number",
+              "args": {
+                "left": 3,
+                "right": {
+                  "path": "/form/pending"
+                },
+                "operator": "add"
+              }
+            },
+            "right": 2,
+            "operator": "add",
+            "decimals": 0
+          }
+        },
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "32px"
+        }
+      },
+      {
+        "id": "drink_row",
+        "component": "Row",
+        "children": [
+          "drink_label",
+          "drink_value"
+        ],
+        "justify": "spaceBetween",
+        "align": "center"
+      },
+      {
+        "id": "drink_label",
+        "component": "Text",
+        "text": "饮料（升）",
+        "variant": "body",
+        "styles": {
+          "color": "#333333",
+          "font-size": "30px"
+        }
+      },
+      {
+        "id": "drink_value",
+        "component": "Text",
+        "text": {
+          "call": "calculateNumber",
+          "returnType": "string",
+          "args": {
+            "left": {
+              "call": "calculateNumber",
+              "returnType": "number",
+              "args": {
+                "left": 3,
+                "right": {
+                  "path": "/form/pending"
+                },
+                "operator": "add"
+              }
+            },
+            "right": 0.8,
+            "operator": "multiply",
+            "decimals": 1
+          }
+        },
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "32px"
+        }
+      },
+      {
+        "id": "bowl_row",
+        "component": "Row",
+        "children": [
+          "bowl_label",
+          "bowl_value"
+        ],
+        "justify": "spaceBetween",
+        "align": "center"
+      },
+      {
+        "id": "bowl_label",
+        "component": "Text",
+        "text": "一次性碗筷（套，含 3 套备用）",
+        "variant": "body",
+        "styles": {
+          "color": "#333333",
+          "font-size": "30px"
+        }
+      },
+      {
+        "id": "bowl_value",
+        "component": "Text",
+        "text": {
+          "call": "calculateNumber",
+          "returnType": "string",
+          "args": {
+            "left": {
+              "call": "calculateNumber",
+              "returnType": "number",
+              "args": {
+                "left": 3,
+                "right": {
+                  "path": "/form/pending"
+                },
+                "operator": "add"
+              }
+            },
+            "right": 3,
+            "operator": "add",
+            "decimals": 0
+          }
+        },
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "32px"
+        }
+      },
+      {
+        "id": "calc_div_2",
+        "component": "Divider",
+        "axis": "horizontal"
+      },
+      {
+        "id": "calc_note",
+        "component": "Text",
+        "text": "所有数字都由「总人数 × 每人用量」实时算出，改动上面两个滑块，这一整张表会同步刷新。",
+        "variant": "caption",
+        "styles": {
+          "color": "#6B6B70",
+          "line-height": 1.5,
+          "line-clamp": 3,
+          "text-align": "left",
+          "font-size": "26px",
+          "padding": "12px 0 0"
+        }
+      },
+      {
+        "id": "extra_card",
+        "component": "Card",
+        "child": "extra_col",
+        "styles": {
+          "border-radius": "24px",
+          "padding": "28px",
+          "background-color": "#FFFFFF"
+        }
+      },
+      {
+        "id": "extra_col",
+        "component": "Column",
+        "children": [
+          "extra_title_row",
+          "needs_picker",
+          "when_input"
+        ],
+        "styles": {
+          "gap": "24px"
+        }
+      },
+      {
+        "id": "extra_title_row",
+        "component": "Row",
+        "children": [
+          "extra_num_circle",
+          "extra_title_text"
+        ],
+        "align": "center",
+        "styles": {
+          "gap": "12px",
+          "align-items": "center"
+        }
+      },
+      {
+        "id": "extra_num_circle",
+        "component": "Text",
+        "text": "③",
+        "styles": {
+          "color": "#0A59F7",
+          "font-size": "36px",
+          "font-weight": "bold"
+        }
+      },
+      {
+        "id": "extra_title_text",
+        "component": "Text",
+        "text": "锅底与特殊情况",
+        "variant": "h3",
+        "styles": {
+          "font-weight": "bold",
+          "color": "#1A1A1A",
+          "font-size": "34px"
+        }
+      },
+      {
+        "id": "needs_picker",
+        "component": "ChoicePicker",
+        "label": "需要照顾的情况",
+        "variant": "multipleSelection",
+        "displayStyle": "checkbox",
+        "options": [
+          {
+            "label": "无特殊需求",
+            "value": "无特殊需求"
+          },
+          {
+            "label": "有素食者",
+            "value": "有素食者"
+          },
+          {
+            "label": "不吃牛羊肉",
+            "value": "不吃牛羊肉"
+          },
+          {
+            "label": "不吃辣（要鸳鸯锅）",
+            "value": "不吃辣（要鸳鸯锅）"
+          },
+          {
+            "label": "有小朋友",
+            "value": "有小朋友"
+          },
+          {
+            "label": "有人不喝酒",
+            "value": "有人不喝酒"
+          }
+        ],
+        "value": {
+          "path": "/form/needs"
+        },
+        "styles": {
+          "checkbox-background-color-selected": "#E6F4EA",
+          "checkbox-border-color": "#D0D5DD",
+          "choice-gap": "12px",
+          "checkbox-item-padding": "8px",
+          "checkbox-margin": "4px",
+          "text-margin": "8px"
+        }
+      },
+      {
+        "id": "when_input",
+        "component": "DateTimeInput",
+        "label": "开锅时间（默认周六 18:00，可改）",
+        "value": {
+          "path": "/form/when"
+        },
+        "enableDate": true,
+        "enableTime": true,
+        "styles": {
+          "width": "100%",
+          "compact": {
+            "corner-radius": "20px",
+            "height": "80px",
+            "font-size": "28px",
+            "selected-background-color": "#F0F4FF",
+            "selected-text-color": "#0A59F7"
+          }
+        }
+      },
+      {
+        "id": "submit_btn",
+        "component": "Button",
+        "child": "submit_label",
+        "variant": "primary",
+        "action": {
+          "functionCall": {
+            "call": "sendMsgToXiaoyi",
+            "args": {
+              "people": {
+                "call": "calculateNumber",
+                "returnType": "string",
+                "args": {
+                  "left": 3,
+                  "right": {
+                    "path": "/form/pending"
+                  },
+                  "operator": "add",
+                  "decimals": 0,
+                  "grouping": false
+                }
+              },
+              "perPerson": {
+                "call": "formatNumber",
+                "returnType": "string",
+                "args": {
+                  "value": {
+                    "path": "/form/perPerson"
+                  },
+                  "decimals": 0,
+                  "grouping": false
+                }
+              },
+              "when": {
+                "path": "/form/when"
+              },
+              "needs": {
+                "path": "/form/needs"
+              },
+              "query": "周末火锅派对：预计${calculateNumber(left:3,right:${/form/pending},operator:'add',decimals:0)}人（其中 3 人已确定），每人${/form/perPerson}克牛羊肉，开锅时间${/form/when}，需要照顾：${/form/needs}。请按这个人数给我一份采购清单，并说明锅底和蘸料怎么配、哪些菜应该最后再买。"
+            }
+          }
+        },
+        "styles": {
+          "background-color": "#0A6B3D",
+          "border-radius": "48px",
+          "padding": "24px 40px"
+        }
+      },
+      {
+        "id": "submit_label",
+        "component": "Text",
+        "text": "按这个人数生成采购清单",
+        "variant": "body",
+        "styles": {
+          "color": "#FFFFFF",
+          "font-weight": "bold",
+          "text-align": "center",
+          "font-size": "32px"
+        }
+      },
+      {
+        "id": "tip",
+        "component": "Text",
+        "text": "小提醒：肉和海鲜到店当天买，蔬菜提前一天洗好沥干；底料按人头备 0.3 袋就够，鸳鸯锅要再补一袋清汤底。",
+        "variant": "caption",
+        "styles": {
+          "color": "#6B6B70",
+          "line-height": 1.5,
+          "line-clamp": 4,
+          "text-align": "left",
+          "font-size": "26px"
+        }
+      }
+    ]
+  }
+}

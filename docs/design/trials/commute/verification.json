@@ -1,0 +1,9 @@
+{
+  "valid": true,
+  "componentCount": 18,
+  "streamMessages": 6,
+  "visibleRegionPrefixes": 4,
+  "finalTreeEqual": true,
+  "initializationCount": 1,
+  "actionDeclaredOnly": true
+}

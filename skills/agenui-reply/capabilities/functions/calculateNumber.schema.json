@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "call": { "const": "calculateNumber" },
+    "returnType": { "enum": ["number", "string"] },
+    "args": {
+      "type": "object",
+      "properties": {
+        "left": { "$ref": "#/$defs/common_types_DynamicNumber" },
+        "right": { "$ref": "#/$defs/common_types_DynamicNumber" },
+        "operator": { "type": "string", "enum": ["add", "multiply"] },
+        "decimals": { "type": "integer", "minimum": 0, "maximum": 20 },
+        "grouping": { "type": "boolean" }
+      },
+      "required": ["left", "right", "operator"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["call", "args", "returnType"],
+  "additionalProperties": false
+}

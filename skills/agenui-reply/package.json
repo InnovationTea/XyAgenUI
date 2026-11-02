@@ -1,0 +1,14 @@
+{
+  "name": "agenui-reply",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "bin": { "agenui": "scripts/cli.mjs" },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "examples": "node scripts/build-examples.mjs",
+    "validate:examples": "node scripts/check-examples.mjs"
+  },
+  "dependencies": { "ajv": "8.17.1", "ajv-formats": "3.0.1" }
+}

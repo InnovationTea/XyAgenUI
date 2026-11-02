@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "call": { "const": "sendMsgToXiaoyi" },
+    "returnType": { "const": "void" },
+    "args": {
+      "type": "object",
+      "properties": { "query": { "$ref": "#/$defs/common_types_DynamicString" } },
+      "required": ["query"],
+      "additionalProperties": { "$ref": "#/$defs/common_types_DynamicValue" }
+    }
+  },
+  "required": ["call", "args"],
+  "additionalProperties": false
+}
