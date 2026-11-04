@@ -17,7 +17,7 @@ node scripts/cli.mjs stream examples/route.json --regions examples/route.regions
 需要 Node.js 22+。`validate` 支持 JSON 单消息、数组及 NDJSON，返回中文诊断；退出码 0 合法、1 内容不合法、2 工具/配置错误。默认 existing Surface，`--surface new` 要求创建消息。工具不会执行函数或发送消息。
 
 - [组件索引](skills/agenui-reply/components/index.md)：22 个默认组件，3 个可选扩展。
-- [组件场景选择](skills/agenui-reply/references/component-selection.md)：先判断是否需要 UI，再按信息结构和宿主 profile 选择或降级组件。
+- [组件场景选择](skills/agenui-reply/references/component-selection.md)：先判断是否需要 UI，再按信息结构和宿主 profile 选择或降级组件；需要背景图时按视觉规则主动搜索主题相关图片。
 - [能力清单](skills/agenui-reply/capabilities/index.md)：14 个官方值函数、自定义 calculateNumber / sendMsgToXiaoyi；openUrl、resolveCalls 默认关闭。
 - [路线样例](skills/agenui-reply/examples/route.json) 与 [火锅样例](skills/agenui-reply/examples/hotpot.json)：完整版本及同目录 `.ndjson` 流式版本、`.regions.json` 区域划分。
 - [设计与验收](docs/design/README.md)：需求映射、架构、协议差异、接入与演进。
