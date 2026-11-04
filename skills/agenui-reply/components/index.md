@@ -12,7 +12,7 @@
 | [Row](Row.md) | 默认 | 少量横向信息或左右对齐指标 |
 | [Column](Column.md) | 默认 | 纵向分区及根布局 |
 | [List](List.md) | 默认 | 重复条目及列表 |
-| [Card](Card.md) | 默认 | 完整语义区域的白色或中性浅色卡片，单一 child 引用内容容器；避免重复嵌套视觉外壳 |
+| [Card](Card.md) | 默认 | 完整语义区域的圆角卡片，图片背景上使用半透明浅色底与深色文字；单一 child 引用内容容器，避免重复嵌套视觉外壳 |
 | [Tabs](Tabs.md) | 默认 | 同一任务的互斥信息视角；tabs[].child 引用对应内容，不在字段中内嵌组件对象 |
 | [Modal](Modal.md) | 默认 | 需要暂时展开的附加信息；trigger 和 content 均为组件 ID |
 | [Divider](Divider.md) | 默认 | 必要时区分卡片内部信息组，避免每行都加分隔线 |
