@@ -2,7 +2,7 @@
 
 首次渲染前注册 profile 中的函数及组件，尤其自定义 `calculateNumber`、`sendMsgToXiaoyi`。须注册 `AGenUI.registerDeepParseProperty('Button', 'action')`，使 action 参数/事件 context 在点击时按当前模型深解析。注册顺序不得晚于首个组件创建。
 
-按固定版本官方流会话 API 投递：`beginTextStream` → `receiveTextChunk`（多次）→ `endTextStream`。消息与分块可跨传输块，完整 NDJSON 行仍需保持边界；取消和异常也要结束/清理会话。具体宿主签名、句柄和线程要求按其 SDK；此工具不创建会话、不推送消息。
+按固定版本官方流会话 API 投递：`beginTextStream` → `receiveTextChunk`（多次）→ `endTextStream`。分块可能截断一行，宿主应缓冲未完成内容；每当收到换行并拼出一条完整 NDJSON 消息，就立即解析和应用，不要等 `endTextStream` 后再统一渲染。流结束时再处理或报告未闭合的尾部内容。取消和异常也要结束/清理会话。具体宿主签名、句柄和线程要求按其 SDK；此工具不创建会话、不推送消息。
 
 宿主负责：
 

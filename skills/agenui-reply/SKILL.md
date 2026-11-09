@@ -33,9 +33,9 @@ description: 判断回答是否适合使用 Intelligent UI，并生成、校验�
 
 ## 4. 生成协议
 
-使用 `version: "v0.9"`，每条消息仅含一种操作。所有 `UI_PRIMARY` 输出必须能逐批渲染，并以 NDJSON 作为默认交付格式；如有需要可同时提供完整 JSON。默认假设宿主已有 Surface；需要新建时使用 `createSurface`。先定义数据路径和初值，再设计完整组件图与语义区域，根 ID 为 `root`，且 `root` 必须是静态 `Column`，其 `children` 按首屏优先级排列可独立展示的区域组件。
+使用 `version: "v0.9"`，每条消息仅含一种操作。先在内部规划完整组件树和语义区域，再按区域顺序直接组织最终 NDJSON：必要时先发送 `createSurface`，有初值时先发送一次 `updateDataModel`，然后逐条发送 `updateComponents`。每个有独立展示价值的区域使用一条 `updateComponents`，不要把多个可独立展示的区域合并进同一条消息；首个完整区域应尽早输出并以换行结束，后续区域完成后再追加消息。只有答案确实只有一个不可再分的区域时才使用一条组件消息，不为凑批次而拆碎内容。默认交付是把 NDJSON DSL 原文直接输出在回复正文中，不创建或附加 `.json`、`.ndjson` 等交付文件；不要添加 Markdown 代码围栏或 DSL 之外的说明，以便宿主直接接收和解析。只有用户明确要求文件或代码示例时，才改用相应文件或围栏格式。默认假设宿主已有 Surface；需要新建时使用 `createSurface`。根 ID 为 `root`，且 `root` 必须是静态 `Column`，其 `children` 按首屏优先级排列可独立展示的区域组件。
 
-首批必须出现有实际价值、内容完整的首屏区域，不能只创建空 Surface、标题壳或加载占位；后续批次按区域追加。数据初值在首个组件批次前发送一次。每批包含新区域所需的完整递归组件依赖，依赖子组件先于父组件；该批最后更新完整 `root`，其 `children` 累加所有已展示区域，保留完整样式。所有组件须从 `root` 可达，不重复 ID，不漏区域、不重排；已显示输入不得在后续批次重置。每行 NDJSON 是一条完整协议消息。
+首批必须出现有实际价值、内容完整的首屏区域，不能只创建空 Surface、标题壳或加载占位；完成首批后立即结束该 NDJSON 行，再继续生成后续批次。每批只包含新区域尚未发送的完整递归组件依赖，依赖子组件先于父组件，并以完整 `root` 作为该批最后一个组件；`root.children` 累加当前及所有先前已展示区域，其他属性和样式保持完整。不要在首批重复放入尚未展示区域的组件，也不要等待整个组件树全部序列化后才输出第一条组件消息。所有组件须从 `root` 可达，不重复 ID，不漏区域、不重排；已显示输入不得在后续批次重置。每行 NDJSON 是一条完整协议消息，宿主收到完整行即可解析并应用，无需等待整个流结束。
 
 可变输入使用 `{"path":"/…"}`，初值先通过 `updateDataModel` 写入；静态说明可以直接写文字。单选和多选均绑定字符串数组；中间计算返回 number。按钮参数保留路径、嵌套函数和模板声明，由宿主点击时读取当前状态，禁止生成时把当前值烘焙成提交常量。
 
@@ -48,11 +48,9 @@ description: 判断回答是否适合使用 Intelligent UI，并生成、校验�
 工具目录以本 Skill 为工作目录，首次执行 `npm ci`（Node.js 22+），以后可离线使用。
 
 ```sh
-node scripts/cli.mjs validate reply.json
-node scripts/cli.mjs stream reply.json --regions regions.json --out reply.ndjson
 node scripts/cli.mjs validate reply.ndjson --surface existing
 ```
 
-用户指定新建 Surface 时使用 `--surface new`，并校验时传入相同模式。生成语义区域文件 `regions.json`，按 `root.children` 原顺序把直接子区域完整分组；建议每个内容完整的卡片/主区域单独成批，首批选择最有用的概览。执行完整消息校验、生成 NDJSON、再校验 NDJSON；校验器会按消息顺序检查每个前缀，分批器会检查分批结果。若布局无法表示为静态 Column 根，手工编写同等的逐消息 NDJSON：先 Surface/数据，再逐区域发送完整依赖和累积 root；仍须校验最终完整流。不得因布局复杂而退回仅交付单条完整 updateComponents。工具只组织和校验，不执行函数、不投递消息。
+用户指定新建 Surface 时使用 `--surface new`，并校验时传入相同模式。先规划区域及其顺序，每个语义完整且可独立展示的卡片/主区域通常单独成批，首批选择最有用的答案或概览。可直接编写逐消息 NDJSON，再用 `validate` 校验最终流；校验器会按消息顺序检查所有前缀。`stream` 命令可作为内部转换工具：它要求以一条完整 `updateComponents` 和可选初值作为输入，再按 `regions.json` 转换为多条消息；这个输入限制只是工具实现细节，不是最终输出格式，也不得因此把所有组件作为单条消息交付。为转换与校验而生成的完整 JSON、`regions.json`、NDJSON 等中间文件只作内部临时输入，不作为回复附件或默认交付。若布局无法表示为静态 Column 根，手工编写同等的逐消息 NDJSON；仍须校验最终完整流。不得把多个可独立展示的区域压成单条完整 `updateComponents`。工具只组织和校验，不执行函数、不投递消息。
 
-交付前按 [视觉自检](references/visual.md#视觉自检) 检查配色、可读性、层级与布局；协议校验不判断美观。默认交付 `reply.ndjson` 和按需的 `regions.json`；用户需要完整定义时同时提供源 `reply.json`。附上已有宿主按官方 `beginTextStream` → `receiveTextChunk` → `endTextStream` 投递 NDJSON 的必要说明，不要声称校验等于真实端侧运行。可参考 [路线完整样例](examples/route.json) / [流式样例](examples/route.ndjson) 与 [火锅完整样例](examples/hotpot.json) / [流式样例](examples/hotpot.ndjson)，迁移信息结构和流式分区方式，外观按当前视觉规则调整，不照搬题材。
+交付前按 [视觉自检](references/visual.md#视觉自检) 检查配色、可读性、层级与布局；协议校验不判断美观。完成校验后，将最终 NDJSON 原文直接作为回复正文；不附带内部中间文件，也不额外说明宿主投递流程，除非用户询问。可参考 [路线完整样例](examples/route.json) / [流式样例](examples/route.ndjson) 与 [火锅完整样例](examples/hotpot.json) / [流式样例](examples/hotpot.ndjson)，迁移信息结构和流式分区方式，外观按当前视觉规则调整，不照搬题材。

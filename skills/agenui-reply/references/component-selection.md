@@ -40,7 +40,7 @@
 | 对比与数值展示 | `Table`；profile 启用后可用 `Chart` | 表格用于共同维度；图表仅用于完整且有依据的数值关系 |
 | 选择与输入 | `ChoicePicker`、`CheckBox`、`TextField`、`Slider`、`DateTimeInput` | 必须有真实选项、范围、单位、初值或格式要求 |
 | 动作 | `Button` | 必须有可见标签和宿主声明的接收方 |
-| 媒体 | `Image`、`Video`、`AudioPlayer`、`Carousel` | 只使用真实可访问资源；轮播只承载图片 URL |
+| 媒体 | `Image`、`Video`、`AudioPlayer`、`Carousel` | 图片只用已确认可直连、无防盗链的 HTTPS URL；`Image` 必须设置非零 `styles.width`；轮播只承载图片 URL |
 | 辅助与嵌入 | `Icon`、`Web` | 图标不替代文字；Web 仅在任务确需嵌入网页时使用 |
 | 可选扩展 | `Markdown`、`Chart`、`Lottie` | 默认关闭，实际 profile 明确启用后才可选择 |
 

@@ -5,7 +5,7 @@
 | 组件 | 支持 | 用途 |
 |---|---|---|
 | [Text](Text.md) | 默认 | 短标题、正文、指标与提示 |
-| [Image](Image.md) | 默认 | 有真实图片来源时使用；不编造图片链接 |
+| [Image](Image.md) | 默认 | 使用已验证 HTTPS 直链并显式设置非零宽度；不编造图片链接 |
 | [Icon](Icon.md) | 默认 | 使用 schema 中已支持的图标名，辅助识别；不要让图标取代必要的文字说明 |
 | [Video](Video.md) | 默认 | 用户确需查看视频且已有真实资源时使用 |
 | [AudioPlayer](AudioPlayer.md) | 默认 | 已有可用音频且任务需要收听时使用 |
@@ -27,5 +27,5 @@
 | [Table](Table.md) | 默认 | 多选项同维度比较 |
 | [Web](Web.md) | 默认 | 任务确需嵌入网页且宿主支持时使用；不要用 Web 绕过组件和能力约束 |
 | [Markdown](Markdown.md) | 扩展 | Playground 示例扩展，默认关闭；宿主注册并开启配置后可使用 |
-| [Carousel](Carousel.md) | 默认 | 有多张真实图片时按需轮播；content 是图片 URL 数组，不是组件引用数组 |
+| [Carousel](Carousel.md) | 默认 | 有多张真实图片时按需轮播；content 是已验证 HTTPS 图片 URL 数组，不是组件引用数组 |
 | [Chart](Chart.md) | 扩展 | Playground 示例扩展，默认关闭；先确认原生图表组件已注册 |
