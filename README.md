@@ -1,6 +1,6 @@
 # AGenUI 智能交互回复 Skill
 
-依据 [PRD](AGenUI_Skill_PRD/01_PRD.md) 实现可独立使用的 Skill、版本化组件/能力清单、DSL 校验器与语义区域分批器。以 GPT Intelligent UI 的体验为目标，根据用户意图和已获取的信息，主动组合丰富且适用的组件与交互来组织答案。回复语言遵循用户与对话上下文。对接已有 AGenUI 端侧；本项目不包含浏览器验证台或 Harmony 客户端。
+依据 [PRD](AGenUI_Skill_PRD/01_PRD.md) 实现可独立使用的 Skill、版本化组件/能力清单、DSL 校验器与语义区域分批器。简单回答使用普通文本；丰富或复杂且适合组件化的回答直接在回复正文输出 A2UI DSL，不默认生成 JSON/NDJSON 文件。对接已有 AGenUI 端侧；本项目不包含浏览器验证台或 Harmony 客户端。
 
 入口：[SKILL.md](skills/agenui-reply/SKILL.md)。整个 `skills/agenui-reply/` 可复制到 Skill 安装目录；首次在该目录安装依赖后可离线校验。
 

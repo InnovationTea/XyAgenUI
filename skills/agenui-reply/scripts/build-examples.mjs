@@ -22,7 +22,7 @@ for (const name of ['route', 'hotpot']) {
   const checked = validateMessages(messages, { env });
   if (!checked.valid) throw new Error(JSON.stringify(checked.diagnostics, null, 2));
   const children = components.find(n => n.id === 'root').children;
-  const regions = name === 'route' ? [[children[0]], children.slice(1, 4), [children[4]], children.slice(5)] : children.map(id => [id]);
+  const regions = name === 'route' ? [[children[0]], ...children.slice(1, 4).map(id => [id]), [children[4]], children.slice(5)] : children.map(id => [id]);
   const stream = streamMessages(messages, regions, { surface: 'new', env });
   fs.writeFileSync(path.join(skillRoot, `examples/${name}.json`), JSON.stringify(messages, null, 2) + '\n');
   fs.writeFileSync(path.join(skillRoot, `examples/${name}.regions.json`), JSON.stringify(regions, null, 2) + '\n');
