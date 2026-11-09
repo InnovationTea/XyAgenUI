@@ -29,7 +29,7 @@ description: 判断回答是否适合使用 Intelligent UI，并生成、校验�
 - 先读 [能力清单](capabilities/index.md) 与实际宿主 profile；未提供其他配置时使用 [默认配置](capabilities/profiles/default.json)。先根据信息结构判断场景，再从本 Skill 的 [组件索引](components/index.md)、本地 catalog 与 profile 中选择组件；不得使用其中未定义的组件或能力。候选组件未被 profile 启用时，按 [组件场景选择](references/component-selection.md) 改用其他已启用组件或退回文本。
 - 从 [组件索引](components/index.md) 选择组件，只读取本次使用的组件说明、字段定义；需要具体类型时查本地 catalog。
 - 使用函数前阅读 `capabilities/functions/<函数名>.md` 与对应 schema。自定义函数以原始样例为准：`calculateNumber`、`sendMsgToXiaoyi`，严格区分大小写，不改名或使用别名。
-- 生成 UI 时必须读 [状态与表达式](references/protocol.md) 和 [流式组织](references/streaming.md)；宿主投递条件见 [宿主契约](references/host.md)。
+- 生成 UI 时必须读 [A2UI 基础协议、组件 ID 关系、状态与表达式](references/protocol.md) 和 [流式组织](references/streaming.md)；宿主投递条件见 [宿主契约](references/host.md)。
 
 ## 4. 生成协议
 
