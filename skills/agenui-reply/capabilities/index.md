@@ -13,4 +13,4 @@
 
 生成前读[函数生成契约](../references/function-contracts.md)及当前任务实际使用到的函数 `.md` / `.schema.json`。每个函数在 `functions/` 下分别维护说明与签名；官方 schema 包装文件引用原始 catalog。调用位置、参数类型与返回类型以有效 Schema 为准，说明和样例不得扩展函数签名。
 
-复制 [default.json](profiles/default.json) 为项目 profile，传入 `--profile <路径>`。`version`、`protocolVersion` 必须保持当前版本；`catalogId` 必须与宿主实际注册值一致。`styleCompatibility` 仅开启 [有来源的样式键](style-compatibility.json)，可关闭以检查严格官方字段。未知键始终拒绝。新增组件/函数先增加本地 schema 和实现契约再升级工具；配置不能凭空定义未实现能力。
+复制 [default.json](profiles/default.json) 为项目 profile，传入 `--profile <路径>`。`version`、`protocolVersion` 必须保持当前版本；`catalogId` 固定为 `https://a2ui.org/specification/v0_9/standard_catalog.json`，项目 profile 不得覆盖；宿主注册时使用同一值。`styleCompatibility` 仅开启 [有来源的样式键](style-compatibility.json)，可关闭以检查严格官方字段。未知键始终拒绝。新增组件/函数先增加本地 schema 和实现契约再升级工具；配置不能凭空定义未实现能力。

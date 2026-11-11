@@ -34,18 +34,19 @@ description: 当用户 Query 包含 /agenUI，或任务确实需要结构化展�
 - 本次使用组件的 `.md` 与 `.schema.json`；必填字段、枚举、动态值位置和输入类型以有效 schema/catalog 为准。
 - 本次使用函数的 `capabilities/functions/<name>.md` 与 `.schema.json`。自定义函数也以当前有效函数契约为准，样例只展示用法，不能扩展签名。
 - [协议与表达式](references/protocol.md)、[流式组织](references/streaming.md) 和 [视觉规则](references/visual.md)。
+- 需要参考写法时，只读取[示例索引](examples/README.md)中与本次任务相关的 golden 流或最小片段，不照搬演示业务数据。
 - 生成中需要尚未查阅的组件或函数时，再读取对应契约；首批不得使用未查明字段。
 
 当前常用输入类型：`Slider` 绑定 number；`ChoicePicker` 绑定 string[]（单选也是数组）；`CheckBox` 绑定 boolean；`TextField`（含 number 外观）绑定 string；`DateTimeInput` 使用宿主约定的字符串。初值、单位、范围和计算类型必须一致。
 
 ## 4. 按协议逐批生成并交付
 
-线上格式只有一种：一行一个完整 JSON 对象、一行一个协议操作；固定 `version: "v0.9"`；不使用顶层数组、注释、Markdown 围栏或 JSON 文件附件。字符串中的换行必须转义为 `\\n`，`surfaceId` 使用宿主传入或约定的值，不能自行创建随机值。每条消息只能有一个顶层操作：`createSurface`、`updateDataModel`、`updateComponents` 或 `deleteSurface`。
+线上格式只有一种：一行一个完整 JSON 对象、一行一个协议操作；固定 `version: "v0.9"`；使用标准双引号，不使用智能引号、顶层数组、注释、Markdown 围栏或 JSON 文件附件。字符串中的换行必须转义为 `\n`，`surfaceId` 使用宿主传入的值；宿主未提供时使用约定值 `reply`，不要生成随机值。每条消息只能有一个顶层操作：`createSurface`、`updateDataModel`、`updateComponents` 或 `deleteSurface`。
 
-默认假设宿主已有 Surface。需要新建时先发送 `createSurface`，再发送数据和组件。每个数据路径的初值必须在对应控件首次出现前通过 `updateDataModel` 初始化一次；后续批次不得重置已展示输入。新建或已有 Surface 都必须在同一流中保持一致的 `surfaceId`。根组件使用静态 `Column` 的 `root`，每批最后发送包含当前及此前已展示区域的完整 root；组件之间使用 schema 支持的 ID 引用，禁止内联组件对象、悬空 ID、重复 ID 和循环引用。
+默认每条 UI 流都创建独立 Surface，第一条消息发送 `createSurface`，其 `catalogId` 固定为 `https://a2ui.org/specification/v0_9/standard_catalog.json`；之后才发送数据和组件消息。仅宿主明确要求复用已有 Surface 时，使用 existing 模式省略建面。同一流中的所有消息使用相同 `surfaceId`。每个数据路径的初值必须在对应控件首次出现前通过 `updateDataModel` 初始化一次；后续批次不得重置已展示输入。根组件使用静态 `Column` 的 `root`，每批最后发送包含当前及此前已展示区域的完整 root；组件之间使用 schema 支持的 ID 引用，禁止内联组件对象、悬空 ID、重复 ID 和循环引用。
 
 表达式默认使用低歧义结构：数据引用写 `{"path":"/form/pending"}`；计算使用 `call`、`args`、`returnType` 对象；中间计算保持 number，最终数字展示再用 `formatNumber`；简单文案只引用已确认字段；复杂公式使用结构化嵌套对象。动作只放在 `action.functionCall`，点击时读取当前状态，生成期间不执行。默认 `calculateNumber` 仅支持 `add`、`multiply`，不能编造除法、条件或未注册函数。
 
-不得编造数值、日期、图片、地点、动作结果或宿主能力。图片只使用已确认可直连的 HTTPS 资源，并给 `Image` 设置有效的非零 `styles.width`；多行文字按组件有效契约设置可换行样式，不使用未被 schema 支持的字段。
+不得编造数值、日期、图片、地点、动作结果或宿主能力。图片只使用已确认可直连的 HTTPS 资源，并给 `Image` 设置有效的非零 `styles.width`。仅当长描述要作为摘要显示时，给对应 `Text` 设置 `styles.line-clamp: 3`；标题、日期、价格等短字段省略该属性。被截断的摘要不得承载唯一的关键信息；完整显示时省略 `line-clamp`，不得写 `0`。
 
 输出前最后检查：每条消息都是合法 JSON 且只有一个操作；所有组件字段来自有效 schema；组件引用和数据路径已闭合；首批区域完整可见；后续 root 未重置已展示输入；模式未混用。宿主负责接收分块、按换行解析和最终运行时校验；模型只有在确实运行了仓库工具后才能声称校验通过。工具可用于内部检查最终 NDJSON，但完整 JSON、区域文件和校验产物不是默认交付物。若无法用当前契约表达真实、可用的交互，首条输出前退回 `NO_UI`，不要输出看似可动但不会联动的 DSL。`UI_PRIMARY` 完成后直接输出 NDJSON 原文，末尾以换行结束。

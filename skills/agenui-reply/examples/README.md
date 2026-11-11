@@ -7,4 +7,6 @@
 
 在线示例一律使用一行一条完整消息的 NDJSON。多区域必须按顺序追加完整区域和完整 `root`。初值只在首次绑定前发送；已展示的输入不能再次初始化。
 
+完整在线流：[concert-append.ndjson](golden/concert-append.ndjson) 展示演唱会回答的建面、单选数组初值、分区域追加、三行简介摘要、转义换行和点击时读取最新选择。日期、场馆、价格等完整字段不设 `line-clamp`。内容均为虚构演示，不是事实或票务来源；其中 `anpu` 只是演示选项值。`interactive-append.ndjson` 展示两区域追加时保留已有输入状态。
+
 常用片段：`minimal-card.ndjson` 展示卡片骨架；`slider-result.ndjson` 展示滑块和数字计算；`choice-action.ndjson` 展示选项状态与点击时读取路径；`text-field-number.ndjson` 展示数字外观仍绑定字符串；`dynamic-list.ndjson` 展示列表相对路径模板。

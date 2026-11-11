@@ -5,5 +5,5 @@
   "license": "Apache-2.0",
   "licenseFile": "LICENSE",
   "sha256": "2849d6e9e522ea9189744f80e9fb1fb65264ee9de79a7f779a35f653473c2062",
-  "modifications": "原始快照未修改；有效 schema 在 scripts/lib/catalog.mjs 中展平 TextStyles，并移除 Text 重复继承的通用样式限制，保留文本专用 common 定义；样例样式 overlay 独立维护。"
+  "modifications": "原始快照未修改；scripts/lib/catalog.mjs 将有效 catalogId 固定为 https://a2ui.org/specification/v0_9/standard_catalog.json；有效 schema 展平 TextStyles，并移除 Text 重复继承的通用样式限制，保留文本专用 common 定义；样例样式 overlay 独立维护。"
 }

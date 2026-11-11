@@ -8,7 +8,7 @@ import { skillRoot } from '../scripts/lib/catalog.mjs';
 
 const run = (...args) => spawnSync(process.execPath, ['scripts/cli.mjs', ...args], { cwd: skillRoot, encoding: 'utf8' });
 test('CLI 成功、中文结构化错误、退出码与标准输入', () => {
-  assert.equal(run('validate', 'examples/golden/interactive-append.ndjson', '--surface', 'new').status, 0);
+  assert.equal(run('validate', 'examples/golden/interactive-append.ndjson').status, 0);
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'agenui-cli-'));
   try {
     const bad = path.join(dir, 'bad.json'); fs.writeFileSync(bad, '{');
@@ -18,7 +18,11 @@ test('CLI 成功、中文结构化错误、退出码与标准输入', () => {
     assert.equal(run('validate', 'missing.json').status, 2);
     assert.equal(run('validate', 'examples/golden/interactive-append.ndjson', '--format', 'other').status, 2);
     const m = { version: 'v0.9', updateComponents: { surfaceId: 'stdin', components: [{ id: 'root', component: 'Text', text: 'ok' }] } };
-    assert.equal(spawnSync(process.execPath, ['scripts/cli.mjs', 'validate', '-'], { cwd: skillRoot, input: JSON.stringify(m), encoding: 'utf8' }).status, 0);
+    const stdin = { cwd: skillRoot, input: JSON.stringify(m), encoding: 'utf8' };
+    const missingSurface = spawnSync(process.execPath, ['scripts/cli.mjs', 'validate', '-', '--json'], stdin);
+    assert.equal(missingSurface.status, 1);
+    assert.ok(JSON.parse(missingSurface.stdout).diagnostics.some(d => d.code === 'E_SURFACE_MISSING'));
+    assert.equal(spawnSync(process.execPath, ['scripts/cli.mjs', 'validate', '-', '--surface', 'existing'], stdin).status, 0);
   } finally { fs.rmSync(dir, { recursive: true }); }
 });
 test('CLI stream 输出可验证 NDJSON，拒绝覆盖源文件', () => {
@@ -29,8 +33,13 @@ test('CLI stream 输出可验证 NDJSON，拒绝覆盖源文件', () => {
     const out = path.join(dir, 'reply.ndjson');
     fs.writeFileSync(source, JSON.stringify([{ version: 'v0.9', updateComponents: { surfaceId: 'stream', components: [{ id: 'label', component: 'Text', text: '结果' }, { id: 'root', component: 'Column', children: ['label'] }] } }]));
     fs.writeFileSync(regions, JSON.stringify([['label']]));
-    assert.equal(run('stream', source, '--regions', regions, '--surface', 'new', '--out', out).status, 0);
-    assert.equal(run('validate', out, '--surface', 'new').status, 0);
+    assert.equal(run('stream', source, '--regions', regions, '--out', out).status, 0);
+    const messages = fs.readFileSync(out, 'utf8').trim().split('\n').map(line => JSON.parse(line));
+    assert.equal(messages[0].createSurface.surfaceId, 'stream');
+    assert.equal(run('validate', out).status, 0);
+    const existing = run('stream', source, '--regions', regions, '--surface', 'existing');
+    assert.equal(existing.status, 0);
+    assert.equal(existing.stdout.trim().split('\n').some(line => JSON.parse(line).createSurface), false);
     assert.equal(run('stream', source, '--regions', regions, '--out', source).status, 2);
   } finally { fs.rmSync(dir, { recursive: true }); }
 });

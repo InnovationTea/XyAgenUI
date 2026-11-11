@@ -39,6 +39,15 @@ test('未知组件', () => invalid([update([{ id: 'root', component: 'Fake' }])]
 test('默认关闭 Playground 扩展', () => invalid([update([{ id: 'root', component: 'Markdown', content: 'x' }])], 'E_COMPONENT'));
 test('拒绝未知属性与未知样式', () => { invalid([update([{ ...text('root'), nonsense: 1 }])], 'E_COMPONENT_SCHEMA'); invalid([update([{ ...text('root'), styles: { madeUp: 'red' } }])], 'E_COMPONENT_SCHEMA'); });
 test('允许官方 Text 排版样式', () => valid([update([{ ...text('root'), styles: { color: '#333333', 'font-size': '20px', 'font-weight': '600' } }])]));
+test('Text 完整显示省略 line-clamp，摘要允许三行且拒绝零和负值', () => {
+  valid([update([text('root', '标题、日期和价格完整显示')])]);
+  valid([update([{ ...text('root', '长描述摘要'), styles: { 'line-clamp': 3 } }])]);
+  for (const clamp of [0, -1]) {
+    const r = invalid([update([{ ...text('root'), styles: { 'line-clamp': clamp } }])], 'E_TEXT_LINE_CLAMP');
+    assert.equal(r.diagnostics.find(d => d.code === 'E_TEXT_LINE_CLAMP').pointer, '/updateComponents/components/0/styles/line-clamp');
+  }
+  for (const clamp of [1.5, '3']) invalid([update([{ ...text('root'), styles: { 'line-clamp': clamp } }])], 'E_COMPONENT_SCHEMA');
+});
 test('Image 必须有显式正宽度并使用 HTTPS，静态拦截 HTTP 媒体 URL', () => {
   const image = { id: 'image', component: 'Image', url: 'https://cdn.example.test/photo.jpg', styles: { width: '100%' } };
   valid([update([root(['image']), image])]);
@@ -113,6 +122,37 @@ test('新建模式要求 Surface，重复创建错误', () => {
   assert.equal(check([create, update([text('root')])], { surface: 'new' }).valid, true);
   invalid([create, create, update([text('root')])], 'E_SURFACE_EXISTS');
 });
+test('catalogId 固定为标准 URL，拒绝旧 ID 和 profile 覆盖', () => {
+  const expected = 'https://a2ui.org/specification/v0_9/standard_catalog.json';
+  assert.equal(env.profile.catalogId, expected);
+  assert.equal(env.catalog.catalogId, expected);
+  const create = catalogId => ({ version: 'v0.9', createSurface: { surfaceId: 'test', catalogId } });
+  assert.equal(check([create(expected), update([text('root')])], { surface: 'new' }).valid, true);
+  for (const catalogId of [readJson('vendor/agenui_catalog.json').catalogId, 'https://example.org/catalog.json']) {
+    assert.ok(check([create(catalogId), update([text('root')])], { surface: 'new' }).diagnostics.some(d => d.code === 'E_CATALOG'));
+  }
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'agenui-catalog-'));
+  try {
+    const profile = { ...env.profile, catalogId: 'https://example.org/catalog.json' };
+    const file = path.join(dir, 'profile.json');
+    fs.writeFileSync(file, JSON.stringify(profile));
+    assert.throws(() => loadCatalog(file), /catalogId 必须固定为/);
+  } finally { fs.rmSync(dir, { recursive: true }); }
+});
+test('new 模式要求先建面再初始化数据，最后输出绑定组件', () => {
+  const create = { version: 'v0.9', createSurface: { surfaceId: 'test', catalogId: env.profile.catalogId } };
+  const components = update([root(['slider']), slider()]);
+  assert.deepEqual(check([create, init(), components], { surface: 'new' }).diagnostics, []);
+  for (const messages of [[init(), create, components], [components, create, init()]]) {
+    const r = check(messages, { surface: 'new' });
+    assert.equal(r.valid, false);
+    assert.ok(r.diagnostics.some(d => d.code === 'E_SURFACE_MISSING' && d.index === 1));
+  }
+  assert.ok(check([create, components, init()], { surface: 'new' }).diagnostics.some(d => d.code === 'E_INITIAL_VALUE' && d.index === 2));
+  const wrongSurface = structuredClone(init());
+  wrongSurface.updateDataModel.surfaceId = 'other';
+  assert.ok(check([create, wrongSurface, components], { surface: 'new' }).diagnostics.some(d => d.code === 'E_SURFACE_MISSING' && d.index === 2));
+});
 test('删除与重建 Surface 的生命周期', () => {
   const create = { version: 'v0.9', createSurface: { surfaceId: 'test', catalogId: env.profile.catalogId } };
   valid([create, update([text('root')]), { version: 'v0.9', deleteSurface: { surfaceId: 'test' } }, create, update([text('root')])]);
@@ -123,6 +163,22 @@ test('单消息、数组、NDJSON、BOM 与空输入', () => {
   for (const raw of [JSON.stringify(m), JSON.stringify([m]), '\uFEFF' + JSON.stringify(m), JSON.stringify(m) + '\n']) assert.deepEqual(parseMessages(raw).messages, [m]);
   assert.deepEqual(parseMessages(JSON.stringify(m) + '\n' + JSON.stringify(m), 'ndjson').messages, [m, m]);
   assert.equal(parseMessages('').diagnostics[0].code, 'E_PARSE');
+});
+test('JSON 拒绝智能引号和未转义换行，标准双引号和转义换行可通过', () => {
+  const message = update([text('root', '第一行\n第二行')]);
+  const escaped = JSON.stringify(message);
+  assert.ok(escaped.includes('\\n'));
+  for (const format of ['auto', 'json', 'ndjson']) {
+    const parsed = parseMessages(escaped, format);
+    assert.deepEqual(parsed.diagnostics, []);
+    assert.equal(parsed.messages[0].updateComponents.components[0].text, '第一行\n第二行');
+    valid(parsed.messages);
+    for (const raw of [escaped.replaceAll('"', '“'), escaped.replace('\\n', '\n')]) {
+      assert.equal(parseMessages(raw, format).diagnostics[0].code, 'E_PARSE');
+    }
+  }
+  // 智能引号可以作为合法字符串内容，但不能用作 JSON 分隔符。
+  valid(parseMessages(JSON.stringify(update([text('root', '“引用内容”')]))).messages);
 });
 test('同 ID 为完整替换，省略样式不会合并', () => {
   const r = check([update([{ ...text('root'), styles: { color: '#333333' } }]), update([text('root', '新内容')])]);
@@ -143,10 +199,15 @@ test('动态列表模板支持相对绑定和空数组', () => {
 test('stream 显式区域、依赖顺序、完整 root 和一次初值', () => {
   const input = [init(), update([root(['a', 'b']), text('a'), text('b')])];
   const result = streamMessages(input, [['a'], ['b']], { env });
+  assert.deepEqual(result[0], { version: 'v0.9', createSurface: { surfaceId: 'test', catalogId: env.profile.catalogId } });
+  assert.deepEqual(result[1], init());
   assert.equal(result.filter(m => m.updateDataModel).length, 1);
-  assert.deepEqual(result[1].updateComponents.components.map(n => n.id), ['a', 'root']);
-  assert.deepEqual(result[2].updateComponents.components.at(-1), root(['a', 'b']));
-  assert.equal(result.some(m => m.createSurface), false);
+  assert.deepEqual(result[2].updateComponents.components.map(n => n.id), ['a', 'root']);
+  assert.deepEqual(result[3].updateComponents.components.at(-1), root(['a', 'b']));
+  assert.deepEqual(check(result, { surface: 'new' }).diagnostics, []);
+  const existing = streamMessages(input, [['a'], ['b']], { env, surface: 'existing' });
+  assert.equal(existing.some(m => m.createSurface), false);
+  assert.deepEqual(existing, result.slice(1));
 });
 test('stream 拒绝重排、遗漏、不可达组件及复杂根', () => {
   const input = [update([root(['a', 'b']), text('a'), text('b')])];

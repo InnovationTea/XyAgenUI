@@ -17,19 +17,19 @@
 ## 线上格式卡
 
 - 一行一个完整 JSON 对象；一条消息只含一种顶层操作。多条消息使用换行连接，即 NDJSON。
-- 固定 `version: "v0.9"`；不使用顶层数组、JSON 注释、Markdown 围栏或行内解释。
+- 固定 `version: "v0.9"`；使用标准双引号，不使用智能引号、顶层数组、JSON 注释、Markdown 围栏或行内解释。
 - 字符串不能含未转义的换行；换行写作 `\n`。反斜杠按 JSON 规则转义。
-- 所有消息使用同一个宿主提供/约定的 `surfaceId`；不要编造随机 Surface ID。
+- 每条 UI 流第一条消息必须是 `createSurface`；其 `catalogId` 固定为 `https://a2ui.org/specification/v0_9/standard_catalog.json`。所有消息使用同一个宿主提供的 `surfaceId`；未提供时使用约定值 `reply`。
 - `NO_UI` 输出普通文字/Markdown；`UI_PRIMARY` 数据通道只输出 NDJSON。模式在第一条输出前决定，不在同一通道混排。
 
-人类阅读的多行 JSON 仅用于说明结构，不是线上投递格式：
+人类阅读的多行 JSON 仅用于说明结构，不是线上投递格式。在线流必须先发建面消息：
 
 ```json
 {
   "version": "v0.9",
-  "updateComponents": {
-    "surfaceId": "宿主提供的 Surface ID",
-    "components": []
+  "createSurface": {
+    "surfaceId": "reply",
+    "catalogId": "https://a2ui.org/specification/v0_9/standard_catalog.json"
   }
 }
 ```
@@ -37,18 +37,20 @@
 线上必须压为单行：
 
 ```ndjson
-{"version":"v0.9","updateComponents":{"surfaceId":"宿主提供的 Surface ID","components":[]}}
+{"version":"v0.9","createSurface":{"surfaceId":"reply","catalogId":"https://a2ui.org/specification/v0_9/standard_catalog.json"}}
 ```
 
-以上仅为格式对照，空组件数组不是有效的 UI 批次。
+建面后再按需初始化数据，并发送首个完整组件区域；建面消息本身不构成可见区域。
 
 ## Surface、数据与组件批次
 
-默认 existing 模式假设宿主已创建 Surface，不发 `createSurface`。只有明确需要新 Surface 且获得了目标 ID 时才使用 new 模式；首先发送 `createSurface`，其中 `catalogId` 必须来自当前 profile。其后数据与组件消息使用同一 Surface ID。
+每条 UI 流都创建独立 Surface。第一条消息发送 `createSurface`，其中 `catalogId` 固定为 `https://a2ui.org/specification/v0_9/standard_catalog.json`；其后数据与组件消息使用同一 Surface ID。宿主明确要求复用已有 Surface 时，才省略建面并使用 existing 模式。
 
-每个数据路径有输入初值时，在对应组件首次绑定前发送一次 `updateDataModel`；没有初值时省略数据消息。初值和控件绑定须类型一致。不要在后续批次重发已初始化路径，以免覆盖用户本轮已经修改的值。新的后续区域若引入新的输入路径，可在该控件首次出现前初始化该路径。
+每个绑定路径必须在对应组件首次出现前通过 `updateDataModel` 初始化一次；没有数据依赖时可省略数据消息。初值和控件绑定须类型一致。不要在后续批次重发已初始化路径，以免覆盖用户本轮已经修改的值。新的后续区域若引入新的输入路径，可在该控件首次出现前初始化该路径。显式 existing 模式可以使用宿主已提供的状态，不能臆造路径已经存在。
 
 每次 `updateComponents` 都发送本批新组件的完整递归依赖，依赖定义先于引用者，并以完整 `root` 收尾。静态根为 `Column`，ID 为 `root`。`root.children` 按顺序保留所有当前可见区域。ID 不重复；所有引用必须在本批或先前批次已经定义，禁止前向引用和悬空组件。
+
+[演唱会 golden 流](../examples/golden/concert-append.ndjson)展示建面、数组初值、三行简介摘要和三批完整区域；其中演出数据仅用于演示，不作为实际回答的事实来源。
 
 ## 宿主流式消费
 

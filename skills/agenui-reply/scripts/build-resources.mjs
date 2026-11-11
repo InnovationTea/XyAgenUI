@@ -7,7 +7,7 @@ const write = (file, text) => fs.writeFileSync(path.join(skillRoot, file), text,
 const json = (file, value) => write(file, JSON.stringify(value, null, 2) + '\n');
 const catalog = readJson('vendor/agenui_catalog.json');
 const componentNotes = {
-  Text: '短标题、正文、指标与提示。用 variant 和黑灰层级组织信息；动态结果绑定路径或值函数。内容预期会换行时，在 styles 设置 line-clamp: 0；不要省略正文。',
+  Text: '短标题、正文、指标与提示。用 variant 和黑灰层级组织信息；动态结果绑定路径或值函数。仅长描述摘要设置 styles.line-clamp: 3；短字段和完整显示文本省略该属性，不要写 0。',
   Image: '有真实图片来源且对任务有帮助时使用。每个 Image 都要在 styles.width 显式设置大于 0 的宽度。URL 必须是确认可直接加载的 https:// 直链，不得使用 http://、网页地址或有防盗链限制的来源；无法确认时改用纯色或其他有依据的内容。',
   Icon: '使用 schema 中已支持的图标名，辅助识别；不要让图标取代必要的文字说明。',
   Video: '用户确需查看视频且已有真实资源时使用。', AudioPlayer: '已有可用音频且任务需要收听时使用。',
@@ -89,6 +89,6 @@ json('vendor/SOURCE.json', {
   url: `https://github.com/AGenUI/AGenUI/blob/${officialCommit}/agenui_catalog.json`,
   license: 'Apache-2.0', licenseFile: 'LICENSE',
   sha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(skillRoot, 'vendor/agenui_catalog.json'))).digest('hex'),
-  modifications: '原始快照未修改；有效 schema 在 scripts/lib/catalog.mjs 中展平 TextStyles，并移除 Text 重复继承的通用样式限制，保留文本专用 common 定义；样例样式 overlay 独立维护。'
+  modifications: '原始快照未修改；scripts/lib/catalog.mjs 将有效 catalogId 固定为 https://a2ui.org/specification/v0_9/standard_catalog.json；有效 schema 展平 TextStyles，并移除 Text 重复继承的通用样式限制，保留文本专用 common 定义；样例样式 overlay 独立维护。'
 });
 console.log('已更新组件、函数索引与来源记录');

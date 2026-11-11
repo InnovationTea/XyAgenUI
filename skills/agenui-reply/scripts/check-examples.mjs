@@ -57,7 +57,7 @@ export function checkNegativeExamples(env = loadCatalog()) {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === path.join(skillRoot, 'scripts/check-examples.mjs')) {
   const env = loadCatalog();
-  for (const file of ['examples/golden/interactive-append.ndjson', 'examples/snippets/minimal-card.ndjson', 'examples/snippets/slider-result.ndjson', 'examples/snippets/choice-action.ndjson', 'examples/snippets/text-field-number.ndjson', 'examples/snippets/dynamic-list.ndjson']) {
+  for (const file of ['examples/golden/interactive-append.ndjson', 'examples/golden/concert-append.ndjson', 'examples/snippets/minimal-card.ndjson', 'examples/snippets/slider-result.ndjson', 'examples/snippets/choice-action.ndjson', 'examples/snippets/text-field-number.ndjson', 'examples/snippets/dynamic-list.ndjson']) {
     console.log(JSON.stringify(checkExample(file, env)));
   }
   console.log(JSON.stringify({ negative: checkNegativeExamples(env) }));

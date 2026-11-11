@@ -1,2 +1,2 @@
-{"version":"v0.9","createSurface":{"surfaceId":"minimal","catalogId":"urn:a2ui:catalog:agenui_catalog"}}
+{"version":"v0.9","createSurface":{"surfaceId":"minimal","catalogId":"https://a2ui.org/specification/v0_9/standard_catalog.json"}}
 {"version":"v0.9","updateComponents":{"surfaceId":"minimal","components":[{"id":"title","component":"Text","text":"本周建议"},{"id":"body","component":"Column","children":["title"]},{"id":"card","component":"Card","child":"body"},{"id":"root","component":"Column","children":["card"]}]}}

@@ -18,7 +18,7 @@
 
 | 组件 | 必填字段（除 `id`、`component` 外） | 关键类型和限制 |
 |---|---|---|
-| `Text` | `text` | `text` 是字符串、字符串路径绑定或返回 string 的值函数；variant 只使用 Schema 枚举。 |
+| `Text` | `text` | `text` 是字符串、字符串路径绑定或返回 string 的值函数；variant 只使用 Schema 枚举。仅长描述摘要设置 `styles.line-clamp: 3`；短字段和完整显示文本省略该属性，不写 0。 |
 | `Image` | `url` | 始终显式设置非零 `styles.width`；仅使用可直接加载的 HTTPS 图片直链。静态检查不能证明域名无防盗链或设备可达，无法确认时使用纯色回退。 |
 | `Row`、`Column`、`List` | `children` | 静态形式是组件 ID 字符串数组；动态形式严格为 `{"path":"/items","componentId":"item_template"}`。模板组件应单独定义。 |
 | `Card` | `child` | 单个组件 ID。多个内容先放入 `Column` 或 `Row`，再引用容器 ID。 |
@@ -27,6 +27,8 @@
 | `Button` | `child`、`action` | `child` 指向可见标签组件；action 采用事件或 `functionCall` 的一种合法 Schema 结构。动作函数只在点击时运行。 |
 | `Table` | `columns`、`rows` | 列名为字符串数组；每行是字符串数组，单行项数必须与列数相同。 |
 | `RichText` | `text` | 仅使用宿主支持的轻量标签及 Schema 字段；当前有效 Schema 未确认 `line-clamp` 前，不要强加此样式。 |
+
+本 Skill 的 Text 生成约束比原始 catalog 更严格：虽然快照将非正 `line-clamp` 描述为不限行，当前输出和校验器不接受该写法；完整显示时省略属性，仅长描述摘要使用 3，关键日期、价格和操作条件须完整可见。
 
 ## 最小合法对象
 

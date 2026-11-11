@@ -85,11 +85,11 @@ export function parseMessages(text, format = 'auto') {
     for (const [line, raw] of text.split(/\r?\n/).entries()) {
       if (!raw.trim()) continue;
       try { const value = JSON.parse(raw); if (!object(value)) throw new Error('每行必须是一条消息对象'); messages.push(value); }
-      catch { return { messages: [], diagnostics: [{ code: 'E_PARSE', message: `第 ${line + 1} 行不是完整 JSON 消息，检查流是否截断`, index: messages.length + 1, pointer: '', line: line + 1 }] }; }
+      catch { return { messages: [], diagnostics: [{ code: 'E_PARSE', message: `第 ${line + 1} 行不是完整 JSON 消息，请使用标准双引号、转义字符串换行并检查是否截断`, index: messages.length + 1, pointer: '', line: line + 1 }] }; }
     }
     if (!messages.length) throw new Error('输入为空');
     return { messages, diagnostics: [] };
-  } catch { return { messages: [], diagnostics: [{ code: 'E_PARSE', message: '输入不是完整 JSON 消息，检查文件格式或流是否截断', index: 1, pointer: '' }] }; }
+  } catch { return { messages: [], diagnostics: [{ code: 'E_PARSE', message: '输入不是完整 JSON 消息，请使用标准双引号、转义字符串换行并检查格式或截断', index: 1, pointer: '' }] }; }
 }
 
 export function validateMessages(messages, options = {}) {
@@ -265,6 +265,9 @@ export function validateMessages(messages, options = {}) {
         if (!object(node) || typeof node.component !== 'string' || !profile.components.includes(node.component)) { report('E_COMPONENT', `组件未启用或不存在：${node?.component}`, at); valid = false; return; }
         const before = diagnostics.length;
         checkSchema(env.component(node.component), node, at, 'E_COMPONENT_SCHEMA');
+        if (node.component === 'Text' && Number.isInteger(node.styles?.['line-clamp']) && node.styles['line-clamp'] <= 0) {
+          report('E_TEXT_LINE_CLAMP', 'Text 的 line-clamp 必须为正整数；完整显示时省略该属性，摘要可使用 3', `${at}/styles/line-clamp`);
+        }
         if (node.component === 'Image' && !positiveImageWidth(node.styles?.width)) {
           report('E_IMAGE_WIDTH', 'Image 必须在 styles.width 设置明确的正宽度，例如 100% 或 240px', `${at}/styles/width`);
         }
