@@ -2,7 +2,7 @@
 
 按 CLDR 数量分类选择文案，必须提供 other。
 
-类型：值函数，禁止嵌套发送动作。
+类型：值函数，只能出现在 schema 接受 DynamicValue 的位置；不得调用动作。
 
 参数：`value`（必填）、`zero`、`one`、`two`、`few`、`many`、`other`（必填）。
 

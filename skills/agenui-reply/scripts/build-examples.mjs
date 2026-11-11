@@ -24,9 +24,9 @@ for (const name of ['route', 'hotpot']) {
   const children = components.find(n => n.id === 'root').children;
   const regions = name === 'route' ? [[children[0]], ...children.slice(1, 4).map(id => [id]), [children[4]], children.slice(5)] : children.map(id => [id]);
   const stream = streamMessages(messages, regions, { surface: 'new', env });
-  fs.writeFileSync(path.join(skillRoot, `examples/${name}.json`), JSON.stringify(messages, null, 2) + '\n');
-  fs.writeFileSync(path.join(skillRoot, `examples/${name}.regions.json`), JSON.stringify(regions, null, 2) + '\n');
-  fs.writeFileSync(path.join(skillRoot, `examples/${name}.ndjson`), stream.map(m => JSON.stringify(m)).join('\n') + '\n');
+  fs.writeFileSync(path.join(skillRoot, `examples/legacy/${name}.source.json`), JSON.stringify(messages, null, 2) + '\n');
+  fs.writeFileSync(path.join(skillRoot, `examples/legacy/${name}.regions.json`), JSON.stringify(regions, null, 2) + '\n');
+  fs.writeFileSync(path.join(skillRoot, `examples/legacy/${name}.ndjson`), stream.map(m => JSON.stringify(m)).join('\n') + '\n');
 }
-fs.writeFileSync(path.join(skillRoot, 'examples/manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
-console.log('已生成路线、火锅完整消息与新建 Surface 流式样例');
+fs.writeFileSync(path.join(skillRoot, 'examples/legacy/manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
+console.log('已生成路线、火锅历史完整消息与新建 Surface 流式样例');

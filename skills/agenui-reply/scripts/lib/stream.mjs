@@ -17,7 +17,7 @@ export function streamMessages(messages, regions, options = {}) {
   const flattened = regions.flat();
   if (new Set(flattened).size !== flattened.length || JSON.stringify(flattened) !== JSON.stringify(root.children)) fail('regions 必须按 root.children 原顺序完整分组，不能遗漏、重复或重排');
   const result = [];
-  if ((options.surface || 'existing') === 'new') result.push(structuredClone(messages.find(m => m.createSurface) || { version: 'v0.9', createSurface: { surfaceId: body.surfaceId, catalogId: env.profile.catalogId } }));
+  if ((options.surface || 'new') === 'new') result.push(structuredClone(messages.find(m => m.createSurface) || { version: 'v0.9', createSurface: { surfaceId: body.surfaceId, catalogId: env.profile.catalogId } }));
   else if (options.surface && options.surface !== 'existing') throw new Error('surface 必须为 existing 或 new');
   result.push(...messages.filter(m => m.updateDataModel).map(m => structuredClone(m)));
   const sent = new Set(), visible = [];
@@ -35,7 +35,7 @@ export function streamMessages(messages, regions, options = {}) {
     result.push({ version: 'v0.9', updateComponents: { surfaceId: body.surfaceId, components } });
   }
   if (sent.size !== nodes.size - 1) fail('完整消息包含 root 不可达组件，不能无损分批；请移除无用组件或自行组织 NDJSON');
-  const checked = validateMessages(result, { ...options, env });
+  const checked = validateMessages(result, { ...options, env, surface: options.surface || 'new' });
   if (!checked.valid) fail(`分批结果未通过校验：${JSON.stringify(checked.diagnostics)}`);
   return result;
 }

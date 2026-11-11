@@ -7,6 +7,23 @@ const missing = Symbol('missing');
 const emptyTemplate = Symbol('empty-template');
 const inputNames = new Set(['Slider', 'ChoicePicker', 'TextField', 'CheckBox', 'DateTimeInput']);
 const types = value => Array.isArray(value) ? 'array' : value === null ? 'null' : typeof value;
+function positiveImageWidth(value) {
+  if (typeof value !== 'string') return false;
+  const match = /^(\d+(?:\.\d+)?)(px|%)?$/.exec(value);
+  return Boolean(match && Number(match[1]) > 0);
+}
+function isHttpsUrl(value) {
+  if (typeof value !== 'string' || value.includes('${')) return false;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && Boolean(url.hostname) && !url.username && !url.password;
+  } catch { return false; }
+}
+function backgroundUrl(value) {
+  if (typeof value !== 'string') return undefined;
+  const match = /^url\(\s*(?:(['"])(.*?)\1|([^)]*))\s*\)$/i.exec(value);
+  return match ? (match[2] ?? match[3]).trim() : undefined;
+}
 function isoInput(value) {
   if (value === '') return true;
   if (typeof value !== 'string') return false;
@@ -68,11 +85,11 @@ export function parseMessages(text, format = 'auto') {
     for (const [line, raw] of text.split(/\r?\n/).entries()) {
       if (!raw.trim()) continue;
       try { const value = JSON.parse(raw); if (!object(value)) throw new Error('每行必须是一条消息对象'); messages.push(value); }
-      catch { return { messages: [], diagnostics: [{ code: 'E_PARSE', message: `第 ${line + 1} 行不是完整 JSON 消息，检查流是否截断`, index: messages.length + 1, pointer: '', line: line + 1 }] }; }
+      catch { return { messages: [], diagnostics: [{ code: 'E_PARSE', message: `第 ${line + 1} 行不是完整 JSON 消息，请使用标准双引号、转义字符串换行并检查是否截断`, index: messages.length + 1, pointer: '', line: line + 1 }] }; }
     }
     if (!messages.length) throw new Error('输入为空');
     return { messages, diagnostics: [] };
-  } catch { return { messages: [], diagnostics: [{ code: 'E_PARSE', message: '输入不是完整 JSON 消息，检查文件格式或流是否截断', index: 1, pointer: '' }] }; }
+  } catch { return { messages: [], diagnostics: [{ code: 'E_PARSE', message: '输入不是完整 JSON 消息，请使用标准双引号、转义字符串换行并检查格式或截断', index: 1, pointer: '' }] }; }
 }
 
 export function validateMessages(messages, options = {}) {
@@ -248,6 +265,24 @@ export function validateMessages(messages, options = {}) {
         if (!object(node) || typeof node.component !== 'string' || !profile.components.includes(node.component)) { report('E_COMPONENT', `组件未启用或不存在：${node?.component}`, at); valid = false; return; }
         const before = diagnostics.length;
         checkSchema(env.component(node.component), node, at, 'E_COMPONENT_SCHEMA');
+        if (node.component === 'Text' && Number.isInteger(node.styles?.['line-clamp']) && node.styles['line-clamp'] <= 0) {
+          report('E_TEXT_LINE_CLAMP', 'Text 的 line-clamp 必须为正整数；完整显示时省略该属性，摘要可使用 3', `${at}/styles/line-clamp`);
+        }
+        if (node.component === 'Image' && !positiveImageWidth(node.styles?.width)) {
+          report('E_IMAGE_WIDTH', 'Image 必须在 styles.width 设置明确的正宽度，例如 100% 或 240px', `${at}/styles/width`);
+        }
+        if (node.component === 'Image') {
+          if (!isHttpsUrl(node.url)) report('E_IMAGE_URL', 'Image URL 必须是明确的无凭据 HTTPS 直链；动态 URL 不可静态确认，域名是否有防盗链仍需核验', `${at}/url`);
+        }
+        if (node.component === 'Carousel' && Array.isArray(node.content)) {
+          node.content.forEach((url, j) => {
+            if (!isHttpsUrl(url)) report('E_IMAGE_URL', 'Carousel 图片 URL 必须是明确的无凭据 HTTPS 直链；动态 URL 不可静态确认，域名是否有防盗链仍需核验', `${at}/content/${j}`);
+          });
+        }
+        const bgUrl = backgroundUrl(node.styles?.['background-image']);
+        if (node.styles?.['background-image'] !== undefined && (bgUrl === undefined || !isHttpsUrl(bgUrl))) {
+          report('E_IMAGE_URL', 'background-image 必须包含明确的 HTTPS URL；动态 URL 不可静态确认，域名是否有防盗链仍需核验', `${at}/styles/background-image`);
+        }
         if (seen.has(node.id)) report('E_DUPLICATE_ID', `同批组件 ID 重复：${node.id}`, at);
         seen.add(node.id);
         if (diagnostics.length !== before) valid = false;

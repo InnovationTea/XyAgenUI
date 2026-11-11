@@ -6,16 +6,16 @@ import { parseMessages, validateMessages } from './lib/validator.mjs';
 import { streamMessages } from './lib/stream.mjs';
 
 const help = `AGenUI 中文 DSL 工具（Node.js 22+）
-  node scripts/cli.mjs validate <文件|-> [--format auto|json|ndjson] [--surface existing|new] [--profile 文件] [--state 文件] [--json]
-  node scripts/cli.mjs stream <文件|-> --regions 文件 [--surface existing|new] [--profile 文件] [--state 文件] [--out 文件]
+  node scripts/cli.mjs validate <文件|-> [--format auto|json|ndjson] [--surface new|existing] [--profile 文件] [--state 文件] [--json]
+  node scripts/cli.mjs stream <文件|-> --regions 文件 [--surface new|existing] [--profile 文件] [--state 文件] [--out 文件]
 validate 退出码：0 合法，1 内容不合法，2 配置或工具错误。
-state 文件格式：{ "surfaceId": { "form": { ... } } }。existing 假设宿主已建面，new 要求 createSurface。
+state 文件格式：{ "surfaceId": { "form": { ... } } }。默认 new 要求 createSurface；只有宿主明确提供已有 Surface 时才使用 --surface existing。
 stream 的 regions 文件：[["概览卡ID"],["结果卡ID","提交按钮ID"]]。输出 NDJSON，不发送任何动作。`;
 
 try {
   const { values, positionals } = parseArgs({ allowPositionals: true, strict: true, options: {
     help: { type: 'boolean', short: 'h' }, json: { type: 'boolean' },
-    format: { type: 'string', default: 'auto' }, surface: { type: 'string', default: 'existing' },
+    format: { type: 'string', default: 'auto' }, surface: { type: 'string', default: 'new' },
     profile: { type: 'string' }, state: { type: 'string' }, regions: { type: 'string' }, out: { type: 'string' }
   } });
   if (values.help) { console.log(help); process.exit(0); }

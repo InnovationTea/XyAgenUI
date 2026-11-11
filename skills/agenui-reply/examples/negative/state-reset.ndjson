@@ -1,0 +1,4 @@
+{"version":"v0.9","createSurface":{"surfaceId":"bad-reset","catalogId":"https://a2ui.org/specification/v0_9/standard_catalog.json"}}
+{"version":"v0.9","updateDataModel":{"surfaceId":"bad-reset","path":"/form/count","value":3}}
+{"version":"v0.9","updateComponents":{"surfaceId":"bad-reset","components":[{"id":"count_input","component":"Slider","label":"人数","min":1,"max":12,"value":{"path":"/form/count"}},{"id":"root","component":"Column","children":["count_input"]}]}}
+{"version":"v0.9","updateDataModel":{"surfaceId":"bad-reset","path":"/form/count","value":3}}
