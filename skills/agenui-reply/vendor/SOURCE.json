@@ -4,6 +4,6 @@
   "url": "https://github.com/AGenUI/AGenUI/blob/5c347a8352c1afff31879bcf5af4101df4f94137/agenui_catalog.json",
   "license": "Apache-2.0",
   "licenseFile": "LICENSE",
-  "sha256": "7572dbeaed3b1031d2cffbfe97966f7b67b6ccd3654d536e423893dffd159e08",
+  "sha256": "2849d6e9e522ea9189744f80e9fb1fb65264ee9de79a7f779a35f653473c2062",
   "modifications": "原始快照未修改；有效 schema 在 scripts/lib/catalog.mjs 中展平 TextStyles，并移除 Text 重复继承的通用样式限制，保留文本专用 common 定义；样例样式 overlay 独立维护。"
 }

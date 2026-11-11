@@ -1,0 +1,3 @@
+{"version":"v0.9","createSurface":{"surfaceId":"text-field-number","catalogId":"urn:a2ui:catalog:agenui_catalog"}}
+{"version":"v0.9","updateDataModel":{"surfaceId":"text-field-number","path":"/form/amount","value":"120"}}
+{"version":"v0.9","updateComponents":{"surfaceId":"text-field-number","components":[{"id":"amount_input","component":"TextField","label":"预算金额","variant":"number","value":{"path":"/form/amount"}},{"id":"root","component":"Column","children":["amount_input"]}]}}

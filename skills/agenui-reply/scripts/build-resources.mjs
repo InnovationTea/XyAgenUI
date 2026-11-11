@@ -7,8 +7,8 @@ const write = (file, text) => fs.writeFileSync(path.join(skillRoot, file), text,
 const json = (file, value) => write(file, JSON.stringify(value, null, 2) + '\n');
 const catalog = readJson('vendor/agenui_catalog.json');
 const componentNotes = {
-  Text: '短标题、正文、指标与提示。用 variant 和黑灰层级组织信息；动态结果绑定路径或值函数。',
-  Image: '有真实图片来源时使用；不编造图片链接。说明图片在任务中的作用。',
+  Text: '短标题、正文、指标与提示。用 variant 和黑灰层级组织信息；动态结果绑定路径或值函数。内容预期会换行时，在 styles 设置 line-clamp: 0；不要省略正文。',
+  Image: '有真实图片来源且对任务有帮助时使用。每个 Image 都要在 styles.width 显式设置大于 0 的宽度。URL 必须是确认可直接加载的 https:// 直链，不得使用 http://、网页地址或有防盗链限制的来源；无法确认时改用纯色或其他有依据的内容。',
   Icon: '使用 schema 中已支持的图标名，辅助识别；不要让图标取代必要的文字说明。',
   Video: '用户确需查看视频且已有真实资源时使用。', AudioPlayer: '已有可用音频且任务需要收听时使用。',
   Row: '少量横向信息或左右对齐指标。窄屏下保护短标签、金额与按钮，过密时改为纵排。',
@@ -19,12 +19,12 @@ const componentNotes = {
   Modal: '需要暂时展开的附加信息；trigger 和 content 均为组件 ID。',
   Divider: '必要时区分卡片内部信息组，避免每行都加分隔线。',
   Button: '必须有可见标签和已声明接收方。action.functionCall 使用动作函数；首次渲染前注册 action 深解析。',
-  TextField: '收集文字或数字文本。value 必须绑定可写路径，官方 DynamicString 要求 string 初值，number 变体也相同；宿主负责数值文本过滤和需要的转换。',
-  CheckBox: '单个布尔选择；value 绑定 boolean 初值。',
-  ChoicePicker: '在方案中单选或多选。value 始终绑定 string[]，mutuallyExclusive 最多一项；显示标签与稳定 value 分开。',
-  Slider: '调整有范围的数值参数。value 绑定 number，明确 min/max，结果通过依赖路径与值函数联动。',
-  DateTimeInput: '选择日期或时间；value 绑定 ISO 8601 字符串，未选时为空字符串。默认时间要写入数据模型。',
-  RichText: '需要少量行内富文本时使用官方支持的标签；不要混用完整网页结构。',
+  TextField: '收集文字或数字文本。必填 label；value 如需编辑必须绑定可写路径。其类型始终是 string，number 外观也用 string 初值，由宿主负责数值文本过滤和转换。variant 仅允许 shortText、longText、number、obscured。',
+  CheckBox: '单个布尔选择。必填 label 和 value；value 绑定 boolean 初值。',
+  ChoicePicker: '在方案中单选或多选。必填 options 和 value；value 始终绑定 string[]，单选 variant=mutuallyExclusive 时数组最多一项。每项必须有 label 和稳定 string value。',
+  Slider: '调整有范围的数值参数。必填 max 和 number 类型 value；显式给出合理 min/max，value 的初值必须落在范围内。不要添加 schema 未声明的 step。',
+  DateTimeInput: '选择日期或时间。必填 value，绑定 ISO 8601 字符串；未选时用空字符串。日期/时间能力和范围必须与实际任务一致。',
+  RichText: '需要少量行内富文本时使用官方支持的标签；不要混用完整网页结构。不要设置未经当前有效 RichText schema 确认的 line-clamp。',
   Table: '多选项同维度比较。columns 为字符串数组，rows 为字符串二维数组，每行与列数一致。',
   Web: '任务确需嵌入网页且宿主支持时使用；不要用 Web 绕过组件和能力约束。',
   Carousel: '有多张真实图片时按需轮播；content 是图片 URL 数组，不是组件引用数组。',
@@ -45,20 +45,44 @@ const functionNotes = {
   sendMsgToXiaoyi: '宿主自定义动作。仅放在 Button.action.functionCall；query 必填，可附当前输入快照。名称大小写必须完全一致。',
   resolveCalls: '官方实现扩展，未列入固定 catalog，默认关闭。args.json 中嵌套 call 会被解析，path 保留；不能替代动作深解析。'
 };
+const componentMinima = {
+  Text: '{"id":"title","component":"Text","text":"标题"}',
+  TextField: '{"id":"name","component":"TextField","label":"姓名","value":{"path":"/form/name"}}',
+  CheckBox: '{"id":"agree","component":"CheckBox","label":"同意条款","value":{"path":"/form/agree"}}',
+  ChoicePicker: '{"id":"choice","component":"ChoicePicker","options":[{"label":"方案 A","value":"a"}],"value":{"path":"/form/choice"},"variant":"mutuallyExclusive"}',
+  Slider: '{"id":"count","component":"Slider","min":1,"max":10,"value":{"path":"/form/count"}}',
+  DateTimeInput: '{"id":"date","component":"DateTimeInput","value":{"path":"/form/date"},"enableDate":true}',
+  Button: '{"id":"submit","component":"Button","child":"submit_label","action":{"functionCall":{"call":"sendMsgToXiaoyi","args":{"query":"继续"}}}}'
+};
+const functionExamples = {
+  calculateNumber: '{"call":"calculateNumber","returnType":"number","args":{"left":3,"right":{"path":"/form/count"},"operator":"add"}}',
+  formatNumber: '{"call":"formatNumber","returnType":"string","args":{"value":{"call":"calculateNumber","returnType":"number","args":{"left":3,"right":{"path":"/form/count"},"operator":"add"}},"decimals":0,"grouping":false}}',
+  sendMsgToXiaoyi: '{"functionCall":{"call":"sendMsgToXiaoyi","args":{"query":"按当前值 ${/form/count} 继续","count":{"path":"/form/count"}}}}'
+};
+function requiredOf(schema, catalog, seen = new Set()) {
+  if (!schema || typeof schema !== 'object') return [];
+  if (schema.$ref?.startsWith('#/')) {
+    if (seen.has(schema.$ref)) return [];
+    seen.add(schema.$ref);
+    return requiredOf(schema.$ref.slice(2).split('/').reduce((value, key) => value?.[key], catalog), catalog, seen);
+  }
+  return [...(schema.required || []), ...(schema.allOf || []).flatMap(item => requiredOf(item, catalog, seen))];
+}
 const index = [];
 for (const name of Object.keys(catalog.components)) {
   const optional = ['Markdown', 'Chart', 'Lottie'].includes(name);
   const props = propertiesOf(catalog.components[name], catalog);
   json(`components/${name}.schema.json`, { $schema: catalog.$schema, $ref: `../vendor/agenui_catalog.json#/components/${name}` });
-  write(`components/${name}.md`, `# ${name}\n\n${componentNotes[name]}\n\n状态：${optional ? '宿主注册后可选启用' : '默认组件'}。\n\n[字段定义](${name}.schema.json)由固定官方 catalog 提供；具体约束按 schema 校验，不猜测属性名。\n\n可用字段：${Object.keys(props).map(n => '`' + n + '`').join('、')}。\n\n${['TextField', 'ChoicePicker', 'Slider', 'DateTimeInput', 'CheckBox'].includes(name) ? '输入初值通过 updateDataModel 在首次绑定前发送。用户修改后不要重复初始化。\n' : ''}`);
+  const requiredFields = [...new Set(['id', 'component', ...requiredOf(catalog.components[name], catalog)])].map(field => `\`${field}\``).join('、');
+  write(`components/${name}.md`, `# ${name}\n\n${componentNotes[name]}\n\n状态：${optional ? '宿主注册后可选启用' : '默认组件'}。\n\n必填字段：${requiredFields}。\n\n[字段定义](${name}.schema.json)由固定官方 catalog 提供；具体约束按 schema 校验，不猜测属性名。\n\n可用字段：${Object.keys(props).map(n => '`' + n + '`').join('、')}。\n\n${componentMinima[name] ? `最小组件对象（片段，不含协议消息）：\n\n\`\`\`json\n${componentMinima[name]}\n\`\`\`\n\n` : ''}${['TextField', 'ChoicePicker', 'Slider', 'DateTimeInput', 'CheckBox'].includes(name) ? '输入初值先通过 updateDataModel 发送，类型与控件一致；控件首次绑定前路径必须存在。只初始化一次，用户修改后后续区域不得重新初始化。\n' : ''}`);
   index.push(`| [${name}](${name}.md) | ${optional ? '扩展' : '默认'} | ${componentNotes[name].split('。')[0]} |`);
 }
-write('components/index.md', '# 组件索引\n\n默认 22 个 SDK 组件；3 个 Playground 示例扩展关闭。只读取本次任务需要的组件说明和 schema。通用样式与类型见 [官方快照](../vendor/agenui_catalog.json)。\n\n| 组件 | 支持 | 用途 |\n|---|---|---|\n' + index.join('\n') + '\n');
+write('components/index.md', '# 组件索引\n\n默认 22 个 SDK 组件；3 个 Playground 示例扩展关闭。先读[组件生成契约](../references/component-contracts.md)，再只读取本次任务需要的组件说明和 schema。通用样式与类型见 [官方快照](../vendor/agenui_catalog.json)。\n\n| 组件 | 支持 | 用途 |\n|---|---|---|\n' + index.join('\n') + '\n');
 for (const name of Object.keys(catalog.functions)) json(`capabilities/functions/${name}.schema.json`, { $schema: catalog.$schema, $ref: `../../vendor/agenui_catalog.json#/functions/${name}` });
 for (const [name, note] of Object.entries(functionNotes)) {
   const schema = catalog.functions[name] || readJson(`capabilities/functions/${name}.schema.json`);
   const args = schema.properties.args;
-  write(`capabilities/functions/${name}.md`, `# ${name}\n\n${note}\n\n类型：${['sendMsgToXiaoyi', 'openUrl'].includes(name) ? '动作，仅点击时调用' : '值函数，禁止嵌套发送动作'}。\n\n参数：${Object.keys(args?.properties || {}).map(n => '`' + n + '`' + (args.required?.includes(n) ? '（必填）' : '')).join('、')}。${name === 'sendMsgToXiaoyi' ? '允许额外快照字段，值必须符合 DynamicValue。' : ''}\n\n[精确签名](${name}.schema.json)。${['openUrl', 'resolveCalls'].includes(name) ? '默认不启用，由宿主能力配置开启。' : '默认配置要求宿主注册或提供此实现。'}\n`);
+  write(`capabilities/functions/${name}.md`, `# ${name}\n\n${note}\n\n类型：${['sendMsgToXiaoyi', 'openUrl'].includes(name) ? '动作，只能放在 action.functionCall 中，由用户交互触发' : '值函数，只能出现在 schema 接受 DynamicValue 的位置；不得调用动作'}。\n\n参数：${Object.keys(args?.properties || {}).map(n => '`' + n + '`' + (args.required?.includes(n) ? '（必填）' : '')).join('、')}。${name === 'sendMsgToXiaoyi' ? '允许额外快照字段，值必须符合 DynamicValue。生成期间不执行动作，点击时保留路径以读取最新值。' : ''}\n\n${functionExamples[name] ? `默认用法：\n\n\`\`\`json\n${functionExamples[name]}\n\`\`\`\n\n` : ''}[精确签名](${name}.schema.json)。${['openUrl', 'resolveCalls'].includes(name) ? '默认不启用，由宿主能力配置开启。' : '默认配置要求宿主注册或提供此实现。'}\n`);
 }
 json('vendor/SOURCE.json', {
   project: 'AGenUI/AGenUI', commit: officialCommit,

@@ -1,0 +1,3 @@
+{"version":"v0.9","createSurface":{"surfaceId":"dynamic-list","catalogId":"urn:a2ui:catalog:agenui_catalog"}}
+{"version":"v0.9","updateDataModel":{"surfaceId":"dynamic-list","path":"/items","value":[{"name":"牛肉片"},{"name":"菌菇拼盘"}]}}
+{"version":"v0.9","updateComponents":{"surfaceId":"dynamic-list","components":[{"id":"item_template","component":"Text","text":{"path":"name"}},{"id":"root","component":"Column","children":{"path":"/items","componentId":"item_template"}}]}}

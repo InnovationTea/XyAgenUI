@@ -4,8 +4,26 @@
 
 ## 基础消息规范
 
+**线上格式卡**：回复中的 UI 数据通道只使用 NDJSON，一行一个完整 JSON 对象、一条协议操作；固定版本 `v0.9`，不使用顶层数组、注释、代码围栏或行内解释。字符串换行写作 `\n`，不得包含未转义的真实换行。`surfaceId` 使用宿主传入/约定的值，不自行猜测或随机生成。下面为便于阅读的多行 JSON 结构；它不是逐行投递格式：
+
+```json
+{
+  "version": "v0.9",
+  "updateComponents": {
+    "surfaceId": "host-provided-id",
+    "components": []
+  }
+}
+```
+
+线上单行 NDJSON 形式如下；空 `components` 仅展示语法，不构成有效 UI 批次：
+
+```ndjson
+{"version":"v0.9","updateComponents":{"surfaceId":"host-provided-id","components":[]}}
+```
+
 - 协议版本固定为 `v0.9`。每条消息必须有 `version`，并且只能包含一个顶层操作：`createSurface`、`updateDataModel`、`updateComponents` 或 `deleteSurface`。不要把多种操作合并到同一条消息。
-- 所有操作都针对一个 `surfaceId`。`createSurface` 使用当前 profile 的 `catalogId`；新建 Surface 后才能向它写数据或组件。默认 existing 模式假设宿主已创建对应 Surface；new 模式必须先创建。数据或组件消息中的 `surfaceId` 必须指向同一个目标 Surface。
+- 所有操作都针对一个 `surfaceId`。使用宿主提供或集成方明确约定的 ID；若没有可用 ID，不能自行编造，应在输出 UI 前降级为文本或按宿主控制通道请求配置。`createSurface` 使用当前 profile 的 `catalogId`；新建 Surface 后才能向它写数据或组件。默认 existing 模式假设宿主已创建对应 Surface；new 模式必须先创建。数据或组件消息中的 `surfaceId` 必须指向同一个目标 Surface。
 - `updateDataModel` 使用 `path` 与 `value` 更新数据模型；`updateComponents` 使用 `components` 更新组件定义。它们是不同的操作，不能把数据初始化对象嵌进组件树，也不能用旧协议字段替代本地 v0.9 定义。
 - 回复中的 DSL 流使用 NDJSON：每行一个完整 JSON 对象和一个协议消息，行间以换行分隔；不要用 JSON 数组包裹整条流。宿主应缓存未完整的传输片段，收到换行并得到完整消息后立即解析和应用。单条消息未结束前不能解析为完整协议对象。
 - 协议消息的通用结构以本节为基础；组件字段、值类型、枚举及能力必须继续以本地 catalog、组件 schema 和宿主 profile 为准，不能仅凭通用 JSON Schema 或模型记忆推测。

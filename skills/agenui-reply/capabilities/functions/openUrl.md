@@ -2,7 +2,7 @@
 
 动作函数。catalog 声明不代表已注册，宿主启用后只用于 action.functionCall。
 
-类型：动作，仅点击时调用。
+类型：动作，只能放在 action.functionCall 中，由用户交互触发。
 
 参数：`url`（必填）。
 

@@ -1,22 +1,57 @@
-# 流式组织与命令
+# 流式生成与线上消息格式
 
-`UI_PRIMARY` 的默认输出是回复正文中的 NDJSON DSL 原文，供已有宿主直接读取；不要把 DSL 保存或交付为文件，也不要包 Markdown 围栏。先在内部规划完整组件树，再按语义区域组织最终流：Surface（如需）和初值在前，每个有独立展示价值的区域随后各用一条 `updateComponents`。多区域回答不得把所有组件塞入一条 `updateComponents`；只有确实只有一个不可再分的区域时才输出一条组件消息，不做人为切碎。首个区域准备完整后就输出带换行的消息，再继续生成后续区域。默认分批器处理一个 Surface、一条完整 `updateComponents` 作为转换输入，且 root 是静态 `Column.children`；这只是工具输入限制，不是回复流结构。新 DSL 的 `root` 固定为静态 Column，复杂/动态组件放在其后代中。校验时需要的区域文件只是内部中间输入，按 `root.children` 原顺序把直接子区域完整分组，例如 `[["overview"],["comparison","picker"],["submit"]]`。
+本文件规定模型在线生成与宿主消费边界。命令、安装和样例构建属于开发维护流程，不是模型每次回答都要执行的步骤。
 
-每个区域须可独立展示并包含完整信息，不把一个组件壳或半张卡片当作区域。首批优先输出最有用的概览/答案，让首屏已有完整内容；后续批次再追加比较、解释、输入或操作区。区域多少由内容结构决定，不设配额。
+## 在线生成顺序
 
-```sh
-node scripts/cli.mjs validate examples/route.json
-node scripts/cli.mjs stream examples/route.json --regions examples/route.regions.json --out route.ndjson
-node scripts/cli.mjs stream examples/route.json --regions examples/route.regions.json --surface new --out route-new.ndjson
-node scripts/cli.mjs validate route-new.ndjson --surface new --json
+先规划任务、数据依赖、ID 命名和大致区域顺序，然后逐个区域完成并输出：
+
+1. 查询本批组件和函数的有效契约。
+2. 生成一段完整、可独立展示的区域，以及它所需的数据消息。
+3. 以完整 JSON 行结束该消息，立即继续下一批。
+
+不要求在首批前完整展开或序列化全页。首批内容由任务决定：比较回答先给关键差异，测算回答先给输入和关键结果，解释回答可以先给结构化结论。区域数量依赖内容，不设置固定区域数或组件配额。短回答只有一个不可再分的区域时，可只发送一个组件批次。
+
+每个区域须具有独立使用价值，不发送空壳、标题占位或半张卡片。每个组件批次末尾都包含完整的 `root`；`root.children` 累加当前批及此前所有已展示区域，完整保留 root 样式。批次只包含新区域尚未发送的依赖和组件，子组件先于引用者；共享组件仅首次发送。各批结束时引用必须闭合，不能等待未来批次补组件。追加区域不得重复初始化已展示的输入。组件定义完整且受支持不代表该回答业务完整；按任务确保答案内容真实、有用。
+
+## 线上格式卡
+
+- 一行一个完整 JSON 对象；一条消息只含一种顶层操作。多条消息使用换行连接，即 NDJSON。
+- 固定 `version: "v0.9"`；不使用顶层数组、JSON 注释、Markdown 围栏或行内解释。
+- 字符串不能含未转义的换行；换行写作 `\n`。反斜杠按 JSON 规则转义。
+- 所有消息使用同一个宿主提供/约定的 `surfaceId`；不要编造随机 Surface ID。
+- `NO_UI` 输出普通文字/Markdown；`UI_PRIMARY` 数据通道只输出 NDJSON。模式在第一条输出前决定，不在同一通道混排。
+
+人类阅读的多行 JSON 仅用于说明结构，不是线上投递格式：
+
+```json
+{
+  "version": "v0.9",
+  "updateComponents": {
+    "surfaceId": "宿主提供的 Surface ID",
+    "components": []
+  }
+}
 ```
 
-existing 默认不创建 Surface；new 先发 createSurface。初始化消息仅出现一次且先于首个组件绑定。每批只发送该区域尚未发送的递归依赖，子组件先于父组件，最后发送完整 root；root 的 children 累加当前和先前已展示的区域，其他样式和属性保持完整。共享依赖只首次发送。所有完整组件都必须由 root 可达，否则校验或分批器拒绝输出。逐批前缀必须能被宿主渲染，禁止悬空引用、重复/重排区域、空壳首批或覆盖已输入状态。每条 NDJSON 行必须是完整协议消息；输出一行后即结束该消息，不要等所有区域都生成完才输出组件流。验证和分批可在内部使用临时输入文件，最终只把多消息 NDJSON 原文写入回复正文。
+线上必须压为单行：
 
-首批结束即可展示完整区域，并非仅有空壳。若确实无法使用静态 Column 根，直接编写 NDJSON 也必须遵守同一流契约：每行一条完整消息；Surface（new 时）和初值先发；组件依赖先于引用者；每个区域完整可见；每批最后发送包含全部已显示区域的完整 root；对最终 NDJSON 执行 validate。`stream` 转换工具仅接受一条完整 `updateComponents` 作为源树并按区域输出多条消息；使用它时，完整源树和区域文件只是内部转换输入。也可绕过该转换器直接编写最终 NDJSON。工具不自动猜测语义分组，也不负责创建 Surface 会话或投递。
+```ndjson
+{"version":"v0.9","updateComponents":{"surfaceId":"宿主提供的 Surface ID","components":[]}}
+```
 
-宿主使用固定协议对应的官方流 API `beginTextStream` → 多次 `receiveTextChunk` → `endTextStream` 投递 NDJSON；传输块可拆分行，但接收端须缓冲到完整换行后，立即解析并应用该行，不应等到 `endTextStream` 才统一处理全部消息。完整签名和异常清理见 [宿主契约](host.md)。
+以上仅为格式对照，空组件数组不是有效的 UI 批次。
 
-validate 支持 `--format auto|json|ndjson`、`--profile`、`--state`、`--surface existing|new`、`--json`。文件名 `-` 读取标准输入。诊断提供文件、消息序号（从 1 开始）、消息内部 JSON Pointer、错误码与中文说明；root 缺失等流结束错误可能没有对应的现存节点。退出码 0 成功，1 内容错误，2 配置/读取/工具错误。stream 的标准输出保持纯 NDJSON，也可用 `--out` 写文件，不覆盖输入文件。
+## Surface、数据与组件批次
 
-安装：Node.js 22+，在 Skill 目录运行 `npm ci`。依赖安装后协议校验和分批均不需联网。`npm test` 执行回归；`npm run validate:examples` 检查两条完整样例、每个可见批次前缀及最终重放一致性。
+默认 existing 模式假设宿主已创建 Surface，不发 `createSurface`。只有明确需要新 Surface 且获得了目标 ID 时才使用 new 模式；首先发送 `createSurface`，其中 `catalogId` 必须来自当前 profile。其后数据与组件消息使用同一 Surface ID。
+
+每个数据路径有输入初值时，在对应组件首次绑定前发送一次 `updateDataModel`；没有初值时省略数据消息。初值和控件绑定须类型一致。不要在后续批次重发已初始化路径，以免覆盖用户本轮已经修改的值。新的后续区域若引入新的输入路径，可在该控件首次出现前初始化该路径。
+
+每次 `updateComponents` 都发送本批新组件的完整递归依赖，依赖定义先于引用者，并以完整 `root` 收尾。静态根为 `Column`，ID 为 `root`。`root.children` 按顺序保留所有当前可见区域。ID 不重复；所有引用必须在本批或先前批次已经定义，禁止前向引用和悬空组件。
+
+## 宿主流式消费
+
+宿主可将回复传输分成任意文本块；传输块不一定与 JSON 行边界一致。宿主应缓存片段，收到换行且组成完整行后立即解析、验证并应用该条消息，不必等待整个回答结束。尾部未闭合行须在流结束时报告或按宿主策略处理。缓冲、提交、错误恢复及是否自动修复由宿主控制通道实现；Skill 不能声称它已替宿主验证或修复。
+
+具体宿主接入和校验工具见 [宿主契约](host.md) 与 Skill 内的命令脚本。脚本可离线校验最终流并诊断语法、Schema、依赖和状态重置；它不能证明业务事实、视觉效果、资源可访问性或真机行为。

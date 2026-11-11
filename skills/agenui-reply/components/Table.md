@@ -4,6 +4,8 @@
 
 状态：默认组件。
 
+必填字段：`id`、`component`、`columns`、`rows`。
+
 [字段定义](Table.schema.json)由固定官方 catalog 提供；具体约束按 schema 校验，不猜测属性名。
 
 可用字段：`id`、`styles`、`accessibility`、`weight`、`component`、`columns`、`rows`。

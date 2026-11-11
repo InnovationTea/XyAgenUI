@@ -3,13 +3,12 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import crypto from 'node:crypto';
 import { loadCatalog, readJson } from '../scripts/lib/catalog.mjs';
 import { validateMessages, parseMessages, pathParts } from '../scripts/lib/validator.mjs';
 import { parseTemplate } from '../scripts/lib/expressions.mjs';
 import { streamMessages } from '../scripts/lib/stream.mjs';
 import { nextSaturday18 } from '../scripts/lib/date.mjs';
-import { checkExample } from '../scripts/check-examples.mjs';
+import { checkExample, checkNegativeExamples } from '../scripts/check-examples.mjs';
 
 const env = loadCatalog();
 const init = (value = { form: { n: 3 } }) => ({ version: 'v0.9', updateDataModel: { surfaceId: 'test', path: '/', value } });
@@ -23,15 +22,13 @@ const invalid = (messages, code) => { const r = check(messages); assert.equal(r.
 const calc = (left, right, operator = 'add') => ({ call: 'calculateNumber', returnType: 'number', args: { left, right, operator } });
 const action = (args = { query: '继续 ${/form/n}', n: { path: '/form/n' } }) => ({ id: 'button', component: 'Button', child: 'label', action: { functionCall: { call: 'sendMsgToXiaoyi', args } } });
 
-for (const name of ['route', 'hotpot']) test(`${name} 完整消息、每个可见批次及最终状态一致`, () => { const r = checkExample(name, env); assert.ok(r.batches > 1); });
-test('适配组件逐字段保持原始样例，自定义函数名不重写', () => {
-  const manifest = readJson('examples/manifest.json');
-  for (const name of ['route', 'hotpot']) {
-    const adapted = readJson(`examples/${name}.json`).find(m => m.updateComponents);
-    assert.equal(crypto.createHash('sha256').update(JSON.stringify(adapted)).digest('hex'), manifest.sources[name].messageSha256);
-    assert.equal(adapted.updateComponents.components.find(n => n.action?.functionCall).action.functionCall.call, 'sendMsgToXiaoyi');
-  }
-});
+for (const file of [
+  'examples/golden/interactive-append.ndjson',
+  'examples/snippets/minimal-card.ndjson',
+  'examples/snippets/slider-result.ndjson',
+  'examples/snippets/choice-action.ndjson'
+]) test(`${file} 的每个可见批次都可解析并渲染`, () => { const r = checkExample(file, env); assert.ok(r.batches > 0); });
+test('负例目录中的语法和状态错误可被预期诊断捕获', () => assert.equal(checkNegativeExamples(env), 2));
 test('自定义发送动作拒绝旧拼写和大小写变体', () => {
   for (const name of ['sendMsgtoxy', 'sendMsgToXy', 'sendmsgtoxiaoyi']) {
     const button = action(); button.action.functionCall.call = name;
@@ -42,6 +39,19 @@ test('未知组件', () => invalid([update([{ id: 'root', component: 'Fake' }])]
 test('默认关闭 Playground 扩展', () => invalid([update([{ id: 'root', component: 'Markdown', content: 'x' }])], 'E_COMPONENT'));
 test('拒绝未知属性与未知样式', () => { invalid([update([{ ...text('root'), nonsense: 1 }])], 'E_COMPONENT_SCHEMA'); invalid([update([{ ...text('root'), styles: { madeUp: 'red' } }])], 'E_COMPONENT_SCHEMA'); });
 test('允许官方 Text 排版样式', () => valid([update([{ ...text('root'), styles: { color: '#333333', 'font-size': '20px', 'font-weight': '600' } }])]));
+test('Image 必须有显式正宽度并使用 HTTPS，静态拦截 HTTP 媒体 URL', () => {
+  const image = { id: 'image', component: 'Image', url: 'https://cdn.example.test/photo.jpg', styles: { width: '100%' } };
+  valid([update([root(['image']), image])]);
+  const noWidth = check([update([root(['image']), { ...image, styles: undefined }])]);
+  assert.ok(noWidth.diagnostics.some(d => d.code === 'E_IMAGE_WIDTH'));
+  const zeroWidth = check([update([root(['image']), { ...image, styles: { width: '0px' } }])]);
+  assert.ok(zeroWidth.diagnostics.some(d => d.code === 'E_IMAGE_WIDTH'));
+  for (const nodes of [
+    [root(['image']), { ...image, url: 'http://cdn.example.test/photo.jpg' }],
+    [{ ...text('root'), styles: { 'background-image': 'url(http://cdn.example.test/bg.jpg)' } }],
+    [root(['carousel']), { id: 'carousel', component: 'Carousel', content: ['https://cdn.example.test/a.jpg', 'http://cdn.example.test/b.jpg'] }]
+  ]) assert.ok(check([update(nodes)]).diagnostics.some(d => d.code === 'E_IMAGE_URL'));
+});
 test('函数名拼写错误和参数错误', () => {
   invalid([update([text('root', { call: 'calculatenumer', args: {} })])], 'E_COMPONENT_SCHEMA');
   invalid([update([text('root', { call: 'formatNumber', args: { val: 2 } })])], 'E_COMPONENT_SCHEMA');
@@ -163,7 +173,12 @@ test('可选能力需宿主配置，并继续隔离 resolveCalls 中的动作', 
     assert.ok(check([update([root(['button']), text(), action({ query: 'x', wrapped })])], { env: enabled }).diagnostics.some(d => d.code === 'E_ACTION_POSITION'));
     profile.styleCompatibility = false; fs.writeFileSync(file, JSON.stringify(profile));
     const strict = loadCatalog(file);
-    assert.equal(check(readJson('examples/hotpot.json'), { env: strict }).valid, false);
+    const incompatibleStyle = [init({ route: [] }), update([
+      root(['picker']),
+      { id: 'picker', component: 'ChoicePicker', options: [{ label: '甲', value: 'a' }], value: { path: '/route' }, styles: { 'checkbox-background-color-selected': '#000000' } }
+    ])];
+    assert.equal(check(incompatibleStyle, { env }).valid, true);
+    assert.equal(check(incompatibleStyle, { env: strict }).valid, false);
   } finally { fs.rmSync(dir, { recursive: true }); }
 });
 test('时区与下一个可用周六 18:00（包含夏令时边界）', () => {
