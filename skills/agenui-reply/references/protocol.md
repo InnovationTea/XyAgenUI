@@ -2,10 +2,30 @@
 
 本地 `vendor/agenui_catalog.json` 为固定提交原文。每组件 `.schema.json` 是原始定义的入口，工具在内存构建有效 schema：仅修复 Text 的封闭样式继承，加入自定义函数、能力白名单，以及按配置开启的样例专用样式。不要直接以原始 Text schema 的继承冲突判断所有文字样式非法。
 
+消息中的 `catalogId` 固定为 `https://a2ui.org/specification/v0_9/standard_catalog.json`，工具在内存中同步有效 catalog 的标识。原始快照中的旧标识仅用于保留来源，不用于生成消息；组件与函数字段继续遵循本项目的有效契约。
+
 ## 基础消息规范
 
+**线上格式卡**：回复中的 UI 数据通道只使用 NDJSON，一行一个完整 JSON 对象、一条协议操作；固定版本 `v0.9`，使用标准双引号，不使用智能引号、顶层数组、注释、代码围栏或行内解释。字符串换行写作 `\n`，不得包含未转义的真实换行。每条 UI 流以 `createSurface` 开始；`surfaceId` 使用宿主传入值，否则使用约定值 `reply`。下面为便于阅读的多行 JSON 结构；它不是逐行投递格式：
+
+```json
+{
+  "version": "v0.9",
+  "createSurface": {
+    "surfaceId": "reply",
+    "catalogId": "https://a2ui.org/specification/v0_9/standard_catalog.json"
+  }
+}
+```
+
+线上单行 NDJSON 形式如下：
+
+```ndjson
+{"version":"v0.9","createSurface":{"surfaceId":"reply","catalogId":"https://a2ui.org/specification/v0_9/standard_catalog.json"}}
+```
+
 - 协议版本固定为 `v0.9`。每条消息必须有 `version`，并且只能包含一个顶层操作：`createSurface`、`updateDataModel`、`updateComponents` 或 `deleteSurface`。不要把多种操作合并到同一条消息。
-- 所有操作都针对一个 `surfaceId`。`createSurface` 使用当前 profile 的 `catalogId`；新建 Surface 后才能向它写数据或组件。默认 existing 模式假设宿主已创建对应 Surface；new 模式必须先创建。数据或组件消息中的 `surfaceId` 必须指向同一个目标 Surface。
+- 所有操作都针对一个 `surfaceId`。使用宿主提供的 ID；若未提供，使用本 Skill 约定的 `reply`，不要随机生成。每条 UI 流必须先创建 Surface，`catalogId` 固定为 `https://a2ui.org/specification/v0_9/standard_catalog.json`；创建后才能向它写数据或组件。数据或组件消息中的 `surfaceId` 必须指向同一个目标 Surface。只有宿主明确要求复用已有 Surface 时才使用 existing 模式。
 - `updateDataModel` 使用 `path` 与 `value` 更新数据模型；`updateComponents` 使用 `components` 更新组件定义。它们是不同的操作，不能把数据初始化对象嵌进组件树，也不能用旧协议字段替代本地 v0.9 定义。
 - 回复中的 DSL 流使用 NDJSON：每行一个完整 JSON 对象和一个协议消息，行间以换行分隔；不要用 JSON 数组包裹整条流。宿主应缓存未完整的传输片段，收到换行并得到完整消息后立即解析和应用。单条消息未结束前不能解析为完整协议对象。
 - 协议消息的通用结构以本节为基础；组件字段、值类型、枚举及能力必须继续以本地 catalog、组件 schema 和宿主 profile 为准，不能仅凭通用 JSON Schema 或模型记忆推测。
@@ -27,7 +47,7 @@
 
 具体操作与消息字段见上方协议及本地 catalog；下面各节分别说明数据路径、表达式和跨批次状态规则。
 
-消息为 `{"version":"v0.9","updateComponents":{"surfaceId":"…","components":[…]}}`，或唯一的 `createSurface`、`updateDataModel`、`deleteSurface` 操作。数据消息使用 `path` 和 `value`，不是旧版 contents 字段。创建使用 profile 的 `catalogId`。UTF-8 文件支持单消息、消息数组或一行一消息的 NDJSON。
+消息为 `{"version":"v0.9","updateComponents":{"surfaceId":"…","components":[…]}}`，或唯一的 `createSurface`、`updateDataModel`、`deleteSurface` 操作。数据消息使用 `path` 和 `value`，不是旧版 contents 字段。创建的 `catalogId` 固定为 `https://a2ui.org/specification/v0_9/standard_catalog.json`。离线 CLI 可读取 UTF-8 单消息、消息数组或 NDJSON；在线回复始终使用 NDJSON。
 
 ## 路径与初值
 
@@ -37,7 +57,7 @@
 
 普通绑定使用绝对 JSON Pointer，如 `/form/count`；`~1` 表示字段名中的斜杠，`~0` 表示波浪号。根路径在本 Skill 的样例和工具中写为 `/`。动态 children 模板内部使用相对路径，如 `name` 或 `details/title`。不要用组件 ID 当数据绑定。工具禁止原型相关路径段及空路径段。
 
-Slider→number；ChoicePicker→string[]（mutuallyExclusive 最多一项）；CheckBox→boolean；DateTimeInput→ISO 8601 string 或空字符串；TextField 包括 number 变体→string。静态显示不必迁入数据模型。工具检查绑定存在、类型、选项和数值范围，不替代宿主输入过滤。
+Slider→number；ChoicePicker→string[]（mutuallyExclusive 最多一项，例如 `["anpu"]`，不能写成 `"anpu"`）；CheckBox→boolean；DateTimeInput→ISO 8601 string 或空字符串；TextField 包括 number 变体→string。静态显示不必迁入数据模型。工具检查绑定存在、类型、选项和数值范围，不替代宿主输入过滤。
 
 ## 函数与模板
 
@@ -55,6 +75,6 @@ Slider→number；ChoicePicker→string[]（mutuallyExclusive 最多一项）；
 
 ## 状态连续
 
-默认 existing 模式假设宿主已创建同名 Surface；new 模式要求显式创建。每次校验一段完整流，或用 `--state` 提供宿主保留的数据：`{"reply":{"form":{"count":5}}}`。完整 UI 可引用该数据而省略初始化。
+CLI 默认 new 模式，要求完整流以 `createSurface` 开始。仅宿主明确要求复用已有 Surface 时才使用 `--surface existing`。此模式可用 `--state` 提供宿主保留的数据：`{"reply":{"form":{"count":5}}}`，完整 UI 可引用该数据而省略初始化。库函数 `validateMessages` 保留 existing 默认值供维护工具兼容调用；校验新生成的完整流时显式传入 `surface: "new"`。
 
 同一条 `updateComponents` 中重复定义 ID 是错误；后续消息再次使用已有 ID 时代表以新定义完整替换旧组件，未重述的属性不会自动合并或保留。追加区域时 root 必须带全量已显示 children 及完整样式。后续批次不重复初始化已展示输入；工具对此报 E_STATE_RESET。需要明确重置时使用新 Surface。CLI 验证到流末应已有 root；它能识别截断 JSON、悬空依赖和缺 root，不能识别语法完整但业务上省略了后续区域的流，完整性须由 regions 或宿主业务标记保证。

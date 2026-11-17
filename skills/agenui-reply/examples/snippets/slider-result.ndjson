@@ -1,0 +1,3 @@
+{"version":"v0.9","createSurface":{"surfaceId":"slider-result","catalogId":"https://a2ui.org/specification/v0_9/standard_catalog.json"}}
+{"version":"v0.9","updateDataModel":{"surfaceId":"slider-result","path":"/form/count","value":3}}
+{"version":"v0.9","updateComponents":{"surfaceId":"slider-result","components":[{"id":"count_input","component":"Slider","label":"人数","min":1,"max":12,"value":{"path":"/form/count"}},{"id":"count_result","component":"Text","text":{"call":"formatNumber","returnType":"string","args":{"value":{"call":"calculateNumber","returnType":"number","args":{"left":{"path":"/form/count"},"right":1,"operator":"add"}},"decimals":0,"grouping":false}}},{"id":"root","component":"Column","children":["count_input","count_result"]}]}}

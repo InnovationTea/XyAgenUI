@@ -5,9 +5,10 @@
 | 差异 | 本版处理 | 依据与边界 |
 |---|---|---|
 | PRD 和早期方案的函数拼写与原例不同 | 以原例 calculateNumber、sendMsgToXiaoyi 为准，适配时不重命名 | 两份原始样例及用户最新要求；不自动接受别名 |
-| 两例只有 updateComponents | 前置 updateDataModel；流式 new 还前置 createSurface | 输入必须有真实模型初值；完整例默认为 existing |
+| 历史原例只有 updateComponents | 初始化控件数据；新生成的在线流和 CLI 默认要求先 createSurface | 原始源树可由维护工具按显式区域转换，复用已有 Surface 需明确选择 existing |
 | 互斥选择的 value 也须数组 | route 使用 string[] | 固定 catalog 的 DynamicStringList；宿主写回须集成验证 |
 | 原 catalog TextStyles 封闭继承与自身字体属性冲突 | 有效 schema 展平 TextStyles，并移除 Text 重复的通用 ComponentCommon；保留文本专用 common | 只修复该继承边界，不放宽其他组件样式 |
+| 原 catalog 将非正 line-clamp 描述为不限行 | 当前 Text 生成与校验禁止非正数；长描述摘要使用 3，短文本和完整内容省略 | 保留原始快照；摘要不得承载唯一关键信息 |
 | 样例端侧专用样式不在 catalog | 有来源记录的 style-compatibility.json 精确开启键和类型 | ChoicePicker 6 个键、DateTimeInput.compact 的 5 个键，未知键仍拒绝 |
 | Markdown、Chart、Lottie 出现在 catalog | 默认 profile 排除；注册后按配置加入 | 属 Playground 示例扩展，不计入 22 个 SDK 组件 |
 | catalog 函数清单含 openUrl | 14 个已有实现值函数默认；openUrl 默认关闭 | catalog 声明不等于宿主注册 |

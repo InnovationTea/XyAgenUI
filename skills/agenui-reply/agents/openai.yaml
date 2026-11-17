@@ -1,6 +1,6 @@
 interface:
   display_name: "AGenUI 智能交互回复"
   short_description: "生成并校验 AGenUI 组件消息，支持数据绑定、计算、表单动作与流式分批"
-  default_prompt: "使用 $agenui-reply 为我的任务选择组件、定义状态与动作，并生成和校验 AGenUI 消息。"
+  default_prompt: "使用 $agenui-reply（或在 Query 中写 /agenUI）为我的任务选择组件、定义状态与动作，并生成和校验 AGenUI 消息。"
 policy:
   allow_implicit_invocation: true

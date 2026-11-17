@@ -7,13 +7,16 @@ import addFormats from 'ajv-formats';
 export const skillRoot = fileURLToPath(new URL('../../', import.meta.url));
 export const readJson = name => JSON.parse(fs.readFileSync(path.resolve(skillRoot, name), 'utf8').replace(/^\uFEFF/, ''));
 export const officialCommit = '5c347a8352c1afff31879bcf5af4101df4f94137';
+export const fixedCatalogId = 'https://a2ui.org/specification/v0_9/standard_catalog.json';
 const actionNames = new Set(['sendMsgToXiaoyi', 'openUrl']);
 
 export function loadCatalog(profilePath) {
   const profile = readJson(profilePath || 'capabilities/profiles/default.json');
   const catalog = readJson('vendor/agenui_catalog.json');
+  if (profile.catalogId !== fixedCatalogId) throw new Error(`catalogId 必须固定为 ${fixedCatalogId}`);
+  catalog.catalogId = fixedCatalogId;
   const custom = ['calculateNumber', 'sendMsgToXiaoyi', 'resolveCalls'];
-  if (profile.version !== '1.0.0' || profile.protocolVersion !== 'v0.9' || typeof profile.catalogId !== 'string' || !profile.catalogId ||
+  if (profile.version !== '1.0.0' || profile.protocolVersion !== 'v0.9' ||
       !['components', 'functions', 'actions', 'operators', 'events'].every(k => Array.isArray(profile[k]) && profile[k].every(x => typeof x === 'string') && new Set(profile[k]).size === profile[k].length) ||
       typeof profile.styleCompatibility !== 'boolean') throw new Error('能力配置版本或字段不合法');
   for (const name of profile.components) if (!catalog.components[name]) throw new Error(`未提供组件定义：${name}`);
