@@ -36,7 +36,7 @@
       "text": "肉类、蔬菜与主食分组准备。",
       "variant": "body",
       "styles": {
-        "font-size": "16vp",
+        "font-size": "30vp",
         "font-weight": "normal",
         "color": "#343A40",
         "line-height": 1.5,
@@ -61,7 +61,7 @@
       "text": "先确认人数，再采购易耗食材。",
       "variant": "body",
       "styles": {
-        "font-size": "16vp",
+        "font-size": "30vp",
         "font-weight": "normal",
         "color": "#343A40",
         "line-height": 1.5,

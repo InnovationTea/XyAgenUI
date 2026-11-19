@@ -20,7 +20,7 @@
 ```json
 {
   "components": [
-    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}}
+    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}}
   ]
 }
 ```
@@ -30,7 +30,7 @@
 ```json
 {
   "components": [
-    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"h1","styles":{"font-size":"30vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}}
+    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"h1","styles":{"font-size":"48vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}}
   ]
 }
 ```
@@ -40,7 +40,7 @@
 ```json
 {
   "components": [
-    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"h2","styles":{"font-size":"24vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}}
+    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"h2","styles":{"font-size":"42vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}}
   ]
 }
 ```
@@ -50,7 +50,7 @@
 ```json
 {
   "components": [
-    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"h3","styles":{"font-size":"20vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}}
+    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"h3","styles":{"font-size":"36vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}}
   ]
 }
 ```
@@ -60,7 +60,7 @@
 ```json
 {
   "components": [
-    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"h4","styles":{"font-size":"18vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}}
+    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"h4","styles":{"font-size":"32vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}}
   ]
 }
 ```
@@ -70,7 +70,7 @@
 ```json
 {
   "components": [
-    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"body","styles":{"font-size":"14vp","font-weight":"normal","color":"#555D66","line-height":1.5,"text-align":"left"}}
+    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"body","styles":{"font-size":"26vp","font-weight":"normal","color":"#555D66","line-height":1.5,"text-align":"left"}}
   ]
 }
 ```
@@ -80,7 +80,7 @@
 ```json
 {
   "components": [
-    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"caption","styles":{"font-size":"12vp","font-weight":"normal","color":"#555D66","line-height":1.3,"text-align":"left"}}
+    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"caption","styles":{"font-size":"22vp","font-weight":"normal","color":"#555D66","line-height":1.3,"text-align":"left"}}
   ]
 }
 ```
@@ -90,7 +90,7 @@
 ```json
 {
   "components": [
-    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"h2","styles":{"font-size":"38vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}}
+    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"h2","styles":{"font-size":"56vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}}
   ]
 }
 ```
@@ -100,7 +100,7 @@
 ```json
 {
   "components": [
-    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"body","styles":{"font-size":"16vp","font-weight":"bold","color":"#FFFFFF","line-height":1.3,"text-align":"left"}}
+    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"body","styles":{"font-size":"30vp","font-weight":"bold","color":"#FFFFFF","line-height":1.3,"text-align":"left"}}
   ]
 }
 ```
@@ -110,7 +110,7 @@
 ```json
 {
   "components": [
-    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"line-clamp":3,"text-align":"left"}}
+    {"id":"focus","component":"Text","text":"先调整预计人数，再按实际食量选择每人用量。","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"line-clamp":3,"text-align":"left"}}
   ]
 }
 ```

@@ -30,7 +30,7 @@
       "text": "🥘 人数与用量",
       "variant": "h3",
       "styles": {
-        "font-size": "20vp",
+        "font-size": "36vp",
         "font-weight": "bold",
         "color": "#16181D",
         "line-height": 1.3,
@@ -44,7 +44,7 @@
       "text": "先按 3 人准备，可按到场人数调整。",
       "variant": "body",
       "styles": {
-        "font-size": "16vp",
+        "font-size": "30vp",
         "font-weight": "normal",
         "color": "#343A40",
         "line-height": 1.5,

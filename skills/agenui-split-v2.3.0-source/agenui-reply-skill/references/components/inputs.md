@@ -254,7 +254,7 @@
 ```json
 {
   "components": [
-    {"id":"button_label","component":"Text","text":"按当前条件生成清单","variant":"body","styles":{"font-size":"16vp","font-weight":"bold","color":"#FFFFFF","line-height":1.3,"text-align":"center"}},
+    {"id":"button_label","component":"Text","text":"按当前条件生成清单","variant":"body","styles":{"font-size":"30vp","font-weight":"bold","color":"#FFFFFF","line-height":1.3,"text-align":"center"}},
     {"id":"focus","component":"Button","child":"button_label","variant":"primary","action":{"functionCall":{"call":"sendMsgToXiaoyi","args":{"query":"请根据当前条件继续生成一份采购清单。"},"returnType":"void"}},"styles":{"min-height":"48vp","padding":"12vp 20vp 12vp 20vp","border-radius":"20vp","align-self":"center","background-color":"#16181D"}}
   ]
 }
@@ -265,7 +265,7 @@
 ```json
 {
   "components": [
-    {"id":"button_label","component":"Text","text":"按当前条件生成清单","variant":"body","styles":{"font-size":"16vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"center"}},
+    {"id":"button_label","component":"Text","text":"按当前条件生成清单","variant":"body","styles":{"font-size":"30vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"center"}},
     {"id":"focus","component":"Button","child":"button_label","variant":"default","action":{"functionCall":{"call":"sendMsgToXiaoyi","args":{"query":"请根据当前条件继续生成一份采购清单。"},"returnType":"void"}},"styles":{"min-height":"48vp","padding":"12vp 20vp 12vp 20vp","border-radius":"20vp","align-self":"center","background-color":"#FFFFFF","border-color":"#16181D","border-width":"1vp"}}
   ]
 }
@@ -276,7 +276,7 @@
 ```json
 {
   "components": [
-    {"id":"button_label","component":"Text","text":"按当前条件生成清单","variant":"body","styles":{"font-size":"16vp","font-weight":"bold","color":"#0A59F7","line-height":1.3,"text-align":"center"}},
+    {"id":"button_label","component":"Text","text":"按当前条件生成清单","variant":"body","styles":{"font-size":"30vp","font-weight":"bold","color":"#0A59F7","line-height":1.3,"text-align":"center"}},
     {"id":"focus","component":"Button","child":"button_label","variant":"borderless","action":{"functionCall":{"call":"sendMsgToXiaoyi","args":{"query":"请根据当前条件继续生成一份采购清单。"},"returnType":"void"}},"styles":{"min-height":"48vp","padding":"12vp 20vp 12vp 20vp","border-radius":"20vp","align-self":"center","background-color":"#FFFFFF00"}}
   ]
 }

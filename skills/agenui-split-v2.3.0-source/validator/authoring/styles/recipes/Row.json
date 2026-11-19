@@ -32,7 +32,7 @@
       "text": "预计人数",
       "variant": "body",
       "styles": {
-        "font-size": "16vp",
+        "font-size": "30vp",
         "font-weight": "normal",
         "color": "#343A40",
         "line-height": 1.5,
@@ -46,7 +46,7 @@
       "text": "3 人",
       "variant": "h3",
       "styles": {
-        "font-size": "20vp",
+        "font-size": "36vp",
         "font-weight": "bold",
         "color": "#16181D",
         "line-height": 1.3,

@@ -7,8 +7,8 @@ const p=loadVisualProfile();
 test('默认vp设计值不再二倍输出，复合尺寸逐项还原且无量纲行高保持',()=>{
  assert.equal(p.unit,'vp');assert.equal(p.unitlessLengthUnit,'vp');
  assert.equal(p.lengthScale,1);assert.equal(p.fontScale,1);
- assert.equal(textStyle('body',p).styles['font-size'],'16vp');
- assert.equal(textStyle('page',p).styles['font-size'],'30vp');
+ assert.equal(textStyle('body',p).styles['font-size'],'30vp');
+ assert.equal(textStyle('page',p).styles['font-size'],'48vp');
  assert.equal(textStyle('body',p).styles['line-height'],1.5);
  const b=expandTemplate('Button','default',p);
  assert.equal(b.focus.styles['min-height'],'48vp');
@@ -18,7 +18,7 @@ test('默认vp设计值不再二倍输出，复合尺寸逐项还原且无量纲
 test('vp与无单位等值长度不会被视觉lint误报为样式漂移',()=>{
  for(const suffix of ['vp','']){
   const messages=[{updateComponents:{components:[
-   {id:'t',component:'Text',text:'人数',styles:{'font-size':'16'+suffix}},
+   {id:'t',component:'Text',text:'人数',styles:{'font-size':'30'+suffix}},
    {id:'c',component:'Card',child:'t',styles:{'border-radius':'16'+suffix}}
   ]}}];
   assert.deepEqual(lintVisual(messages,p).warnings,[]);
@@ -39,7 +39,7 @@ test('Button次要变体同步改变标签前景与按钮背景',()=>{
 });
 test('字体和布局使用两个独立比例，不修改公式或绑定',()=>{
  const a=expandTemplate('Button','default',p),b=expandTemplate('Button','default',{...p,lengthScale:1,fontScale:3});
- assert.equal(b.focus.styles['min-height'],'48vp');assert.equal(b.dependencies[0].styles['font-size'],'48vp');
+ assert.equal(b.focus.styles['min-height'],'48vp');assert.equal(b.dependencies[0].styles['font-size'],'90vp');
  assert.deepEqual(a.focus.action,b.focus.action);
 });
 test('视觉lint只报告，不静默改字段，不当成完整渲染验收',()=>{

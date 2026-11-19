@@ -21,8 +21,8 @@
 ```json
 {
   "components": [
-    {"id":"heading","component":"Text","text":"🥘 人数与用量","variant":"h3","styles":{"font-size":"20vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
-    {"id":"paragraph","component":"Text","text":"先按 3 人准备，可按到场人数调整。","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"heading","component":"Text","text":"🥘 人数与用量","variant":"h3","styles":{"font-size":"36vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
+    {"id":"paragraph","component":"Text","text":"先按 3 人准备，可按到场人数调整。","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
     {"id":"focus","component":"Column","children":["heading","paragraph"],"styles":{"gap":"12vp"}}
   ]
 }
@@ -33,8 +33,8 @@
 ```json
 {
   "components": [
-    {"id":"heading","component":"Text","text":"🥘 人数与用量","variant":"h3","styles":{"font-size":"20vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
-    {"id":"paragraph","component":"Text","text":"先按 3 人准备，可按到场人数调整。","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"heading","component":"Text","text":"🥘 人数与用量","variant":"h3","styles":{"font-size":"36vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
+    {"id":"paragraph","component":"Text","text":"先按 3 人准备，可按到场人数调整。","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
     {"id":"focus","component":"Column","children":["heading","paragraph"],"styles":{"gap":"8vp"}}
   ]
 }
@@ -45,8 +45,8 @@
 ```json
 {
   "components": [
-    {"id":"heading","component":"Text","text":"🥘 人数与用量","variant":"h3","styles":{"font-size":"20vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
-    {"id":"paragraph","component":"Text","text":"先按 3 人准备，可按到场人数调整。","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"heading","component":"Text","text":"🥘 人数与用量","variant":"h3","styles":{"font-size":"36vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
+    {"id":"paragraph","component":"Text","text":"先按 3 人准备，可按到场人数调整。","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
     {"id":"focus","component":"Column","children":["heading","paragraph"],"styles":{"gap":"16vp"}}
   ]
 }
@@ -57,8 +57,8 @@
 ```json
 {
   "components": [
-    {"id":"heading","component":"Text","text":"🥘 人数与用量","variant":"h3","styles":{"font-size":"20vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
-    {"id":"paragraph","component":"Text","text":"先按 3 人准备，可按到场人数调整。","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"heading","component":"Text","text":"🥘 人数与用量","variant":"h3","styles":{"font-size":"36vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
+    {"id":"paragraph","component":"Text","text":"先按 3 人准备，可按到场人数调整。","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
     {"id":"focus","component":"Column","children":["heading","paragraph"],"styles":{"padding":"16vp","gap":"16vp","background-color":"#F1F3F5","border-radius":"20vp"}}
   ]
 }
@@ -85,8 +85,8 @@
 ```json
 {
   "components": [
-    {"id":"label","component":"Text","text":"预计人数","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
-    {"id":"value","component":"Text","text":"3 人","variant":"h3","styles":{"font-size":"20vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
+    {"id":"label","component":"Text","text":"预计人数","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"value","component":"Text","text":"3 人","variant":"h3","styles":{"font-size":"36vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
     {"id":"focus","component":"Row","children":["label","value"],"align":"center","styles":{"gap":"8vp"},"justify":"spaceBetween"}
   ]
 }
@@ -97,8 +97,8 @@
 ```json
 {
   "components": [
-    {"id":"label","component":"Text","text":"预计人数","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
-    {"id":"value","component":"Text","text":"3 人","variant":"h3","styles":{"font-size":"20vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
+    {"id":"label","component":"Text","text":"预计人数","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"value","component":"Text","text":"3 人","variant":"h3","styles":{"font-size":"36vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
     {"id":"focus","component":"Row","children":["label","value"],"align":"center","styles":{"gap":"8vp"},"justify":"start"}
   ]
 }
@@ -109,8 +109,8 @@
 ```json
 {
   "components": [
-    {"id":"label","component":"Text","text":"预计人数","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
-    {"id":"value","component":"Text","text":"3 人","variant":"h3","styles":{"font-size":"20vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
+    {"id":"label","component":"Text","text":"预计人数","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"value","component":"Text","text":"3 人","variant":"h3","styles":{"font-size":"36vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
     {"id":"focus","component":"Row","children":["label","value"],"align":"center","styles":{"gap":"12vp","flex-wrap":"wrap"},"justify":"center"}
   ]
 }
@@ -135,8 +135,8 @@
 ```json
 {
   "components": [
-    {"id":"heading","component":"Text","text":"🥘 食材用量","variant":"h3","styles":{"font-size":"20vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
-    {"id":"bodytext","component":"Text","text":"数据为界面联调示例，实际按食量调整。","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"heading","component":"Text","text":"🥘 食材用量","variant":"h3","styles":{"font-size":"36vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
+    {"id":"bodytext","component":"Text","text":"数据为界面联调示例，实际按食量调整。","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
     {"id":"body","component":"Column","children":["heading","bodytext"],"styles":{"gap":"12vp"}},
     {"id":"focus","component":"Card","child":"body","styles":{"background-color":"#FFFFFF","border-radius":"16vp","padding":"16vp 16vp 16vp 16vp"}}
   ]
@@ -148,8 +148,8 @@
 ```json
 {
   "components": [
-    {"id":"heading","component":"Text","text":"🥘 食材用量","variant":"h3","styles":{"font-size":"20vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
-    {"id":"bodytext","component":"Text","text":"数据为界面联调示例，实际按食量调整。","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"heading","component":"Text","text":"🥘 食材用量","variant":"h3","styles":{"font-size":"36vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
+    {"id":"bodytext","component":"Text","text":"数据为界面联调示例，实际按食量调整。","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
     {"id":"body","component":"Column","children":["heading","bodytext"],"styles":{"gap":"12vp"}},
     {"id":"focus","component":"Card","child":"body","styles":{"background-color":"#EEF4FF","border-radius":"16vp","padding":"16vp 16vp 16vp 16vp"}}
   ]
@@ -161,8 +161,8 @@
 ```json
 {
   "components": [
-    {"id":"heading","component":"Text","text":"🥘 食材用量","variant":"h3","styles":{"font-size":"20vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
-    {"id":"bodytext","component":"Text","text":"数据为界面联调示例，实际按食量调整。","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"heading","component":"Text","text":"🥘 食材用量","variant":"h3","styles":{"font-size":"36vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
+    {"id":"bodytext","component":"Text","text":"数据为界面联调示例，实际按食量调整。","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
     {"id":"body","component":"Column","children":["heading","bodytext"],"styles":{"gap":"12vp"}},
     {"id":"focus","component":"Card","child":"body","styles":{"background-color":"#FFFFFF","border-radius":"16vp","padding":"24vp 24vp 24vp 24vp"}}
   ]
@@ -174,8 +174,8 @@
 ```json
 {
   "components": [
-    {"id":"heading","component":"Text","text":"🥘 食材用量","variant":"h3","styles":{"font-size":"20vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
-    {"id":"bodytext","component":"Text","text":"数据为界面联调示例，实际按食量调整。","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"heading","component":"Text","text":"🥘 食材用量","variant":"h3","styles":{"font-size":"36vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
+    {"id":"bodytext","component":"Text","text":"数据为界面联调示例，实际按食量调整。","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
     {"id":"body","component":"Column","children":["heading","bodytext"],"styles":{"gap":"12vp"}},
     {"id":"focus","component":"Card","child":"body","styles":{"background-color":"rgba(255,255,255,0.96)","border-radius":"16vp","padding":"16vp 16vp 16vp 16vp"}}
   ]

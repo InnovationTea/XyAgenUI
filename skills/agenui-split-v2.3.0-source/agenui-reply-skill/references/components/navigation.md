@@ -22,8 +22,8 @@
 {
   "initialData": {"items":[{"id":"beef","name":"牛肉","amount":"演示：450 g","done":false},{"id":"veg","name":"蔬菜","amount":"演示：600 g","done":false}]},
   "components": [
-    {"id":"item_name","component":"Text","text":{"path":"name"},"variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
-    {"id":"item_amount","component":"Text","text":{"path":"amount"},"variant":"body","styles":{"font-size":"14vp","font-weight":"normal","color":"#555D66","line-height":1.5,"text-align":"left"}},
+    {"id":"item_name","component":"Text","text":{"path":"name"},"variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"item_amount","component":"Text","text":{"path":"amount"},"variant":"body","styles":{"font-size":"26vp","font-weight":"normal","color":"#555D66","line-height":1.5,"text-align":"left"}},
     {"id":"item_done","component":"CheckBox","label":"已采购","value":{"path":"done"}},
     {"id":"item","component":"Column","children":["item_name","item_amount","item_done"],"styles":{"gap":"8vp","padding":"12vp 0vp 12vp 0vp"}},
     {"id":"focus","component":"List","direction":"vertical","children":{"path":"/items","componentId":"item"},"styles":{"width":"100%"}}
@@ -50,9 +50,9 @@
 ```json
 {
   "components": [
-    {"id":"t1","component":"Text","text":"肉类、蔬菜与主食分组准备。","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"t1","component":"Text","text":"肉类、蔬菜与主食分组准备。","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
     {"id":"tab1","component":"Column","children":["t1"],"styles":{"gap":"12vp","padding":"12vp 0vp 12vp 0vp"}},
-    {"id":"t2","component":"Text","text":"先确认人数，再采购易耗食材。","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"t2","component":"Text","text":"先确认人数，再采购易耗食材。","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
     {"id":"tab2","component":"Column","children":["t2"],"styles":{"gap":"12vp","padding":"12vp 0vp 12vp 0vp"}},
     {"id":"focus","component":"Tabs","tabs":[{"title":"食材","child":"tab1"},{"title":"安排","child":"tab2"}],"styles":{"width":"100%"}}
   ]
@@ -79,9 +79,9 @@
 ```json
 {
   "components": [
-    {"id":"trigger","component":"Text","text":"查看用量说明","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#0A59F7","line-height":1.5,"text-align":"left","text-decoration-line":"underline","min-height":"48vp"}},
-    {"id":"mh","component":"Text","text":"用量说明","variant":"h3","styles":{"font-size":"20vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
-    {"id":"mt","component":"Text","text":"此页按演示数据展示配量。实际按食量和忌口调整。","variant":"body","styles":{"font-size":"16vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
+    {"id":"trigger","component":"Text","text":"查看用量说明","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#0A59F7","line-height":1.5,"text-align":"left","text-decoration-line":"underline","min-height":"48vp"}},
+    {"id":"mh","component":"Text","text":"用量说明","variant":"h3","styles":{"font-size":"36vp","font-weight":"bold","color":"#16181D","line-height":1.3,"text-align":"left"}},
+    {"id":"mt","component":"Text","text":"此页按演示数据展示配量。实际按食量和忌口调整。","variant":"body","styles":{"font-size":"30vp","font-weight":"normal","color":"#343A40","line-height":1.5,"text-align":"left"}},
     {"id":"modalbody","component":"Column","children":["mh","mt"],"styles":{"gap":"12vp","padding":"24vp 24vp 24vp 24vp"}},
     {"id":"focus","component":"Modal","trigger":"trigger","content":"modalbody"}
   ]

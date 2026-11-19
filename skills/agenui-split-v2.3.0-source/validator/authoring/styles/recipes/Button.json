@@ -41,7 +41,7 @@
       "text": "按当前条件生成清单",
       "variant": "body",
       "styles": {
-        "font-size": "16vp",
+        "font-size": "30vp",
         "font-weight": "bold",
         "color": "#FFFFFF",
         "line-height": 1.3,
