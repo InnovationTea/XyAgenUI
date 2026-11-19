@@ -1,0 +1,81 @@
+{
+  "component": "Modal",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "次要说明，不隐藏核心结果。",
+  "dynamicContract": "通过官方 trigger/content 打开；关闭、焦点和遮罩由宿主。",
+  "boundary": "示例以 Text 作为 trigger，触发效果需目标端验证；不编造 noop/openModal 动作；弹层外壳圆角由宿主主题负责。",
+  "focus": {
+    "id": "focus",
+    "component": "Modal",
+    "trigger": "trigger",
+    "content": "modalbody"
+  },
+  "dependencies": [
+    {
+      "id": "trigger",
+      "component": "Text",
+      "text": "查看用量说明",
+      "variant": "body",
+      "styles": {
+        "font-size": "16vp",
+        "font-weight": "normal",
+        "color": "#0A59F7",
+        "line-height": 1.5,
+        "line-clamp": 0,
+        "text-align": "left",
+        "text-decoration-line": "underline",
+        "min-height": "48vp"
+      }
+    },
+    {
+      "id": "mh",
+      "component": "Text",
+      "text": "用量说明",
+      "variant": "h3",
+      "styles": {
+        "font-size": "20vp",
+        "font-weight": "bold",
+        "color": "#16181D",
+        "line-height": 1.3,
+        "line-clamp": 0,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "mt",
+      "component": "Text",
+      "text": "此页按演示数据展示配量。实际按食量和忌口调整。",
+      "variant": "body",
+      "styles": {
+        "font-size": "16vp",
+        "font-weight": "normal",
+        "color": "#343A40",
+        "line-height": 1.5,
+        "line-clamp": 0,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "modalbody",
+      "component": "Column",
+      "children": [
+        "mh",
+        "mt"
+      ],
+      "styles": {
+        "gap": "12vp",
+        "padding": "24vp 24vp 24vp 24vp"
+      }
+    }
+  ],
+  "initialData": {},
+  "variants": {}
+}

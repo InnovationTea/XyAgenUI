@@ -1,0 +1,26 @@
+{
+  "component": "Divider",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "区分相邻信息组，优先用留白。",
+  "dynamicContract": "无本地状态。",
+  "boundary": "不假设 background-color 能改变原生线色；线色由主题/已验收能力控制。",
+  "focus": {
+    "id": "focus",
+    "component": "Divider",
+    "axis": "horizontal",
+    "styles": {
+      "margin": "8vp 0vp 8vp 0vp"
+    }
+  },
+  "dependencies": [],
+  "initialData": {},
+  "variants": {}
+}

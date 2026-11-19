@@ -1,0 +1,277 @@
+{
+  "profile": {
+    "id": "harmony-vp",
+    "version": "2.0.1",
+    "theme": "light",
+    "density": "compact",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "textOverflowPolicy": "omit-by-default-summary-3",
+    "source": "HarmonyOS_AGenUI_视觉标准与组件模板.zip",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "unitContractConfirmed": true,
+    "confirmedBy": "user",
+    "confirmedOn": "2026-11-18",
+    "nativeVisualVerified": false,
+    "note": "端侧已确认支持vp；无单位尺寸字符串默认vp。默认设计值直接输出，不作px或屏幕密度换算。真机布局和系统大字体仍独立验收。"
+  },
+  "components": [
+    {
+      "component": "AudioPlayer",
+      "enabled": true,
+      "file": "templates/AudioPlayer.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": true
+    },
+    {
+      "component": "Button",
+      "enabled": true,
+      "file": "templates/Button.json",
+      "variants": [
+        "default",
+        "secondary",
+        "text"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Card",
+      "enabled": true,
+      "file": "templates/Card.json",
+      "variants": [
+        "default",
+        "result",
+        "spacious",
+        "glass"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Carousel",
+      "enabled": true,
+      "file": "templates/Carousel.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": true
+    },
+    {
+      "component": "Chart",
+      "enabled": false,
+      "file": "templates/Chart.json",
+      "variants": [
+        "default",
+        "line",
+        "donut"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "CheckBox",
+      "enabled": true,
+      "file": "templates/CheckBox.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "ChoicePicker",
+      "enabled": true,
+      "file": "templates/ChoicePicker.json",
+      "variants": [
+        "default",
+        "single",
+        "checkbox"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Column",
+      "enabled": true,
+      "file": "templates/Column.json",
+      "variants": [
+        "default",
+        "tight",
+        "section",
+        "root"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "DateTimeInput",
+      "enabled": true,
+      "file": "templates/DateTimeInput.json",
+      "variants": [
+        "default",
+        "dateOnly",
+        "timeOnly"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Divider",
+      "enabled": true,
+      "file": "templates/Divider.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Icon",
+      "enabled": true,
+      "file": "templates/Icon.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Image",
+      "enabled": true,
+      "file": "templates/Image.json",
+      "variants": [
+        "default",
+        "thumbnail",
+        "avatar"
+      ],
+      "resourceRequired": true
+    },
+    {
+      "component": "List",
+      "enabled": true,
+      "file": "templates/List.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Lottie",
+      "enabled": false,
+      "file": "templates/Lottie.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": true
+    },
+    {
+      "component": "Markdown",
+      "enabled": false,
+      "file": "templates/Markdown.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Modal",
+      "enabled": true,
+      "file": "templates/Modal.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "RichText",
+      "enabled": true,
+      "file": "templates/RichText.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Row",
+      "enabled": true,
+      "file": "templates/Row.json",
+      "variants": [
+        "default",
+        "titleGroup",
+        "actions"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Slider",
+      "enabled": true,
+      "file": "templates/Slider.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Table",
+      "enabled": true,
+      "file": "templates/Table.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Tabs",
+      "enabled": true,
+      "file": "templates/Tabs.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Text",
+      "enabled": true,
+      "file": "templates/Text.json",
+      "variants": [
+        "default",
+        "page",
+        "group",
+        "section",
+        "subheading",
+        "body",
+        "hint",
+        "caption",
+        "metric",
+        "button",
+        "summary"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "TextField",
+      "enabled": true,
+      "file": "templates/TextField.json",
+      "variants": [
+        "default",
+        "multiline",
+        "numberDraft",
+        "password"
+      ],
+      "resourceRequired": false
+    },
+    {
+      "component": "Video",
+      "enabled": true,
+      "file": "templates/Video.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": true
+    },
+    {
+      "component": "Web",
+      "enabled": true,
+      "file": "templates/Web.json",
+      "variants": [
+        "default"
+      ],
+      "resourceRequired": false
+    }
+  ]
+}

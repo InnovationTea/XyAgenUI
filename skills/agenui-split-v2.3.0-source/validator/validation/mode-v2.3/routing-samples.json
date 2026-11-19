@@ -1,0 +1,42 @@
+[
+  {
+    "id": "party-aa",
+    "query": "聚餐计划里经常写的 AA 制是什么意思？",
+    "observedMode": "NO_UI",
+    "rawText": "聚餐说的“AA 制”通常指大家平摊餐费。比如 4 个人一共吃了 240 元，每人就付 60 元。\n"
+  },
+  {
+    "id": "party-budget",
+    "query": "周末聚餐有 4 人，饮料按每人 8–20 元预算，默认 12 元，允许调小数。我想边调边看到总额，并能单独勾选饮料是否已买。",
+    "observedMode": "UI_PRIMARY",
+    "rawFile": "party-budget.ndjson",
+    "acceptedMessages": 5,
+    "componentBatches": 2
+  },
+  {
+    "id": "party-reserve",
+    "query": "比较甲店和乙店今晚空桌情况，并替我订一家。现在我只知道这两个店名，没有其余资料。",
+    "observedMode": "NO_UI",
+    "rawText": "我无法实时查看甲店和乙店今晚的空桌，也不能代你订位。你可以按同一到店时间和人数问两家店：“今晚 __ 点，__ 位，有桌可订吗？”把两家的答复发来，我可以帮你比较；你再直接向选中的店确认预订。\n"
+  },
+  {
+    "id": "room-choice",
+    "query": "聚会活动室有两个：松厅容纳 8 人、费用 120 元、可自带饮料；竹厅容纳 12 人、费用 160 元、不可带外饮。帮我比较，然后我想点选一个，把当时的选择发给小艺。",
+    "observedMode": "UI_PRIMARY",
+    "rawFile": "room-choice.ndjson",
+    "acceptedMessages": 4,
+    "componentBatches": 2
+  },
+  {
+    "id": "room-translate",
+    "query": "/agenUI 把“聚会活动室预订计划”翻成英文，只给译文。",
+    "observedMode": "NO_UI",
+    "rawText": "Party Room Booking Plan\n"
+  },
+  {
+    "id": "room-fixed",
+    "query": "活动室 120 元，4 个人平摊，每人多少？",
+    "observedMode": "NO_UI",
+    "rawText": "每人 30 元（120 ÷ 4 = 30）。\n"
+  }
+]

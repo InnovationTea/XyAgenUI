@@ -1,0 +1,28 @@
+{
+  "component": "RichText",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "必要的短富文本段落。",
+  "dynamicContract": "可绑定 HTML 内容；链接只在需要时启用。",
+  "boundary": "不写 Text 的 font-size/line-clamp；原生默认字号按宿主主题校准。HTML 不等于完整网页脚本。",
+  "focus": {
+    "id": "focus",
+    "component": "RichText",
+    "text": "<p><b>准备提醒</b></p><p>先确认人数与忌口，再确定采购份量。</p>",
+    "variant": "body",
+    "linksEnable": false,
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [],
+  "initialData": {},
+  "variants": {}
+}

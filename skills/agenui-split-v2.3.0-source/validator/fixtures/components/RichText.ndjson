@@ -1,0 +1,2 @@
+{"version":"v0.9","createSurface":{"surfaceId":"sample_richtext_default","catalogId":"https://a2ui.org/specification/v0_9/standard_catalog.json"}}
+{"version":"v0.9","updateComponents":{"surfaceId":"sample_richtext_default","components":[{"id":"focus","component":"RichText","text":"<p><b>准备提醒</b></p><p>先确认人数与忌口，再确定采购份量。</p>","variant":"body","linksEnable":false,"styles":{"width":"100%"}},{"id":"root","component":"Column","children":["focus"],"styles":{"padding":"16vp","gap":"16vp","background-color":"#F1F3F5","border-radius":"20vp"}}]}}

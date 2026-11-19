@@ -1,0 +1,8 @@
+{
+  "formatVersion": 1,
+  "protocolVersion": "v0.9",
+  "catalogId": "https://a2ui.org/specification/v0_9/standard_catalog.json",
+  "effectiveCatalogSha256": "ce6847edb10d810cf106c038166c919478c8138834c02826d8047f469e0fb371",
+  "profileSha256": "0173c91b33b1d72fe958e6b514a5a8389ffc36317af481c34dcf47e5b7128aeb",
+  "contractSha256": "727942e3f3d9d2b7a9599d5215398326c8501f9ddd985cef0a9c69ed802b232a"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AGenUI 富交互回复"
+  short_description: "先判断文字或交互界面；需要 UI 时按组件模板逐区输出"
+  default_prompt: "使用 agenui-reply，根据这次实际要表达的内容决定是否生成 UI；文字足够就直接回答，需要 UI 再按宿主能力流式输出。"

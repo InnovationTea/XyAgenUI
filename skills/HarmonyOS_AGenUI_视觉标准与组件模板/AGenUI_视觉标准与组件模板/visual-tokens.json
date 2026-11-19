@@ -1,0 +1,167 @@
+{
+  "version": "draft-1.1-vp",
+  "type": "project-design-tokens-not-A2UI-theme-schema",
+  "designAuthority": "HarmonyOS 手机设计层级＋AGenUI 能力映射；下列组合为项目方案",
+  "colors": {
+    "light": {
+      "page": "#F1F3F5",
+      "surface": "#FFFFFF",
+      "primary": "#16181D",
+      "secondary": "#343A40",
+      "muted": "#555D66",
+      "accent": "#0A59F7",
+      "tint": "#EEF4FF",
+      "divider": "#D5DAE0",
+      "inputBorder": "#7A838F",
+      "onAction": "#FFFFFF",
+      "action": "#16181D",
+      "error": "#B42318",
+      "success": "#027A48",
+      "warning": "#9A6700"
+    },
+    "dark": {
+      "page": "#111315",
+      "surface": "#202224",
+      "primary": "#F4F5F6",
+      "secondary": "#D5D9DF",
+      "muted": "#AEB6C2",
+      "accent": "#8CB6FF",
+      "tint": "#182B48",
+      "divider": "#3D444D",
+      "inputBorder": "#838D9B",
+      "onAction": "#16181D",
+      "action": "#F4F5F6",
+      "error": "#FFB4AB",
+      "success": "#76D6A4",
+      "warning": "#EFC46A"
+    }
+  },
+  "typography": {
+    "page": {
+      "logicalSize": 30,
+      "designUnit": "vp",
+      "fontScalingNote": "默认字体比例下的逻辑字号；系统大字体和无障碍缩放由宿主实现并单独验收",
+      "weightProject": "bold",
+      "colorRole": "primary",
+      "a2uiVariant": "h1"
+    },
+    "group": {
+      "logicalSize": 24,
+      "designUnit": "vp",
+      "fontScalingNote": "默认字体比例下的逻辑字号；系统大字体和无障碍缩放由宿主实现并单独验收",
+      "weightProject": "bold",
+      "colorRole": "primary",
+      "a2uiVariant": "h2"
+    },
+    "section": {
+      "logicalSize": 20,
+      "designUnit": "vp",
+      "fontScalingNote": "默认字体比例下的逻辑字号；系统大字体和无障碍缩放由宿主实现并单独验收",
+      "weightProject": "bold",
+      "colorRole": "primary",
+      "a2uiVariant": "h3"
+    },
+    "subheading": {
+      "logicalSize": 18,
+      "designUnit": "vp",
+      "fontScalingNote": "默认字体比例下的逻辑字号；系统大字体和无障碍缩放由宿主实现并单独验收",
+      "weightProject": "bold",
+      "colorRole": "primary",
+      "a2uiVariant": "h4"
+    },
+    "body": {
+      "logicalSize": 16,
+      "designUnit": "vp",
+      "fontScalingNote": "默认字体比例下的逻辑字号；系统大字体和无障碍缩放由宿主实现并单独验收",
+      "weightProject": "normal",
+      "colorRole": "secondary",
+      "a2uiVariant": "body"
+    },
+    "hint": {
+      "logicalSize": 14,
+      "designUnit": "vp",
+      "fontScalingNote": "默认字体比例下的逻辑字号；系统大字体和无障碍缩放由宿主实现并单独验收",
+      "weightProject": "normal",
+      "colorRole": "muted",
+      "a2uiVariant": "body"
+    },
+    "caption": {
+      "logicalSize": 12,
+      "designUnit": "vp",
+      "fontScalingNote": "默认字体比例下的逻辑字号；系统大字体和无障碍缩放由宿主实现并单独验收",
+      "weightProject": "normal",
+      "colorRole": "muted",
+      "a2uiVariant": "caption"
+    },
+    "metric": {
+      "logicalSize": 38,
+      "designUnit": "vp",
+      "fontScalingNote": "默认字体比例下的逻辑字号；系统大字体和无障碍缩放由宿主实现并单独验收",
+      "weightProject": "bold",
+      "colorRole": "primary",
+      "a2uiVariant": "h2"
+    },
+    "button": {
+      "logicalSize": 16,
+      "designUnit": "vp",
+      "fontScalingNote": "默认字体比例下的逻辑字号；系统大字体和无障碍缩放由宿主实现并单独验收",
+      "weightProject": "bold",
+      "colorRole": "onAction",
+      "a2uiVariant": "body"
+    }
+  },
+  "spacingLogical": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32
+  ],
+  "radiusLogical": {
+    "tag": 4,
+    "image": 8,
+    "card": 16,
+    "button": 20,
+    "modalHost": 32
+  },
+  "density": {
+    "compact": {
+      "pageInset": 16,
+      "cardInset": 16,
+      "groupGap": 12,
+      "sectionGap": 16
+    },
+    "spacious": {
+      "pageInset": 24,
+      "cardInset": 24,
+      "groupGap": 16,
+      "sectionGap": 24
+    }
+  },
+  "unitMapping": {
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "preferredOutput": "explicit-vp-string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；项目宿主约定优先于上游px描述",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false,
+    "warning": "已撤销旧2倍输出候选；默认直接输出设计逻辑值。此确认不代表真机视觉或系统大字体验收完成；显式项目缩放参数不是单位换算。"
+  },
+  "officialAGenUIFontReferenceOnly": {
+    "globalHeading": "40px",
+    "sectionHeading": "36px",
+    "body": "32px",
+    "small": "28px",
+    "tagFootnote": "24px"
+  },
+  "overrides": {
+    "fontScalePolicy": "本项目选用鸿蒙手机语义层级，不机械沿用 AGenUI Skill 固定五档字号；不是二者天然等价。",
+    "pageStructure": "自由组合组件；不采用摘要卡固定骨架覆盖所有任务。",
+    "online": "绑定前初始化，逐区域输出；不复制官方离线先结构后数据写文件流程。"
+  }
+}

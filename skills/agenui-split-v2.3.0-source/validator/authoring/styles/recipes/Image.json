@@ -1,0 +1,60 @@
+{
+  "component": "Image",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "有信息作用的封面、缩略图或头像。",
+  "dynamicContract": "资源加载与失败表现由 ImageLoader/宿主提供。",
+  "boundary": "显式宽度；不拉伸、不造图；摘要卡不默认大横幅。",
+  "focus": {
+    "id": "focus",
+    "component": "Image",
+    "url": {
+      "path": "/assets/cover"
+    },
+    "description": "火锅聚餐配图：资源由宿主提供",
+    "fit": "cover",
+    "variant": "mediumFeature",
+    "styles": {
+      "width": "100%",
+      "aspect-ratio": "3/2",
+      "border-radius": "8vp"
+    }
+  },
+  "dependencies": [],
+  "initialData": {
+    "assets": {
+      "cover": "res://template_cover"
+    }
+  },
+  "variants": {
+    "thumbnail": {
+      "focus": {
+        "variant": "icon",
+        "styles": {
+          "width": "64vp",
+          "height": "64vp",
+          "aspect-ratio": "1",
+          "border-radius": "8vp"
+        }
+      }
+    },
+    "avatar": {
+      "focus": {
+        "variant": "avatar",
+        "styles": {
+          "width": "40vp",
+          "height": "40vp",
+          "aspect-ratio": "1",
+          "border-radius": "20vp"
+        }
+      }
+    }
+  }
+}

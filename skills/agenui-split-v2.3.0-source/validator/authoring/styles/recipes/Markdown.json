@@ -1,0 +1,26 @@
+{
+  "component": "Markdown",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "代码、列表等结构较复杂的说明。",
+  "dynamicContract": "content 可由已允许的数据更新变化。",
+  "boundary": "官方扩展默认关闭；内部 h1/h2/代码色须渲染器主题适配，不能通过 Text.styles 冒充控制。",
+  "focus": {
+    "id": "focus",
+    "component": "Markdown",
+    "content": "### 准备事项\n\n- 确认人数与忌口\n- 按到场人数更新用量\n- 分批采购\n\n**说明：** 本内容用于样式联调。",
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [],
+  "initialData": {},
+  "variants": {}
+}

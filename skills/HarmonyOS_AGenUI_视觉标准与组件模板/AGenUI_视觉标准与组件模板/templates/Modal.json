@@ -1,0 +1,92 @@
+{
+  "templateId": "Modal.harmony-minimal.v1",
+  "component": "Modal",
+  "status": "candidate-no-device-test",
+  "authority": "项目设计模板，不是官方新增组件或 A2UI 字段",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；属于项目宿主约定",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "scene": "次要说明，不隐藏核心结果。",
+  "dynamicContract": "通过官方 trigger/content 打开；关闭、焦点和遮罩由宿主。",
+  "boundary": "示例以 Text 作为 trigger，触发效果需目标端验证；不编造 noop/openModal 动作；弹层外壳圆角由宿主主题负责。",
+  "requirements": [],
+  "mutableFields": [
+    "id",
+    "text/content/label：仅该组件支持的字段",
+    "data binding / child IDs / action：保持契约"
+  ],
+  "stylePolicy": "固定选中变体的样式；变化的是内容、绑定与合法引用。整体换密度或颜色方案，禁止随机单项漂移。",
+  "focus": {
+    "id": "focus",
+    "component": "Modal",
+    "trigger": "trigger",
+    "content": "modalbody"
+  },
+  "dependencies": [
+    {
+      "id": "trigger",
+      "component": "Text",
+      "text": "查看用量说明",
+      "variant": "body",
+      "styles": {
+        "font-size": "16vp",
+        "font-weight": "normal",
+        "color": "#0A59F7",
+        "line-height": 1.5,
+        "text-align": "left",
+        "text-decoration-line": "underline",
+        "min-height": "48vp"
+      }
+    },
+    {
+      "id": "mh",
+      "component": "Text",
+      "text": "用量说明",
+      "variant": "h3",
+      "styles": {
+        "font-size": "20vp",
+        "font-weight": "bold",
+        "color": "#16181D",
+        "line-height": 1.3,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "mt",
+      "component": "Text",
+      "text": "此页按演示数据展示配量。实际按食量和忌口调整。",
+      "variant": "body",
+      "styles": {
+        "font-size": "16vp",
+        "font-weight": "normal",
+        "color": "#343A40",
+        "line-height": 1.5,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "modalbody",
+      "component": "Column",
+      "children": [
+        "mh",
+        "mt"
+      ],
+      "styles": {
+        "gap": "12vp",
+        "padding": "24vp 24vp 24vp 24vp"
+      }
+    }
+  ],
+  "initialData": {},
+  "variants": {},
+  "exampleFile": "../examples/harmony-candidate/Modal.jsonl"
+}

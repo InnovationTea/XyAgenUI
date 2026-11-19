@@ -1,0 +1,31 @@
+{
+  "type": "Skill visual-reference pack",
+  "originalSkillModified": false,
+  "sourceCatalogSha256": "2849d6e9e522ea9189744f80e9fb1fb65264ee9de79a7f779a35f653473c2062",
+  "pinnedOfficialCommit": "5c347a8352c1afff31879bcf5af4101df4f94137",
+  "protocol": "v0.9",
+  "catalogId": "https://a2ui.org/specification/v0_9/standard_catalog.json",
+  "templates": 25,
+  "baseComponents": 22,
+  "conditionalComponents": [
+    "Chart",
+    "Markdown",
+    "Lottie"
+  ],
+  "sampleScale": {
+    "layout": 1.0,
+    "font": 1.0
+  },
+  "unitProfile": {
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户确认当前端侧约定；不是上游官方vp能力声明",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "sourceDate": "2026-11-17",
+  "updatedDate": "2026-11-18",
+  "runtimeTests": false
+}

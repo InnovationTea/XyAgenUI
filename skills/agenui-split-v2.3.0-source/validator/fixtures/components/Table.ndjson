@@ -1,0 +1,2 @@
+{"version":"v0.9","createSurface":{"surfaceId":"sample_table_default","catalogId":"https://a2ui.org/specification/v0_9/standard_catalog.json"}}
+{"version":"v0.9","updateComponents":{"surfaceId":"sample_table_default","components":[{"id":"focus","component":"Table","columns":["项目","3 人演示量"],"rows":[["肉类合计","750 g"],["蔬菜","600 g"],["饮料","1.5 L"]],"styles":{"width":"100%"}},{"id":"root","component":"Column","children":["focus"],"styles":{"padding":"16vp","gap":"16vp","background-color":"#F1F3F5","border-radius":"20vp"}}]}}

@@ -1,0 +1,20 @@
+{
+  "modelFiles": 22,
+  "internalLinks": 57,
+  "markdownAnchors": 27,
+  "componentBooklets": 6,
+  "componentIndexTargets": 25,
+  "components": 25,
+  "templateNames": 56,
+  "uniqueTemplateBlocks": 55,
+  "defaultRejects": [
+    "Chart",
+    "Lottie",
+    "Markdown"
+  ],
+  "functionSignatures": 18,
+  "functionExamplesInRealFields": 4,
+  "completeStreams": 3,
+  "protocolExampleChecked": true,
+  "contractSha256": "727942e3f3d9d2b7a9599d5215398326c8501f9ddd985cef0a9c69ed802b232a"
+}

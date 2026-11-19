@@ -1,0 +1,147 @@
+[
+  {
+    "version": "v0.9",
+    "createSurface": {
+      "surfaceId": "party-planner",
+      "catalogId": "https://a2ui.org/specification/v0_9/standard_catalog.json"
+    }
+  },
+  {
+    "version": "v0.9",
+    "updateDataModel": {
+      "surfaceId": "party-planner",
+      "path": "/form/people",
+      "value": 3
+    }
+  },
+  {
+    "version": "v0.9",
+    "updateComponents": {
+      "surfaceId": "party-planner",
+      "components": [
+        {
+          "id": "people_label",
+          "component": "Text",
+          "text": "参数联动演示：按餐量估算，非已确认人数"
+        },
+        {
+          "id": "people_input",
+          "component": "Slider",
+          "label": "预计餐量（成人份，允许小数）",
+          "min": 1,
+          "max": 12,
+          "value": {
+            "path": "/form/people"
+          }
+        },
+        {
+          "id": "people_result",
+          "component": "Text",
+          "text": {
+            "call": "formatNumber",
+            "returnType": "string",
+            "args": {
+              "value": {
+                "call": "calculateNumber",
+                "returnType": "number",
+                "args": {
+                  "left": {
+                    "path": "/form/people"
+                  },
+                  "right": 0,
+                  "operator": "add"
+                }
+              },
+              "decimals": 1,
+              "grouping": false
+            }
+          }
+        },
+        {
+          "id": "people_body",
+          "component": "Column",
+          "children": [
+            "people_label",
+            "people_input",
+            "people_result"
+          ]
+        },
+        {
+          "id": "people_card",
+          "component": "Card",
+          "child": "people_body"
+        },
+        {
+          "id": "root",
+          "component": "Column",
+          "children": [
+            "people_card"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "version": "v0.9",
+    "updateDataModel": {
+      "surfaceId": "party-planner",
+      "path": "/form/route",
+      "value": [
+        "west-lake"
+      ]
+    }
+  },
+  {
+    "version": "v0.9",
+    "updateComponents": {
+      "surfaceId": "party-planner",
+      "components": [
+        {
+          "id": "route_label",
+          "component": "Text",
+          "text": "选择路线"
+        },
+        {
+          "id": "route_input",
+          "component": "ChoicePicker",
+          "label": "路线",
+          "variant": "mutuallyExclusive",
+          "options": [
+            {
+              "label": "西湖轻松线",
+              "value": "west-lake"
+            },
+            {
+              "label": "运河漫步线",
+              "value": "canal"
+            }
+          ],
+          "value": {
+            "path": "/form/route"
+          }
+        },
+        {
+          "id": "route_body",
+          "component": "Column",
+          "children": [
+            "route_label",
+            "route_input"
+          ]
+        },
+        {
+          "id": "route_card",
+          "component": "Card",
+          "child": "route_body"
+        },
+        {
+          "id": "root",
+          "component": "Column",
+          "children": [
+            "people_card",
+            "route_card"
+          ]
+        }
+      ]
+    }
+  }
+]

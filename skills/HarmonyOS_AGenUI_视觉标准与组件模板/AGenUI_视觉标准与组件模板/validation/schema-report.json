@@ -1,0 +1,433 @@
+{
+  "time": "2026-11-18T02:27:30.895Z",
+  "basis": "指定 agenui-reply 的 loadCatalog(profile) 有效 Schema，包含用户确认的项目 vp 单位 overlay；上游 vendor 原文保持不变",
+  "checks": 56,
+  "passed": 56,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Text",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Text/page",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Text/group",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Text/section",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Text/subheading",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Text/body",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Text/hint",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Text/caption",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Text/metric",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Text/button",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Image",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Image/thumbnail",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Image/avatar",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Icon",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Divider",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Video",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "AudioPlayer",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Row",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Row/titleGroup",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Row/actions",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Column",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Column/tight",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Column/section",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Card",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Card/result",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Card/spacious",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Card/glass",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "List",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Tabs",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Modal",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Button",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Button/secondary",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Button/text",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "TextField",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "TextField/multiline",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "TextField/numberDraft",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "TextField/password",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "CheckBox",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Slider",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "ChoicePicker",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "ChoicePicker/single",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "ChoicePicker/checkbox",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "DateTimeInput",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "DateTimeInput/dateOnly",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "DateTimeInput/timeOnly",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Table",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Carousel",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Web",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "RichText",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Chart",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Chart/line",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Chart/donut",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Markdown",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "Lottie",
+      "valid": true,
+      "messages": 3,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "hotpot_composition.ndjson",
+      "valid": true,
+      "messages": 5,
+      "diagnostics": [],
+      "extra": []
+    },
+    {
+      "name": "unit_calibration.ndjson",
+      "valid": true,
+      "messages": 2,
+      "diagnostics": [],
+      "extra": []
+    }
+  ],
+  "profileGuards": [
+    {
+      "name": "Chart",
+      "defaultProfileRejects": true
+    },
+    {
+      "name": "Markdown",
+      "defaultProfileRejects": true
+    },
+    {
+      "name": "Lottie",
+      "defaultProfileRejects": true
+    }
+  ],
+  "unitContract": {
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "semanticsConfirmed": true,
+    "basis": "用户确认当前端侧支持vp，尺寸字符串无单位默认vp；不是官方上游能力声明"
+  },
+  "untested": [
+    "HarmonyOS SDK 真机视觉",
+    "vp与无单位尺寸字符串的真机显示等价性",
+    "系统大字体与无障碍缩放",
+    "原生控件内主题覆盖",
+    "鼠标/触控/键盘事件",
+    "媒体资源加载（含example.invalid离线fixture替换后的真实资源）",
+    "动作实际发送",
+    "完整线上流式恢复",
+    "外部网页视觉"
+  ]
+}

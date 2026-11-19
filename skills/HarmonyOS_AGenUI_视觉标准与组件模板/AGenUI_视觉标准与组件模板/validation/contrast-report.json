@@ -1,0 +1,117 @@
+{
+  "method": "sRGB relative luminance; only listed opaque color pairs; not native screenshots, overlays or charts",
+  "results": [
+    {
+      "theme": "light",
+      "foreground": "primary",
+      "background": "surface",
+      "ratio": 17.759,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "light",
+      "foreground": "secondary",
+      "background": "surface",
+      "ratio": 11.505,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "light",
+      "foreground": "muted",
+      "background": "surface",
+      "ratio": 6.68,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "light",
+      "foreground": "accent",
+      "background": "surface",
+      "ratio": 5.548,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "light",
+      "foreground": "onAction",
+      "background": "action",
+      "ratio": 17.759,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "light",
+      "foreground": "error",
+      "background": "surface",
+      "ratio": 6.574,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "light",
+      "foreground": "inputBorder",
+      "background": "surface",
+      "ratio": 3.839,
+      "target": 3,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "primary",
+      "background": "surface",
+      "ratio": 14.622,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "secondary",
+      "background": "surface",
+      "ratio": 11.264,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "muted",
+      "background": "surface",
+      "ratio": 7.806,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "accent",
+      "background": "surface",
+      "ratio": 7.791,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "onAction",
+      "background": "action",
+      "ratio": 16.269,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "error",
+      "background": "surface",
+      "ratio": 9.401,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "inputBorder",
+      "background": "surface",
+      "ratio": 4.749,
+      "target": 3,
+      "pass": true
+    }
+  ]
+}
