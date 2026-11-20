@@ -51,7 +51,7 @@ try{
  const cp=(a,b)=>{const dst=path.join(compact,b);fs.mkdirSync(path.dirname(dst),{recursive:true});fs.copyFileSync(path.join(stage,a),dst);};
  cp('generated/contract-stamp.json','generated/contract-stamp.json');
  cp('capabilities/profiles/default.json','references/host-profile.json');
- for(const [folder,name] of [['golden','portion-planner'],['golden','concert-append'],['snippets','text-field-number']])
+ for(const [folder,name] of [['golden','portion-planner'],['golden','moon-mars'],['golden','concert-append'],['snippets','text-field-number']])
    cp('examples/'+folder+'/'+name+'.ndjson','references/examples/'+name+'.ndjson');
  const files=walk(compact).sort();
  for(const f of files)if(!managed(f))throw Error('精简导出器不应生成此路径：'+f);
