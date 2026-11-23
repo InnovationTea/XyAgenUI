@@ -1,0 +1,57 @@
+{
+  "templateId": "Table.harmony-minimal.v1",
+  "component": "Table",
+  "status": "candidate-no-device-test",
+  "authority": "项目设计模板，不是官方新增组件或 A2UI 字段",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；属于项目宿主约定",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "scene": "少列对比或紧凑静态数据清单。",
+  "dynamicContract": "本基线 columns/rows 是静态数组，变更需结构更新，不假装路径绑定。",
+  "boundary": "默认建议 2–4 列；单元格不是任意组件；内部字号、单元格样式未开放时由主题决定。",
+  "requirements": [],
+  "mutableFields": [
+    "id",
+    "text/content/label：仅该组件支持的字段",
+    "data binding / child IDs / action：保持契约"
+  ],
+  "stylePolicy": "固定选中变体的样式；变化的是内容、绑定与合法引用。整体换密度或颜色方案，禁止随机单项漂移。",
+  "focus": {
+    "id": "focus",
+    "component": "Table",
+    "columns": [
+      "项目",
+      "3 人演示量"
+    ],
+    "rows": [
+      [
+        "肉类合计",
+        "750 g"
+      ],
+      [
+        "蔬菜",
+        "600 g"
+      ],
+      [
+        "饮料",
+        "1.5 L"
+      ]
+    ],
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [],
+  "initialData": {},
+  "variants": {},
+  "exampleFile": "../examples/harmony-candidate/Table.jsonl"
+}

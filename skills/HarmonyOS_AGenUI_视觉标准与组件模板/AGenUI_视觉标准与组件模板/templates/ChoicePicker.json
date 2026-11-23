@@ -1,0 +1,74 @@
+{
+  "templateId": "ChoicePicker.harmony-minimal.v1",
+  "component": "ChoicePicker",
+  "status": "candidate-no-device-test",
+  "authority": "项目设计模板，不是官方新增组件或 A2UI 字段",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；属于项目宿主约定",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "scene": "有限选项、清楚取舍；标签短，业务 value 稳定。",
+  "dynamicContract": "单选和多选都写 string[]。",
+  "boundary": "不支持选项私有样式时不得强加；无特殊需求与其他项互斥是业务规则，不是控件自动保证。",
+  "requirements": [],
+  "mutableFields": [
+    "id",
+    "text/content/label：仅该组件支持的字段",
+    "data binding / child IDs / action：保持契约"
+  ],
+  "stylePolicy": "固定选中变体的样式；变化的是内容、绑定与合法引用。整体换密度或颜色方案，禁止随机单项漂移。",
+  "focus": {
+    "id": "focus",
+    "component": "ChoicePicker",
+    "label": "需要照顾的口味",
+    "variant": "multipleSelection",
+    "displayStyle": "chips",
+    "filterable": false,
+    "options": [
+      {
+        "label": "🥬 多些蔬菜",
+        "value": "vegetables"
+      },
+      {
+        "label": "🍲 清淡锅底",
+        "value": "mild"
+      }
+    ],
+    "value": {
+      "path": "/form/preferences"
+    },
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [],
+  "initialData": {
+    "form": {
+      "preferences": [
+        "mild"
+      ]
+    }
+  },
+  "variants": {
+    "single": {
+      "focus": {
+        "variant": "mutuallyExclusive",
+        "displayStyle": "checkbox"
+      }
+    },
+    "checkbox": {
+      "focus": {
+        "displayStyle": "checkbox"
+      }
+    }
+  },
+  "exampleFile": "../examples/harmony-candidate/ChoicePicker.jsonl"
+}

@@ -1,0 +1,68 @@
+{
+  "version": "1.0.0",
+  "source": "继承最新上传包的宿主兼容层；其历史来源标识为 AGenUI_Skill_PRD/sources/hotpot.original.txt，不是构建依赖路径。",
+  "description": "PRD 明确提供的可渲染样例专用样式，只扩展列出的组件和键。需要宿主具有同样的样式能力。",
+  "components": {
+    "ChoicePicker": {
+      "checkbox-background-color-selected": {
+        "type": "string",
+        "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$"
+      },
+      "checkbox-border-color": {
+        "type": "string",
+        "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$"
+      },
+      "choice-gap": {
+        "type": "string",
+        "pattern": "^\\d+(\\.\\d+)?(?:vp|px)?$",
+        "description": "项目宿主长度字符串：vp或无单位（默认vp）；px仅兼容历史输入。"
+      },
+      "checkbox-item-padding": {
+        "type": "string",
+        "pattern": "^\\d+(\\.\\d+)?(?:vp|px)?$",
+        "description": "项目宿主长度字符串：vp或无单位（默认vp）；px仅兼容历史输入。"
+      },
+      "checkbox-margin": {
+        "type": "string",
+        "pattern": "^\\d+(\\.\\d+)?(?:vp|px)?$",
+        "description": "项目宿主长度字符串：vp或无单位（默认vp）；px仅兼容历史输入。"
+      },
+      "text-margin": {
+        "type": "string",
+        "pattern": "^\\d+(\\.\\d+)?(?:vp|px)?$",
+        "description": "项目宿主长度字符串：vp或无单位（默认vp）；px仅兼容历史输入。"
+      }
+    },
+    "DateTimeInput": {
+      "compact": {
+        "type": "object",
+        "properties": {
+          "corner-radius": {
+            "type": "string",
+            "pattern": "^\\d+(\\.\\d+)?(?:vp|px)?$",
+            "description": "项目宿主长度字符串：vp或无单位（默认vp）；px仅兼容历史输入。"
+          },
+          "height": {
+            "type": "string",
+            "pattern": "^\\d+(\\.\\d+)?(?:vp|px)?$",
+            "description": "项目宿主长度字符串：vp或无单位（默认vp）；px仅兼容历史输入。"
+          },
+          "font-size": {
+            "type": "string",
+            "pattern": "^\\d+(\\.\\d+)?(?:vp|px)?$",
+            "description": "项目宿主长度字符串：vp或无单位（默认vp）；px仅兼容历史输入。"
+          },
+          "selected-background-color": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$"
+          },
+          "selected-text-color": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

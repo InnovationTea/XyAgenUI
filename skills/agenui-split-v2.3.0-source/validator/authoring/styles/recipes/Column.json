@@ -1,0 +1,73 @@
+{
+  "component": "Column",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "页面和区域的主布局。",
+  "dynamicContract": "追加区域时保留原引用；不覆盖已显示输入。",
+  "boundary": "不默认在每个 Column 加背景圆角，避免多层卡片壳。",
+  "focus": {
+    "id": "focus",
+    "component": "Column",
+    "children": [
+      "heading",
+      "paragraph"
+    ],
+    "styles": {
+      "gap": "12vp"
+    }
+  },
+  "dependencies": [
+    {
+      "id": "heading",
+      "component": "Text",
+      "text": "🥘 人数与用量",
+      "variant": "h3",
+      "styles": {
+        "font-size": "36vp",
+        "font-weight": "bold",
+        "color": "#16181D",
+        "line-height": 1.3,
+        "line-clamp": 0,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "paragraph",
+      "component": "Text",
+      "text": "先按 3 人准备，可按到场人数调整。",
+      "variant": "body",
+      "styles": {
+        "font-size": "30vp",
+        "font-weight": "normal",
+        "color": "#343A40",
+        "line-height": 1.5,
+        "line-clamp": 0,
+        "text-align": "left"
+      }
+    }
+  ],
+  "initialData": {},
+  "variants": {
+    "tight": {
+      "focus": {
+        "styles": {
+          "gap": "8vp"
+        }
+      }
+    },
+    "section": {
+      "focus": {
+        "styles": {
+          "gap": "16vp"
+        }
+      }
+    }
+  }
+}

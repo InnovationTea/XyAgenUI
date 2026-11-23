@@ -1,0 +1,71 @@
+{
+  "templateId": "Image.harmony-minimal.v1",
+  "component": "Image",
+  "status": "candidate-no-device-test",
+  "authority": "项目设计模板，不是官方新增组件或 A2UI 字段",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；属于项目宿主约定",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "scene": "有信息作用的封面、缩略图或头像。",
+  "dynamicContract": "资源加载与失败表现由 ImageLoader/宿主提供。",
+  "boundary": "显式宽度；不拉伸、不造图；摘要卡不默认大横幅。",
+  "requirements": [
+    "以已核验可访问的无凭据HTTPS直链替换example.invalid离线fixture；素材未随包提供",
+    "宿主 ImageLoader"
+  ],
+  "mutableFields": [
+    "id",
+    "text/content/label：仅该组件支持的字段",
+    "data binding / child IDs / action：保持契约"
+  ],
+  "stylePolicy": "固定选中变体的样式；变化的是内容、绑定与合法引用。整体换密度或颜色方案，禁止随机单项漂移。",
+  "focus": {
+    "id": "focus",
+    "component": "Image",
+    "url": "https://example.invalid/agenui/template-cover.png",
+    "description": "火锅聚餐配图：离线结构fixture，使用前替换为已核验资源",
+    "fit": "cover",
+    "variant": "mediumFeature",
+    "styles": {
+      "width": "100%",
+      "aspect-ratio": "3/2",
+      "border-radius": "8vp"
+    }
+  },
+  "dependencies": [],
+  "initialData": {},
+  "variants": {
+    "thumbnail": {
+      "focus": {
+        "variant": "icon",
+        "styles": {
+          "width": "64vp",
+          "height": "64vp",
+          "aspect-ratio": "1",
+          "border-radius": "8vp"
+        }
+      }
+    },
+    "avatar": {
+      "focus": {
+        "variant": "avatar",
+        "styles": {
+          "width": "40vp",
+          "height": "40vp",
+          "aspect-ratio": "1",
+          "border-radius": "20vp"
+        }
+      }
+    }
+  },
+  "exampleFile": "../examples/harmony-candidate/Image.jsonl"
+}

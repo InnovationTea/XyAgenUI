@@ -1,0 +1,2545 @@
+{
+  "templates": 25,
+  "variants": 56,
+  "schemaChecks": 280,
+  "passed": 280,
+  "defaultExtensionChecks": [
+    {
+      "component": "Chart",
+      "rejectedByDefault": true
+    },
+    {
+      "component": "Markdown",
+      "rejectedByDefault": true
+    },
+    {
+      "component": "Lottie",
+      "rejectedByDefault": true
+    }
+  ],
+  "deviceTested": false,
+  "mediaFetched": false,
+  "scope": "有效Schema/引用/初值，非真实渲染或美学评分",
+  "checks": [
+    {
+      "component": "AudioPlayer",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "secondary",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "text",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "result",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "spacious",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "glass",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Carousel",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "line",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "donut",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "CheckBox",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "single",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "checkbox",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "tight",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "section",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "root",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "dateOnly",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "timeOnly",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Divider",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Icon",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "thumbnail",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "avatar",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "List",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Lottie",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Markdown",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Modal",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "RichText",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "titleGroup",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "actions",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Slider",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Table",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Tabs",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "page",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "group",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "section",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "subheading",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "body",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "hint",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "caption",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "metric",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "button",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "summary",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "multiline",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "numberDraft",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "password",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Video",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Web",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "AudioPlayer",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "secondary",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "text",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "result",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "spacious",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "glass",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Carousel",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "line",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "donut",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "CheckBox",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "single",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "checkbox",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "tight",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "section",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "root",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "dateOnly",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "timeOnly",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Divider",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Icon",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "thumbnail",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "avatar",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "List",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Lottie",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Markdown",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Modal",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "RichText",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "titleGroup",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "actions",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Slider",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Table",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Tabs",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "page",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "group",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "section",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "subheading",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "body",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "hint",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "caption",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "metric",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "button",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "summary",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "multiline",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "numberDraft",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "password",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Video",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Web",
+      "variant": "default",
+      "theme": "dark",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "AudioPlayer",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "secondary",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "text",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "result",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "spacious",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "glass",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Carousel",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "line",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "donut",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "CheckBox",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "single",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "checkbox",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "tight",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "section",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "root",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "dateOnly",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "timeOnly",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Divider",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Icon",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "thumbnail",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "avatar",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "List",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Lottie",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Markdown",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Modal",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "RichText",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "titleGroup",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "actions",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Slider",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Table",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Tabs",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "page",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "group",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "section",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "subheading",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "body",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "hint",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "caption",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "metric",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "button",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "summary",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "multiline",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "numberDraft",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "password",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Video",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Web",
+      "variant": "default",
+      "theme": "light",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "AudioPlayer",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "secondary",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "text",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "result",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "spacious",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "glass",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Carousel",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "line",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "donut",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "CheckBox",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "single",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "checkbox",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "tight",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "section",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "root",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "dateOnly",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "timeOnly",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Divider",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Icon",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "thumbnail",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "avatar",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "List",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Lottie",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Markdown",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Modal",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "RichText",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "titleGroup",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "actions",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Slider",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Table",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Tabs",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "page",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "group",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "section",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "subheading",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "body",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "hint",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "caption",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "metric",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "button",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "summary",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "multiline",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "numberDraft",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "password",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Video",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "Web",
+      "variant": "default",
+      "theme": "dark",
+      "density": "spacious",
+      "lengthScale": 1,
+      "fontScale": 1,
+      "valid": true
+    },
+    {
+      "component": "AudioPlayer",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "secondary",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Button",
+      "variant": "text",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "result",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "spacious",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Card",
+      "variant": "glass",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Carousel",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "line",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Chart",
+      "variant": "donut",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "CheckBox",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "single",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "ChoicePicker",
+      "variant": "checkbox",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "tight",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "section",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Column",
+      "variant": "root",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "dateOnly",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "DateTimeInput",
+      "variant": "timeOnly",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Divider",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Icon",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "thumbnail",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Image",
+      "variant": "avatar",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "List",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Lottie",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Markdown",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Modal",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "RichText",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "titleGroup",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Row",
+      "variant": "actions",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Slider",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Table",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Tabs",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "page",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "group",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "section",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "subheading",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "body",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "hint",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "caption",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "metric",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "button",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Text",
+      "variant": "summary",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "multiline",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "numberDraft",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "TextField",
+      "variant": "password",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Video",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    },
+    {
+      "component": "Web",
+      "variant": "default",
+      "theme": "light",
+      "density": "compact",
+      "lengthScale": 1,
+      "fontScale": 1.25,
+      "valid": true
+    }
+  ]
+}

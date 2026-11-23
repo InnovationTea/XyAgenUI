@@ -1,0 +1,33 @@
+{
+  "component": "Carousel",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "确有多张相关图片且用户需要浏览。",
+  "dynamicContract": "手动翻页；不自动轮播抢焦点。",
+  "boundary": "只保证图片数组入口；不假设任意组件子树轮播。",
+  "focus": {
+    "id": "focus",
+    "component": "Carousel",
+    "content": [
+      "res://template_cover",
+      "res://template_detail"
+    ],
+    "autoplay": false,
+    "draggable": true,
+    "styles": {
+      "width": "100%",
+      "aspect-ratio": "3/2",
+      "border-radius": "8vp"
+    }
+  },
+  "dependencies": [],
+  "initialData": {},
+  "variants": {}
+}

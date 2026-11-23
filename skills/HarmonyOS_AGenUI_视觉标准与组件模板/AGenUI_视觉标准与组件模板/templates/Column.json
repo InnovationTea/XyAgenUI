@@ -1,0 +1,85 @@
+{
+  "templateId": "Column.harmony-minimal.v1",
+  "component": "Column",
+  "status": "candidate-no-device-test",
+  "authority": "项目设计模板，不是官方新增组件或 A2UI 字段",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；属于项目宿主约定",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "scene": "页面和区域的主布局。",
+  "dynamicContract": "追加区域时保留原引用；不覆盖已显示输入。",
+  "boundary": "不默认在每个 Column 加背景圆角，避免多层卡片壳。",
+  "requirements": [],
+  "mutableFields": [
+    "id",
+    "text/content/label：仅该组件支持的字段",
+    "data binding / child IDs / action：保持契约"
+  ],
+  "stylePolicy": "固定选中变体的样式；变化的是内容、绑定与合法引用。整体换密度或颜色方案，禁止随机单项漂移。",
+  "focus": {
+    "id": "focus",
+    "component": "Column",
+    "children": [
+      "heading",
+      "paragraph"
+    ],
+    "styles": {
+      "gap": "12vp"
+    }
+  },
+  "dependencies": [
+    {
+      "id": "heading",
+      "component": "Text",
+      "text": "🥘 人数与用量",
+      "variant": "h3",
+      "styles": {
+        "font-size": "20vp",
+        "font-weight": "bold",
+        "color": "#16181D",
+        "line-height": 1.3,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "paragraph",
+      "component": "Text",
+      "text": "先按 3 人准备，可按到场人数调整。",
+      "variant": "body",
+      "styles": {
+        "font-size": "16vp",
+        "font-weight": "normal",
+        "color": "#343A40",
+        "line-height": 1.5,
+        "text-align": "left"
+      }
+    }
+  ],
+  "initialData": {},
+  "variants": {
+    "tight": {
+      "focus": {
+        "styles": {
+          "gap": "8vp"
+        }
+      }
+    },
+    "section": {
+      "focus": {
+        "styles": {
+          "gap": "16vp"
+        }
+      }
+    }
+  },
+  "exampleFile": "../examples/harmony-candidate/Column.jsonl"
+}

@@ -1,0 +1,49 @@
+{
+  "templateId": "Slider.harmony-minimal.v1",
+  "component": "Slider",
+  "status": "candidate-no-device-test",
+  "authority": "项目设计模板，不是官方新增组件或 A2UI 字段",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；属于项目宿主约定",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "scene": "允许连续变化的数值；整数人数优先离散选择器。",
+  "dynamicContract": "绑定 number；派生结果由已注册纯函数执行。",
+  "boundary": "不发明 step、轨道色、thumbColor；不能仅用格式化取整保证实际人数是整数。",
+  "requirements": [],
+  "mutableFields": [
+    "id",
+    "text/content/label：仅该组件支持的字段",
+    "data binding / child IDs / action：保持契约"
+  ],
+  "stylePolicy": "固定选中变体的样式；变化的是内容、绑定与合法引用。整体换密度或颜色方案，禁止随机单项漂移。",
+  "focus": {
+    "id": "focus",
+    "component": "Slider",
+    "label": "每人肉量（g，演示参数）",
+    "min": 100,
+    "max": 500,
+    "value": {
+      "path": "/form/amount"
+    },
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [],
+  "initialData": {
+    "form": {
+      "amount": 250
+    }
+  },
+  "variants": {},
+  "exampleFile": "../examples/harmony-candidate/Slider.jsonl"
+}

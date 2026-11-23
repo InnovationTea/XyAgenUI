@@ -1,0 +1,2 @@
+{"version":"v0.9","createSurface":{"surfaceId":"sample_markdown_default","catalogId":"https://a2ui.org/specification/v0_9/standard_catalog.json"}}
+{"version":"v0.9","updateComponents":{"surfaceId":"sample_markdown_default","components":[{"id":"focus","component":"Markdown","content":"### 准备事项\n\n- 确认人数与忌口\n- 按到场人数更新用量\n- 分批采购\n\n**说明：** 本内容用于样式联调。","styles":{"width":"100%"}},{"id":"root","component":"Column","children":["focus"],"styles":{"padding":"16vp","gap":"16vp","background-color":"#F1F3F5","border-radius":"20vp"}}]}}

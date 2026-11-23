@@ -1,0 +1,90 @@
+{
+  "component": "Card",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "一个主要任务区只用一层卡片外壳。",
+  "dynamicContract": "内部可组合输入和结果。",
+  "boundary": "玻璃变体仅在已有合格背景图上使用；不加未支持 blur/backdrop-filter；完整信息不能硬裁剪。",
+  "focus": {
+    "id": "focus",
+    "component": "Card",
+    "child": "body",
+    "styles": {
+      "background-color": "#FFFFFF",
+      "border-radius": "16vp",
+      "padding": "16vp 16vp 16vp 16vp"
+    }
+  },
+  "dependencies": [
+    {
+      "id": "heading",
+      "component": "Text",
+      "text": "🥘 食材用量",
+      "variant": "h3",
+      "styles": {
+        "font-size": "36vp",
+        "font-weight": "bold",
+        "color": "#16181D",
+        "line-height": 1.3,
+        "line-clamp": 0,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "bodytext",
+      "component": "Text",
+      "text": "数据为界面联调示例，实际按食量调整。",
+      "variant": "body",
+      "styles": {
+        "font-size": "30vp",
+        "font-weight": "normal",
+        "color": "#343A40",
+        "line-height": 1.5,
+        "line-clamp": 0,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "body",
+      "component": "Column",
+      "children": [
+        "heading",
+        "bodytext"
+      ],
+      "styles": {
+        "gap": "12vp"
+      }
+    }
+  ],
+  "initialData": {},
+  "variants": {
+    "result": {
+      "focus": {
+        "styles": {
+          "background-color": "#EEF4FF"
+        }
+      }
+    },
+    "spacious": {
+      "focus": {
+        "styles": {
+          "padding": "24vp 24vp 24vp 24vp"
+        }
+      }
+    },
+    "glass": {
+      "focus": {
+        "styles": {
+          "background-color": "rgba(255,255,255,0.96)"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "component": "List",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "同类信息重复、每项独立采购状态。",
+  "dynamicContract": "模板内部使用相对路径；每个条目独立写回。",
+  "boundary": "输入列表的后续结构更新不可重置已勾选状态；不承诺拖拽、侧滑、分页。",
+  "focus": {
+    "id": "focus",
+    "component": "List",
+    "direction": "vertical",
+    "children": {
+      "path": "/items",
+      "componentId": "item"
+    },
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [
+    {
+      "id": "item_name",
+      "component": "Text",
+      "text": {
+        "path": "name"
+      },
+      "variant": "body",
+      "styles": {
+        "font-size": "30vp",
+        "font-weight": "normal",
+        "color": "#343A40",
+        "line-height": 1.5,
+        "line-clamp": 0,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "item_amount",
+      "component": "Text",
+      "text": {
+        "path": "amount"
+      },
+      "variant": "body",
+      "styles": {
+        "font-size": "26vp",
+        "font-weight": "normal",
+        "color": "#555D66",
+        "line-height": 1.5,
+        "line-clamp": 0,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "item_done",
+      "component": "CheckBox",
+      "label": "已采购",
+      "value": {
+        "path": "done"
+      }
+    },
+    {
+      "id": "item",
+      "component": "Column",
+      "children": [
+        "item_name",
+        "item_amount",
+        "item_done"
+      ],
+      "styles": {
+        "gap": "8vp",
+        "padding": "12vp 0vp 12vp 0vp"
+      }
+    }
+  ],
+  "initialData": {
+    "items": [
+      {
+        "id": "beef",
+        "name": "牛肉",
+        "amount": "演示：450 g",
+        "done": false
+      },
+      {
+        "id": "veg",
+        "name": "蔬菜",
+        "amount": "演示：600 g",
+        "done": false
+      }
+    ]
+  },
+  "variants": {}
+}

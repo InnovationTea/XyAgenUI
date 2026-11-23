@@ -1,0 +1,145 @@
+{
+  "accessed": "2026-11-17",
+  "note": "网页读取时间不是所有来源的发布时间；缓存/索引不代表版本同步。官方px引用及vendor原文保留；2026-11-18按用户已确认的项目vp约定迁移，未重新联网核实官方资料。",
+  "sources": [
+    {
+      "id": "H01",
+      "title": "HarmonyOS 文本排版",
+      "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/typography-0000002622688363/",
+      "access": "官方页面搜索索引可读，包括 phone/PC/watch 表；直接 open 失败",
+      "support": "文字角色、手机字号与原始字重"
+    },
+    {
+      "id": "H02",
+      "title": "HarmonyOS 色彩",
+      "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/color-0000001776857164/",
+      "access": "官方页面搜索索引完整文本可读",
+      "support": "语义 Token、深浅模式、ARGB 色值"
+    },
+    {
+      "id": "H03",
+      "title": "HarmonyOS 间隔参数",
+      "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/interval-parameter-0000002562577161/",
+      "access": "官方索引可读；不采用其智慧屏取值作为手机值",
+      "support": "4/8 基数与统一间距原则"
+    },
+    {
+      "id": "H04",
+      "title": "HarmonyOS 圆角参数",
+      "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/corner-radius-parameter-0000002556468705/",
+      "access": "官方页面搜索索引可读，包含新版典型圆角值",
+      "support": "4/8/16/20/32vp 与同层一致原则"
+    },
+    {
+      "id": "H05",
+      "title": "通用应用 UX 体验标准",
+      "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/ux-guidelines-general-0000001760708152/",
+      "access": "官方搜索索引可读",
+      "support": "标题图标 >3:1、正文 >4.5:1，原文等级为推荐"
+    },
+    {
+      "id": "H06",
+      "title": "HarmonyOS 布局基础",
+      "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/design-layout-basics-0000001795579413/",
+      "access": "官方搜索索引可读",
+      "support": "fp/vp、8vp 网格、大字体和窗口适配"
+    },
+    {
+      "id": "H07",
+      "title": "HarmonyOS 按钮",
+      "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/button-0000001929683228/",
+      "access": "官方搜索索引可读",
+      "support": "主次操作、文字按钮、状态与原生子样式"
+    },
+    {
+      "id": "H08",
+      "title": "HarmonyOS 列表",
+      "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/list-0000001929853910/",
+      "access": "官方搜索索引可读",
+      "support": "同组一致、文字层级、选择反馈"
+    },
+    {
+      "id": "H09",
+      "title": "DevEco 应用分析器 UX 检查规则",
+      "url": "https://developer.huawei.com/consumer/cn/doc/HarmonyOS-Guides/ide-app-analyzer-all-rules/",
+      "access": "官方搜索索引可读",
+      "support": "主要交互热区48vp推荐/40vp最小；版本范围以原页面为准"
+    },
+    {
+      "id": "A01",
+      "title": "AGenUI Generation Skill",
+      "url": "https://raw.githubusercontent.com/AGenUI/AGenUI/main/skills/a2ui-generation/SKILL.md",
+      "access": "正文直接读取成功；main 页面可能随时间变化",
+      "support": "卡片/页面范围、CTA、视觉评审及官方工作流"
+    },
+    {
+      "id": "A02",
+      "title": "AGenUI 官方 Catalog",
+      "url": "https://raw.githubusercontent.com/AGenUI/AGenUI/main/agenui_catalog.json",
+      "access": "正文直接读取成功；生成检查并未使用线上 main 覆盖本地",
+      "support": "组件字段、RGBA、DSL px；可读目录的25种组件"
+    },
+    {
+      "id": "A03",
+      "title": "AGenUI Skill component-catalog 参考",
+      "url": "https://raw.githubusercontent.com/AGenUI/AGenUI/main/skills/a2ui-generation/reference/component-catalog.md",
+      "access": "正文直接读取成功；存在与有效Catalog不同的例子",
+      "support": "官方固定字体尺度；字段冲突需按基线处理"
+    },
+    {
+      "id": "A04",
+      "title": "AGenUI API 中文",
+      "url": "https://raw.githubusercontent.com/AGenUI/AGenUI/main/docs/API.zh-CN.md",
+      "access": "正文通过 find 展开读取成功",
+      "support": "主题注册、日夜模式、图片加载器、Native能力边界"
+    },
+    {
+      "id": "A05",
+      "title": "AGenUI 官方仓库 README",
+      "url": "https://github.com/AGenUI/AGenUI",
+      "access": "正文读取成功",
+      "support": "22内置与Playground示例扩展分类"
+    },
+    {
+      "id": "L01",
+      "title": "用户 agenui-reply 项目",
+      "url": "local:agenui-reply.zip",
+      "access": "已读取指定宿主源码并执行有效Schema校验（包括项目vp overlay）",
+      "support": "固定commit、有效Catalog、default profile、自定义函数和兼容样式"
+    }
+  ],
+  "unavailable": [
+    {
+      "url": "https://raw.githubusercontent.com/AGenUI/AGenUI/main/skills/a2ui-generation/reference/component-design.md",
+      "status": "尝试 raw、blob 及部分固定commit后仍未取得正文，不用于具体数值依据"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/AGenUI/AGenUI/main/skills/a2ui-generation/reference/page-design.md",
+      "status": "尝试 raw、blob 及部分固定commit后仍未取得正文，不用于具体数值依据"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/AGenUI/AGenUI/main/skills/a2ui-generation/reference/visual-interaction.md",
+      "status": "尝试 raw、blob 及部分固定commit后仍未取得正文，不用于具体数值依据"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/AGenUI/AGenUI/main/skills/a2ui-generation/reference/spacing-elevation.md",
+      "status": "尝试 raw、blob 及部分固定commit后仍未取得正文，不用于具体数值依据"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/AGenUI/AGenUI/main/skills/a2ui-generation/reference/design-review.md",
+      "status": "尝试 raw、blob 及部分固定commit后仍未取得正文，不用于具体数值依据"
+    }
+  ],
+  "projectUnitConfirmation": {
+    "id": "P01",
+    "date": "2026-11-18",
+    "title": "用户确认的当前端侧单位约定",
+    "basis": "当前会话用户明确确认",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "dimensionSchemaType": "string",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false,
+    "scope": "仅当前项目宿主；不是官方AGenUI新增vp支持的来源证据"
+  }
+}

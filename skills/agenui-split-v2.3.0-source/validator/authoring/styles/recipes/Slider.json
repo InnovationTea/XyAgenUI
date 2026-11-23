@@ -1,0 +1,35 @@
+{
+  "component": "Slider",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "允许连续变化的数值；整数人数优先离散选择器。",
+  "dynamicContract": "绑定 number；派生结果由已注册纯函数执行。",
+  "boundary": "不发明 step、轨道色、thumbColor；不能仅用格式化取整保证实际人数是整数。",
+  "focus": {
+    "id": "focus",
+    "component": "Slider",
+    "label": "每人肉量（g，演示参数）",
+    "min": 100,
+    "max": 500,
+    "value": {
+      "path": "/form/amount"
+    },
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [],
+  "initialData": {
+    "form": {
+      "amount": 250
+    }
+  },
+  "variants": {}
+}

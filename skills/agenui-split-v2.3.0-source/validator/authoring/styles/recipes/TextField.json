@@ -1,0 +1,50 @@
+{
+  "component": "TextField",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "输入值，必须有清楚的可见标签。",
+  "dynamicContract": "value 为可写字符串路径；number 外观仍是字符串。",
+  "boundary": "数字变体样例值需换为合法数字字符串后使用；不伪造 placeholder、onChange、error 等字段；内部文字与边框由主题决定。",
+  "focus": {
+    "id": "focus",
+    "component": "TextField",
+    "label": "聚餐主题",
+    "variant": "shortText",
+    "value": {
+      "path": "/form/name"
+    },
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [],
+  "initialData": {
+    "form": {
+      "name": "周末火锅"
+    }
+  },
+  "variants": {
+    "multiline": {
+      "focus": {
+        "variant": "longText"
+      }
+    },
+    "numberDraft": {
+      "focus": {
+        "variant": "number"
+      }
+    },
+    "password": {
+      "focus": {
+        "variant": "obscured"
+      }
+    }
+  }
+}

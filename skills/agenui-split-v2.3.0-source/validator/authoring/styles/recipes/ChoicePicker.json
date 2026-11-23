@@ -1,0 +1,60 @@
+{
+  "component": "ChoicePicker",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "有限选项、清楚取舍；标签短，业务 value 稳定。",
+  "dynamicContract": "单选和多选都写 string[]。",
+  "boundary": "不支持选项私有样式时不得强加；无特殊需求与其他项互斥是业务规则，不是控件自动保证。",
+  "focus": {
+    "id": "focus",
+    "component": "ChoicePicker",
+    "label": "需要照顾的口味",
+    "variant": "multipleSelection",
+    "displayStyle": "chips",
+    "filterable": false,
+    "options": [
+      {
+        "label": "🥬 多些蔬菜",
+        "value": "vegetables"
+      },
+      {
+        "label": "🍲 清淡锅底",
+        "value": "mild"
+      }
+    ],
+    "value": {
+      "path": "/form/preferences"
+    },
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [],
+  "initialData": {
+    "form": {
+      "preferences": [
+        "mild"
+      ]
+    }
+  },
+  "variants": {
+    "single": {
+      "focus": {
+        "variant": "mutuallyExclusive",
+        "displayStyle": "checkbox"
+      }
+    },
+    "checkbox": {
+      "focus": {
+        "displayStyle": "checkbox"
+      }
+    }
+  }
+}

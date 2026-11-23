@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "call": { "const": "resolveCalls" },
+    "returnType": { "const": "any" },
+    "args": {
+      "type": "object",
+      "properties": { "json": {} },
+      "required": ["json"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["call", "args", "returnType"],
+  "additionalProperties": false
+}

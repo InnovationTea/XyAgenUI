@@ -1,0 +1,219 @@
+{
+  "status": "candidate",
+  "components": [
+    {
+      "name": "Text",
+      "id": "Text.harmony-minimal.v1",
+      "file": "Text.json",
+      "variants": [
+        "page",
+        "group",
+        "section",
+        "subheading",
+        "body",
+        "hint",
+        "caption",
+        "metric",
+        "button"
+      ],
+      "conditional": false
+    },
+    {
+      "name": "Image",
+      "id": "Image.harmony-minimal.v1",
+      "file": "Image.json",
+      "variants": [
+        "thumbnail",
+        "avatar"
+      ],
+      "conditional": false
+    },
+    {
+      "name": "Icon",
+      "id": "Icon.harmony-minimal.v1",
+      "file": "Icon.json",
+      "variants": [],
+      "conditional": false
+    },
+    {
+      "name": "Divider",
+      "id": "Divider.harmony-minimal.v1",
+      "file": "Divider.json",
+      "variants": [],
+      "conditional": false
+    },
+    {
+      "name": "Video",
+      "id": "Video.harmony-minimal.v1",
+      "file": "Video.json",
+      "variants": [],
+      "conditional": false
+    },
+    {
+      "name": "AudioPlayer",
+      "id": "AudioPlayer.harmony-minimal.v1",
+      "file": "AudioPlayer.json",
+      "variants": [],
+      "conditional": false
+    },
+    {
+      "name": "Row",
+      "id": "Row.harmony-minimal.v1",
+      "file": "Row.json",
+      "variants": [
+        "titleGroup",
+        "actions"
+      ],
+      "conditional": false
+    },
+    {
+      "name": "Column",
+      "id": "Column.harmony-minimal.v1",
+      "file": "Column.json",
+      "variants": [
+        "tight",
+        "section"
+      ],
+      "conditional": false
+    },
+    {
+      "name": "Card",
+      "id": "Card.harmony-minimal.v1",
+      "file": "Card.json",
+      "variants": [
+        "result",
+        "spacious",
+        "glass"
+      ],
+      "conditional": false
+    },
+    {
+      "name": "List",
+      "id": "List.harmony-minimal.v1",
+      "file": "List.json",
+      "variants": [],
+      "conditional": false
+    },
+    {
+      "name": "Tabs",
+      "id": "Tabs.harmony-minimal.v1",
+      "file": "Tabs.json",
+      "variants": [],
+      "conditional": false
+    },
+    {
+      "name": "Modal",
+      "id": "Modal.harmony-minimal.v1",
+      "file": "Modal.json",
+      "variants": [],
+      "conditional": false
+    },
+    {
+      "name": "Button",
+      "id": "Button.harmony-minimal.v1",
+      "file": "Button.json",
+      "variants": [
+        "secondary",
+        "text"
+      ],
+      "conditional": false
+    },
+    {
+      "name": "TextField",
+      "id": "TextField.harmony-minimal.v1",
+      "file": "TextField.json",
+      "variants": [
+        "multiline",
+        "numberDraft",
+        "password"
+      ],
+      "conditional": false
+    },
+    {
+      "name": "CheckBox",
+      "id": "CheckBox.harmony-minimal.v1",
+      "file": "CheckBox.json",
+      "variants": [],
+      "conditional": false
+    },
+    {
+      "name": "Slider",
+      "id": "Slider.harmony-minimal.v1",
+      "file": "Slider.json",
+      "variants": [],
+      "conditional": false
+    },
+    {
+      "name": "ChoicePicker",
+      "id": "ChoicePicker.harmony-minimal.v1",
+      "file": "ChoicePicker.json",
+      "variants": [
+        "single",
+        "checkbox"
+      ],
+      "conditional": false
+    },
+    {
+      "name": "DateTimeInput",
+      "id": "DateTimeInput.harmony-minimal.v1",
+      "file": "DateTimeInput.json",
+      "variants": [
+        "dateOnly",
+        "timeOnly"
+      ],
+      "conditional": false
+    },
+    {
+      "name": "Table",
+      "id": "Table.harmony-minimal.v1",
+      "file": "Table.json",
+      "variants": [],
+      "conditional": false
+    },
+    {
+      "name": "Carousel",
+      "id": "Carousel.harmony-minimal.v1",
+      "file": "Carousel.json",
+      "variants": [],
+      "conditional": false
+    },
+    {
+      "name": "Web",
+      "id": "Web.harmony-minimal.v1",
+      "file": "Web.json",
+      "variants": [],
+      "conditional": false
+    },
+    {
+      "name": "RichText",
+      "id": "RichText.harmony-minimal.v1",
+      "file": "RichText.json",
+      "variants": [],
+      "conditional": false
+    },
+    {
+      "name": "Chart",
+      "id": "Chart.harmony-minimal.v1",
+      "file": "Chart.json",
+      "variants": [
+        "line",
+        "donut"
+      ],
+      "conditional": true
+    },
+    {
+      "name": "Markdown",
+      "id": "Markdown.harmony-minimal.v1",
+      "file": "Markdown.json",
+      "variants": [],
+      "conditional": true
+    },
+    {
+      "name": "Lottie",
+      "id": "Lottie.harmony-minimal.v1",
+      "file": "Lottie.json",
+      "variants": [],
+      "conditional": true
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "templateId": "Row.harmony-minimal.v1",
+  "component": "Row",
+  "status": "candidate-no-device-test",
+  "authority": "项目设计模板，不是官方新增组件或 A2UI 字段",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；属于项目宿主约定",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "scene": "短标签与值、图标与标题、短操作组。",
+  "dynamicContract": "展示子节点的变化，不替代数据计算。",
+  "boundary": "长标签改纵向；不通过缩小字号强行一行；禁止价格和单位异常拆行。",
+  "requirements": [],
+  "mutableFields": [
+    "id",
+    "text/content/label：仅该组件支持的字段",
+    "data binding / child IDs / action：保持契约"
+  ],
+  "stylePolicy": "固定选中变体的样式；变化的是内容、绑定与合法引用。整体换密度或颜色方案，禁止随机单项漂移。",
+  "focus": {
+    "id": "focus",
+    "component": "Row",
+    "children": [
+      "label",
+      "value"
+    ],
+    "align": "center",
+    "styles": {
+      "gap": "8vp"
+    },
+    "justify": "spaceBetween"
+  },
+  "dependencies": [
+    {
+      "id": "label",
+      "component": "Text",
+      "text": "预计人数",
+      "variant": "body",
+      "styles": {
+        "font-size": "16vp",
+        "font-weight": "normal",
+        "color": "#343A40",
+        "line-height": 1.5,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "value",
+      "component": "Text",
+      "text": "3 人",
+      "variant": "h3",
+      "styles": {
+        "font-size": "20vp",
+        "font-weight": "bold",
+        "color": "#16181D",
+        "line-height": 1.3,
+        "text-align": "left"
+      }
+    }
+  ],
+  "initialData": {},
+  "variants": {
+    "titleGroup": {
+      "focus": {
+        "justify": "start",
+        "align": "center"
+      }
+    },
+    "actions": {
+      "focus": {
+        "justify": "center",
+        "styles": {
+          "gap": "12vp",
+          "flex-wrap": "wrap"
+        }
+      }
+    }
+  },
+  "exampleFile": "../examples/harmony-candidate/Row.jsonl"
+}

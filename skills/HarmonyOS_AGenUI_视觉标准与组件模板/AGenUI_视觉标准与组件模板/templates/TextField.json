@@ -1,0 +1,64 @@
+{
+  "templateId": "TextField.harmony-minimal.v1",
+  "component": "TextField",
+  "status": "candidate-no-device-test",
+  "authority": "项目设计模板，不是官方新增组件或 A2UI 字段",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；属于项目宿主约定",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "scene": "输入值，必须有清楚的可见标签。",
+  "dynamicContract": "value 为可写字符串路径；number 外观仍是字符串。",
+  "boundary": "数字变体样例值需换为合法数字字符串后使用；不伪造 placeholder、onChange、error 等字段；内部文字与边框由主题决定。",
+  "requirements": [],
+  "mutableFields": [
+    "id",
+    "text/content/label：仅该组件支持的字段",
+    "data binding / child IDs / action：保持契约"
+  ],
+  "stylePolicy": "固定选中变体的样式；变化的是内容、绑定与合法引用。整体换密度或颜色方案，禁止随机单项漂移。",
+  "focus": {
+    "id": "focus",
+    "component": "TextField",
+    "label": "聚餐主题",
+    "variant": "shortText",
+    "value": {
+      "path": "/form/name"
+    },
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [],
+  "initialData": {
+    "form": {
+      "name": "周末火锅"
+    }
+  },
+  "variants": {
+    "multiline": {
+      "focus": {
+        "variant": "longText"
+      }
+    },
+    "numberDraft": {
+      "focus": {
+        "variant": "number"
+      }
+    },
+    "password": {
+      "focus": {
+        "variant": "obscured"
+      }
+    }
+  },
+  "exampleFile": "../examples/harmony-candidate/TextField.jsonl"
+}

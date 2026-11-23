@@ -1,0 +1,34 @@
+{
+  "component": "CheckBox",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "独立布尔状态、任务完成状态。",
+  "dynamicContract": "写回 boolean；与另一项状态独立。",
+  "boundary": "颜色之外保留勾选/文字反馈；不把 true/false 写为字符串；点击热区需原生验收。",
+  "focus": {
+    "id": "focus",
+    "component": "CheckBox",
+    "label": "蔬菜已采购",
+    "value": {
+      "path": "/form/done"
+    },
+    "styles": {
+      "width": "100%",
+      "min-height": "48vp"
+    }
+  },
+  "dependencies": [],
+  "initialData": {
+    "form": {
+      "done": false
+    }
+  },
+  "variants": {}
+}

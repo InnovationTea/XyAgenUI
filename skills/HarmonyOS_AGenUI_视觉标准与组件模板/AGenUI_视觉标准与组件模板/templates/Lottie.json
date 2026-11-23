@@ -1,0 +1,53 @@
+{
+  "templateId": "Lottie.harmony-minimal.v1",
+  "component": "Lottie",
+  "status": "candidate-no-device-test",
+  "authority": "项目设计模板，不是官方新增组件或 A2UI 字段",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；属于项目宿主约定",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "scene": "低干扰、可省略的状态动效。",
+  "dynamicContract": "播放机制由扩展组件；本例关闭循环和自动播放。",
+  "boundary": "非必要动效默认关闭；减少动态效果设置需要宿主落实；不表示真正的业务进度。",
+  "requirements": [
+    "宿主注册官方 Lottie 扩展并启用 profile",
+    "提供 res://template_animation，资源未随包提供"
+  ],
+  "mutableFields": [
+    "id",
+    "text/content/label：仅该组件支持的字段",
+    "data binding / child IDs / action：保持契约"
+  ],
+  "stylePolicy": "固定选中变体的样式；变化的是内容、绑定与合法引用。整体换密度或颜色方案，禁止随机单项漂移。",
+  "focus": {
+    "id": "focus",
+    "component": "Lottie",
+    "url": {
+      "path": "/assets/lottie"
+    },
+    "loop": false,
+    "autoPlay": false,
+    "variant": "small",
+    "styles": {
+      "width": "48vp",
+      "height": "48vp"
+    }
+  },
+  "dependencies": [],
+  "initialData": {
+    "assets": {
+      "lottie": "res://template_animation"
+    }
+  },
+  "variants": {},
+  "exampleFile": "../examples/harmony-candidate/Lottie.jsonl"
+}

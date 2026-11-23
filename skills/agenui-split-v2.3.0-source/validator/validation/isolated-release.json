@@ -1,0 +1,19 @@
+{
+  "separateUnzipAndIndependentStartup": "pass",
+  "pythonClientStdlibRoundTripMessages": 7,
+  "plannerRegionUpdates": 3,
+  "acceptedPrefixBefore422": 3,
+  "mismatchedReleaseContractStatus": 409,
+  "badTailForwarded": false,
+  "contractSha256": "727942e3f3d9d2b7a9599d5215398326c8501f9ddd985cef0a9c69ed802b232a",
+  "modelChecks": {
+    "standalone": true,
+    "markdownFiles": 55,
+    "relativeMarkdownLinks": 250,
+    "localSchemaRefs": 281,
+    "NDJSONStreams": 65,
+    "runtimeOrExternalPathDependencies": 0
+  },
+  "nativeDeviceOrLiveModelTested": false,
+  "baselineByteIdenticalAssets": 92
+}

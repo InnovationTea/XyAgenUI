@@ -1,0 +1,169 @@
+{
+  "summary": {
+    "internalLinks": "pass",
+    "effectiveCatalog": "matches",
+    "schemaReferences": "compiled",
+    "contractStamp": "matches",
+    "vendorHash": "unchanged",
+    "visualWarnings": 0,
+    "visualFiles": 8,
+    "opaqueContrastPairs": 14,
+    "nativeTested": false
+  },
+  "visual": [
+    {
+      "file": "fixtures/golden/concert-append.ndjson",
+      "warnings": [],
+      "scope": "只检查可确定的样式漂移和不透明按钮色对；不代表原生布局、叠层、字体和触达验收"
+    },
+    {
+      "file": "fixtures/golden/interactive-append.ndjson",
+      "warnings": [],
+      "scope": "只检查可确定的样式漂移和不透明按钮色对；不代表原生布局、叠层、字体和触达验收"
+    },
+    {
+      "file": "fixtures/golden/portion-planner.ndjson",
+      "warnings": [],
+      "scope": "只检查可确定的样式漂移和不透明按钮色对；不代表原生布局、叠层、字体和触达验收"
+    },
+    {
+      "file": "fixtures/snippets/choice-action.ndjson",
+      "warnings": [],
+      "scope": "只检查可确定的样式漂移和不透明按钮色对；不代表原生布局、叠层、字体和触达验收"
+    },
+    {
+      "file": "fixtures/snippets/dynamic-list.ndjson",
+      "warnings": [],
+      "scope": "只检查可确定的样式漂移和不透明按钮色对；不代表原生布局、叠层、字体和触达验收"
+    },
+    {
+      "file": "fixtures/snippets/minimal-card.ndjson",
+      "warnings": [],
+      "scope": "只检查可确定的样式漂移和不透明按钮色对；不代表原生布局、叠层、字体和触达验收"
+    },
+    {
+      "file": "fixtures/snippets/slider-result.ndjson",
+      "warnings": [],
+      "scope": "只检查可确定的样式漂移和不透明按钮色对；不代表原生布局、叠层、字体和触达验收"
+    },
+    {
+      "file": "fixtures/snippets/text-field-number.ndjson",
+      "warnings": [],
+      "scope": "只检查可确定的样式漂移和不透明按钮色对；不代表原生布局、叠层、字体和触达验收"
+    }
+  ],
+  "contrast": [
+    {
+      "theme": "light",
+      "foreground": "primary",
+      "background": "surface",
+      "ratio": 17.758836800979772,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "light",
+      "foreground": "secondary",
+      "background": "surface",
+      "ratio": 11.505157433045612,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "light",
+      "foreground": "muted",
+      "background": "surface",
+      "ratio": 6.679684367960252,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "light",
+      "foreground": "accent",
+      "background": "surface",
+      "ratio": 5.548308326331326,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "light",
+      "foreground": "onAction",
+      "background": "action",
+      "ratio": 17.758836800979772,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "light",
+      "foreground": "error",
+      "background": "surface",
+      "ratio": 6.57428861557707,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "light",
+      "foreground": "inputBorder",
+      "background": "surface",
+      "ratio": 3.8386530700077537,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "primary",
+      "background": "surface",
+      "ratio": 14.622124567864041,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "secondary",
+      "background": "surface",
+      "ratio": 11.263888228440186,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "muted",
+      "background": "surface",
+      "ratio": 7.805664422346303,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "accent",
+      "background": "surface",
+      "ratio": 7.790727353569744,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "onAction",
+      "background": "action",
+      "ratio": 16.269078957578614,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "error",
+      "background": "surface",
+      "ratio": 9.400734967316176,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "theme": "dark",
+      "foreground": "inputBorder",
+      "background": "surface",
+      "ratio": 4.749042645452176,
+      "minimum": 3,
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "component": "Icon",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "辅助标题或操作含义。",
+  "dynamicContract": "需要点击时放入真实 Button；图标本身不是业务动作。",
+  "boundary": "只用注册名称；内部颜色跟主题，不写 Text 专属 color；不以单独图标替代关键文字。",
+  "focus": {
+    "id": "focus",
+    "component": "Icon",
+    "name": "shoppingCart",
+    "styles": {
+      "width": "20vp",
+      "height": "20vp"
+    }
+  },
+  "dependencies": [],
+  "initialData": {},
+  "variants": {}
+}

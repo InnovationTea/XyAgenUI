@@ -1,0 +1,33 @@
+{
+  "component": "AudioPlayer",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "语音说明，文字摘要仍应保留。",
+  "dynamicContract": "播放器提供播放进度；不等于通用 ProgressBar。",
+  "boundary": "不新增录音、自动播放等未声明字段。",
+  "focus": {
+    "id": "focus",
+    "component": "AudioPlayer",
+    "url": {
+      "path": "/assets/audio"
+    },
+    "description": "聚会准备说明",
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [],
+  "initialData": {
+    "assets": {
+      "audio": "res://template_audio"
+    }
+  },
+  "variants": {}
+}

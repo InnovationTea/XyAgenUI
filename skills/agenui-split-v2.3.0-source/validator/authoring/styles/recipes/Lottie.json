@@ -1,0 +1,36 @@
+{
+  "component": "Lottie",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "低干扰、可省略的状态动效。",
+  "dynamicContract": "播放机制由扩展组件；本例关闭循环和自动播放。",
+  "boundary": "非必要动效默认关闭；减少动态效果设置需要宿主落实；不表示真正的业务进度。",
+  "focus": {
+    "id": "focus",
+    "component": "Lottie",
+    "url": {
+      "path": "/assets/lottie"
+    },
+    "loop": false,
+    "autoPlay": false,
+    "variant": "small",
+    "styles": {
+      "width": "48vp",
+      "height": "48vp"
+    }
+  },
+  "dependencies": [],
+  "initialData": {
+    "assets": {
+      "lottie": "res://template_animation"
+    }
+  },
+  "variants": {}
+}

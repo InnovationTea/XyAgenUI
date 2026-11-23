@@ -1,0 +1,49 @@
+{
+  "templateId": "Carousel.harmony-minimal.v1",
+  "component": "Carousel",
+  "status": "candidate-no-device-test",
+  "authority": "项目设计模板，不是官方新增组件或 A2UI 字段",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；属于项目宿主约定",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "scene": "确有多张相关图片且用户需要浏览。",
+  "dynamicContract": "手动翻页；不自动轮播抢焦点。",
+  "boundary": "只保证图片数组入口；不假设任意组件子树轮播。",
+  "requirements": [
+    "以已核验可访问的无凭据HTTPS直链替换两个example.invalid离线fixture；素材未随包提供"
+  ],
+  "mutableFields": [
+    "id",
+    "text/content/label：仅该组件支持的字段",
+    "data binding / child IDs / action：保持契约"
+  ],
+  "stylePolicy": "固定选中变体的样式；变化的是内容、绑定与合法引用。整体换密度或颜色方案，禁止随机单项漂移。",
+  "focus": {
+    "id": "focus",
+    "component": "Carousel",
+    "content": [
+      "https://example.invalid/agenui/template-cover.png",
+      "https://example.invalid/agenui/template-detail.png"
+    ],
+    "autoplay": false,
+    "draggable": true,
+    "styles": {
+      "width": "100%",
+      "aspect-ratio": "3/2",
+      "border-radius": "8vp"
+    }
+  },
+  "dependencies": [],
+  "initialData": {},
+  "variants": {},
+  "exampleFile": "../examples/harmony-candidate/Carousel.jsonl"
+}

@@ -1,0 +1,3 @@
+{"version":"v0.9","createSurface":{"surfaceId":"style_video","catalogId":"https://a2ui.org/specification/v0_9/standard_catalog.json"}}
+{"version":"v0.9","updateDataModel":{"surfaceId":"style_video","path":"/","value":{"assets":{"video":"res://template_video"}}}}
+{"version":"v0.9","updateComponents":{"surfaceId":"style_video","components":[{"id":"focus","component":"Video","url":{"path":"/assets/video"},"styles":{"width":"100%","aspect-ratio":"16/9","border-radius":"8vp"}},{"id":"root","component":"Column","children":["focus"],"styles":{"gap":"16vp","padding":"16vp 16vp 16vp 16vp","background-color":"#F1F3F5","border-radius":"20vp"}}]}}

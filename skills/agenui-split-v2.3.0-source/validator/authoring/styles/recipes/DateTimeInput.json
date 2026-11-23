@@ -1,0 +1,48 @@
+{
+  "component": "DateTimeInput",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessLengthUnit": "vp",
+    "lengthScale": 1,
+    "fontScale": 1,
+    "unitContractConfirmed": true,
+    "nativeVisualVerified": false
+  },
+  "scene": "有实际用途的日期或时间。",
+  "dynamicContract": "ISO 字符串；不填未知日期。",
+  "boundary": "默认不使用项目专有 styles.compact；需要时单独启用并实测时区、显示和键盘。",
+  "focus": {
+    "id": "focus",
+    "component": "DateTimeInput",
+    "label": "开锅时间（请自行选择）",
+    "value": {
+      "path": "/form/when"
+    },
+    "enableDate": true,
+    "enableTime": true,
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [],
+  "initialData": {
+    "form": {
+      "when": ""
+    }
+  },
+  "variants": {
+    "dateOnly": {
+      "focus": {
+        "enableDate": true,
+        "enableTime": false
+      }
+    },
+    "timeOnly": {
+      "focus": {
+        "enableDate": false,
+        "enableTime": true
+      }
+    }
+  }
+}

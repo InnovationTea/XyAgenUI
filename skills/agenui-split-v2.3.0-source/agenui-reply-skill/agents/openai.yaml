@@ -1,0 +1,4 @@
+interface:
+  display_name: "AGenUI 富交互回复"
+  short_description: "按区域输出完整 AGenUI DSL，包含图文和可联动的结果"
+  default_prompt: "使用 $agenui-reply 直接流式输出 A2UI DSL，用组件呈现完整回答、相关图片和可联动的结果。"

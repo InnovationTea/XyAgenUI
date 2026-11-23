@@ -1,0 +1,98 @@
+{
+  "templateId": "Chart.harmony-minimal.v1",
+  "component": "Chart",
+  "status": "candidate-no-device-test",
+  "authority": "项目设计模板，不是官方新增组件或 A2UI 字段",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；属于项目宿主约定",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "scene": "确需看分布/趋势才用；配文字结论和单位。",
+  "dynamicContract": "数值是演示数据，不等于能任意绑定；当前模板测试结构。",
+  "boundary": "官方 Playground 扩展，默认关闭；不发明 tooltip/formatter/seriesColors/bar_grouped。",
+  "requirements": [
+    "宿主注册官方 Chart 扩展并启用 profile"
+  ],
+  "mutableFields": [
+    "id",
+    "text/content/label：仅该组件支持的字段",
+    "data binding / child IDs / action：保持契约"
+  ],
+  "stylePolicy": "固定选中变体的样式；变化的是内容、绑定与合法引用。整体换密度或颜色方案，禁止随机单项漂移。",
+  "focus": {
+    "id": "focus",
+    "component": "Chart",
+    "chartType": "bar",
+    "data": {
+      "xAxis": [
+        "肉类",
+        "蔬菜",
+        "豆制品"
+      ],
+      "series": [
+        {
+          "name": "演示量（g）",
+          "data": [
+            {
+              "value": 750
+            },
+            {
+              "value": 600
+            },
+            {
+              "value": 450
+            }
+          ]
+        }
+      ]
+    },
+    "styles": {
+      "width": "100%",
+      "height": "220vp"
+    }
+  },
+  "dependencies": [],
+  "initialData": {},
+  "variants": {
+    "line": {
+      "focus": {
+        "chartType": "line"
+      }
+    },
+    "donut": {
+      "focus": {
+        "chartType": "donut",
+        "data": {
+          "series": [
+            {
+              "name": "占比",
+              "data": [
+                {
+                  "label": "肉类",
+                  "value": 750
+                },
+                {
+                  "label": "蔬菜",
+                  "value": 600
+                },
+                {
+                  "label": "豆制品",
+                  "value": 450
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "exampleFile": "../examples/harmony-candidate/Chart.jsonl"
+}

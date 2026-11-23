@@ -1,0 +1,98 @@
+{
+  "templateId": "Tabs.harmony-minimal.v1",
+  "component": "Tabs",
+  "status": "candidate-no-device-test",
+  "authority": "项目设计模板，不是官方新增组件或 A2UI 字段",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；属于项目宿主约定",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "scene": "同一任务的并列视图，项目建议 2–4 个短标签。",
+  "dynamicContract": "页签切换由原生组件完成。",
+  "boundary": "没有获准的选中索引字段或回调时不生成；不要把必须操作的内容隐藏得难找。",
+  "requirements": [],
+  "mutableFields": [
+    "id",
+    "text/content/label：仅该组件支持的字段",
+    "data binding / child IDs / action：保持契约"
+  ],
+  "stylePolicy": "固定选中变体的样式；变化的是内容、绑定与合法引用。整体换密度或颜色方案，禁止随机单项漂移。",
+  "focus": {
+    "id": "focus",
+    "component": "Tabs",
+    "tabs": [
+      {
+        "title": "食材",
+        "child": "tab1"
+      },
+      {
+        "title": "安排",
+        "child": "tab2"
+      }
+    ],
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [
+    {
+      "id": "t1",
+      "component": "Text",
+      "text": "肉类、蔬菜与主食分组准备。",
+      "variant": "body",
+      "styles": {
+        "font-size": "16vp",
+        "font-weight": "normal",
+        "color": "#343A40",
+        "line-height": 1.5,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "tab1",
+      "component": "Column",
+      "children": [
+        "t1"
+      ],
+      "styles": {
+        "gap": "12vp",
+        "padding": "12vp 0vp 12vp 0vp"
+      }
+    },
+    {
+      "id": "t2",
+      "component": "Text",
+      "text": "先确认人数，再采购易耗食材。",
+      "variant": "body",
+      "styles": {
+        "font-size": "16vp",
+        "font-weight": "normal",
+        "color": "#343A40",
+        "line-height": 1.5,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "tab2",
+      "component": "Column",
+      "children": [
+        "t2"
+      ],
+      "styles": {
+        "gap": "12vp",
+        "padding": "12vp 0vp 12vp 0vp"
+      }
+    }
+  ],
+  "initialData": {},
+  "variants": {},
+  "exampleFile": "../examples/harmony-candidate/Tabs.jsonl"
+}

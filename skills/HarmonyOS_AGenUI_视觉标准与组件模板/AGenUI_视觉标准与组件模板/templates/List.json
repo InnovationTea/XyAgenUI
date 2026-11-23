@@ -1,0 +1,111 @@
+{
+  "templateId": "List.harmony-minimal.v1",
+  "component": "List",
+  "status": "candidate-no-device-test",
+  "authority": "项目设计模板，不是官方新增组件或 A2UI 字段",
+  "unitProfile": {
+    "name": "harmony-vp",
+    "unit": "vp",
+    "unitlessDefault": "vp",
+    "valueType": "string",
+    "lengthScale": 1.0,
+    "fontScale": 1.0,
+    "semanticsConfirmed": true,
+    "confirmationBasis": "用户已确认当前端侧支持vp，尺寸字符串无单位时默认vp；属于项目宿主约定",
+    "nativeVisualQA": false,
+    "accessibilityFontScaleQA": false
+  },
+  "scene": "同类信息重复、每项独立采购状态。",
+  "dynamicContract": "模板内部使用相对路径；每个条目独立写回。",
+  "boundary": "输入列表的后续结构更新不可重置已勾选状态；不承诺拖拽、侧滑、分页。",
+  "requirements": [],
+  "mutableFields": [
+    "id",
+    "text/content/label：仅该组件支持的字段",
+    "data binding / child IDs / action：保持契约"
+  ],
+  "stylePolicy": "固定选中变体的样式；变化的是内容、绑定与合法引用。整体换密度或颜色方案，禁止随机单项漂移。",
+  "focus": {
+    "id": "focus",
+    "component": "List",
+    "direction": "vertical",
+    "children": {
+      "path": "/items",
+      "componentId": "item"
+    },
+    "styles": {
+      "width": "100%"
+    }
+  },
+  "dependencies": [
+    {
+      "id": "item_name",
+      "component": "Text",
+      "text": {
+        "path": "name"
+      },
+      "variant": "body",
+      "styles": {
+        "font-size": "16vp",
+        "font-weight": "normal",
+        "color": "#343A40",
+        "line-height": 1.5,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "item_amount",
+      "component": "Text",
+      "text": {
+        "path": "amount"
+      },
+      "variant": "body",
+      "styles": {
+        "font-size": "14vp",
+        "font-weight": "normal",
+        "color": "#555D66",
+        "line-height": 1.5,
+        "text-align": "left"
+      }
+    },
+    {
+      "id": "item_done",
+      "component": "CheckBox",
+      "label": "已采购",
+      "value": {
+        "path": "done"
+      }
+    },
+    {
+      "id": "item",
+      "component": "Column",
+      "children": [
+        "item_name",
+        "item_amount",
+        "item_done"
+      ],
+      "styles": {
+        "gap": "8vp",
+        "padding": "12vp 0vp 12vp 0vp"
+      }
+    }
+  ],
+  "initialData": {
+    "items": [
+      {
+        "id": "beef",
+        "name": "牛肉",
+        "amount": "演示：450 g",
+        "done": false
+      },
+      {
+        "id": "veg",
+        "name": "蔬菜",
+        "amount": "演示：600 g",
+        "done": false
+      }
+    ]
+  },
+  "variants": {},
+  "exampleFile": "../examples/harmony-candidate/List.jsonl"
+}

@@ -1,0 +1,9 @@
+{
+  "note": "此处effectiveCatalogSha256为格式化文件字节哈希；跨端握手使用contract-stamp.json的contractSha256（规范化内容哈希）。",
+  "profileVersion": "1.0.0",
+  "protocol": "v0.9",
+  "catalogId": "https://a2ui.org/specification/v0_9/standard_catalog.json",
+  "effectiveCatalogSha256": "00a60c4606a0ddd1e35dc9de8891d0dd17b4c70b9ff4e3746d6a81b8aacc5be5",
+  "vendorSha256": "2849d6e9e522ea9189744f80e9fb1fb65264ee9de79a7f779a35f653473c2062",
+  "override": "保留新版上传的 Catalog 别名、Text line-clamp 正整数规则、宿主扩展和兼容样式；用户确认vp/无单位长度默认vp，px仅兼容历史输入；原 vendor 未修改。"
+}
